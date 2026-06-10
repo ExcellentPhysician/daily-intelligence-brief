@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <!-- Chart.js loaded inline by the chart script for Wix injection compatibility -->
   <style>
     :root {
       --ink:       #0d1117;
@@ -675,16 +675,14 @@ const mstrData = [
   161, 152, 163, 148, 133, 122, 115, 108, 117, 115
 ];
 
-// ─── CHART INIT (polls until Chart.js is loaded and canvases are in DOM) ───
-(function initCharts() {
-  const btcEl  = document.getElementById('btcChart');
-  const mstrEl = document.getElementById('mstrChart');
+// ─── CHART INIT: self-loads Chart.js if missing (works standalone + Wix inject) ───
+(function bootstrap() {
+  const CHARTJS_CDN = 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js';
 
-  // Retry until Chart.js is available and both canvas elements exist
-  if (typeof Chart === 'undefined' || !btcEl || !mstrEl) {
-    setTimeout(initCharts, 100);
-    return;
-  }
+  function initCharts() {
+    const btcEl  = document.getElementById('btcChart');
+    const mstrEl = document.getElementById('mstrChart');
+    if (!btcEl || !mstrEl) { setTimeout(initCharts, 100); return; }
 
   // Destroy any existing instances to prevent duplicate-canvas errors on re-injection
   if (btcEl._chartInstance)  { btcEl._chartInstance.destroy(); }
@@ -774,7 +772,25 @@ const mstrData = [
     },
     options: mstrOpts
   });
-})(); // end initCharts IIFE
+  } // end initCharts
+
+  // Load Chart.js if not already present, then run initCharts
+  if (typeof Chart !== 'undefined') {
+    initCharts();
+  } else if (document.querySelector('script[data-chartjs-loading]')) {
+    // Another instance already loading — just poll
+    (function wait() {
+      typeof Chart !== 'undefined' ? initCharts() : setTimeout(wait, 100);
+    })();
+  } else {
+    const s = document.createElement('script');
+    s.setAttribute('data-chartjs-loading', '1');
+    s.src = CHARTJS_CDN;
+    s.onload  = initCharts;
+    s.onerror = () => console.warn('Chart.js failed to load');
+    document.head.appendChild(s);
+  }
+})(); // end bootstrap
 </script>
 
 </body>
