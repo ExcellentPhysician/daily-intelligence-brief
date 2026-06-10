@@ -556,7 +556,7 @@
       </div>
       <div class="price-meta">30d High: ~$78,200 &nbsp;·&nbsp; 30d Low: ~$59,200 &nbsp;·&nbsp; CPI Report Today</div>
       <div class="chart-container">
-        <canvas id="btcChart"></canvas>
+        <canvas id="btcChart" width="400" height="100"></canvas>
       </div>
       <div class="card-body" style="font-size:0.8rem;">
         BTC briefly cracked $60K for the first time since 2024 before recovering. Selling pressure: record ETF outflows, US-Iran military tensions, and capital rotating into AI stocks and IPOs. Today's 8:30 AM ET CPI print is the binary catalyst — hot print could push toward $57K; cool print may ignite a relief rally toward $65K+. Tread carefully until the number drops.
@@ -577,7 +577,7 @@
       </div>
       <div class="price-meta">52w High: $457.22 &nbsp;·&nbsp; 52w Low: $104.17 &nbsp;·&nbsp; Day: $114.21–$125.85</div>
       <div class="chart-container">
-        <canvas id="mstrChart"></canvas>
+        <canvas id="mstrChart" width="400" height="100"></canvas>
       </div>
       <div class="card-body" style="font-size:0.8rem;">
         MSTR trading within 13% of its 52-week low ($104.17). 14 analyst consensus: Strong Buy. Average 12-month price target: $351.54 — a 3× from current levels. Beta vs. BTC: ~2.8×. This is deep-value territory on the BTC leverage thesis if you believe in the long-term BTC story. Risk: BTC continues lower toward $50K.
@@ -658,56 +658,46 @@
 </footer>
 
 <script>
-// ─── SHARED LABELS (30-day window: May 11 – Jun 10) ───
+// ─── SHARED DATA ───
 const sharedLabels = [
   'May 11','','May 13','','May 15','','May 17','','May 19','May 21',
   '','May 23','','May 25','','May 27','','May 29','','Jun 1',
   '','Jun 3','','Jun 5','Jun 6','Jun 7','Jun 8','Jun 9','Jun 10'
 ];
-
-// ─── BTC DATA (approximate 30-day reconstruction) ───
 const btcData = [
   78200, 77600, 76900, 76100, 75400, 74800, 74200, 73500, 72800, 72100,
   71400, 70800, 71500, 72300, 73100, 73800, 74200, 73600, 72900,
   73400, 72100, 74200, 71000, 68500, 65200, 62000, 59400, 62640, 61500
 ];
-
-// ─── MSTR DATA (~2.8× BTC beta, anchored to known prices) ───
 const mstrData = [
   185, 183, 179, 175, 171, 167, 163, 158, 153, 148,
   144, 140, 147, 154, 160, 166, 169, 163, 157,
   161, 152, 163, 148, 133, 122, 115, 108, 117, 115
 ];
 
-// ─── BTC CHART ───
-const btcCtx = document.getElementById('btcChart').getContext('2d');
-const btcGrad = btcCtx.createLinearGradient(0, 0, 0, 100);
-btcGrad.addColorStop(0, 'rgba(224,85,85,0.38)');
-btcGrad.addColorStop(1, 'rgba(224,85,85,0.02)');
+// ─── CHART INIT (polls until Chart.js is loaded and canvases are in DOM) ───
+(function initCharts() {
+  const btcEl  = document.getElementById('btcChart');
+  const mstrEl = document.getElementById('mstrChart');
 
-new Chart(btcCtx, {
-  type: 'line',
-  data: {
-    labels: sharedLabels,
-    datasets: [{
-      data: btcData,
-      borderColor: '#e05555',
-      borderWidth: 1.8,
-      backgroundColor: btcGrad,
-      fill: true,
-      tension: 0.4,
-      pointRadius: 0,
-      pointHoverRadius: 4,
-      pointHoverBackgroundColor: '#e05555'
-    }]
-  },
-  options: {
+  // Retry until Chart.js is available and both canvas elements exist
+  if (typeof Chart === 'undefined' || !btcEl || !mstrEl) {
+    setTimeout(initCharts, 100);
+    return;
+  }
+
+  // Destroy any existing instances to prevent duplicate-canvas errors on re-injection
+  if (btcEl._chartInstance)  { btcEl._chartInstance.destroy(); }
+  if (mstrEl._chartInstance) { mstrEl._chartInstance.destroy(); }
+
+  const chartOptions = (yCallback) => ({
     responsive: true,
     maintainAspectRatio: false,
+    animation: { duration: 600 },
     plugins: {
       legend: { display: false },
       tooltip: {
-        callbacks: { label: ctx => '$' + ctx.raw.toLocaleString() },
+        callbacks: { label: ctx => yCallback(ctx.raw) },
         backgroundColor: '#1e2535',
         titleColor: '#9a9488',
         bodyColor: '#faf8f4',
@@ -722,72 +712,69 @@ new Chart(btcCtx, {
         border: { color: 'rgba(255,255,255,0.08)' }
       },
       y: {
-        ticks: {
-          font: { family: 'DM Mono', size: 8 },
-          color: '#5a5650',
-          callback: v => '$' + (v/1000).toFixed(0) + 'k'
-        },
+        ticks: { font: { family: 'DM Mono', size: 8 }, color: '#5a5650' },
         grid: { color: 'rgba(255,255,255,0.04)' },
         border: { color: 'rgba(255,255,255,0.08)' }
       }
     }
-  }
-});
+  });
 
-// ─── MSTR CHART ───
-const mstrCtx = document.getElementById('mstrChart').getContext('2d');
-const mstrGrad = mstrCtx.createLinearGradient(0, 0, 0, 100);
-mstrGrad.addColorStop(0, 'rgba(201,168,76,0.38)');
-mstrGrad.addColorStop(1, 'rgba(201,168,76,0.02)');
+  // ─── BTC CHART ───
+  const btcCtx  = btcEl.getContext('2d');
+  const btcGrad = btcCtx.createLinearGradient(0, 0, 0, 100);
+  btcGrad.addColorStop(0, 'rgba(224,85,85,0.38)');
+  btcGrad.addColorStop(1, 'rgba(224,85,85,0.02)');
 
-new Chart(mstrCtx, {
-  type: 'line',
-  data: {
-    labels: sharedLabels,
-    datasets: [{
-      data: mstrData,
-      borderColor: '#c9a84c',
-      borderWidth: 1.8,
-      backgroundColor: mstrGrad,
-      fill: true,
-      tension: 0.4,
-      pointRadius: 0,
-      pointHoverRadius: 4,
-      pointHoverBackgroundColor: '#c9a84c'
-    }]
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: { display: false },
-      tooltip: {
-        callbacks: { label: ctx => '$' + ctx.raw.toFixed(2) },
-        backgroundColor: '#1e2535',
-        titleColor: '#9a9488',
-        bodyColor: '#faf8f4',
-        borderColor: 'rgba(201,168,76,0.3)',
-        borderWidth: 1
-      }
+  const btcOpts = chartOptions(v => '$' + v.toLocaleString());
+  btcOpts.scales.y.ticks.callback = v => '$' + (v/1000).toFixed(0) + 'k';
+
+  btcEl._chartInstance = new Chart(btcCtx, {
+    type: 'line',
+    data: {
+      labels: sharedLabels,
+      datasets: [{
+        data: btcData,
+        borderColor: '#e05555',
+        borderWidth: 1.8,
+        backgroundColor: btcGrad,
+        fill: true,
+        tension: 0.4,
+        pointRadius: 0,
+        pointHoverRadius: 4,
+        pointHoverBackgroundColor: '#e05555'
+      }]
     },
-    scales: {
-      x: {
-        ticks: { font: { family: 'DM Mono', size: 8 }, color: '#5a5650', maxRotation: 0, maxTicksLimit: 6 },
-        grid: { color: 'rgba(255,255,255,0.04)' },
-        border: { color: 'rgba(255,255,255,0.08)' }
-      },
-      y: {
-        ticks: {
-          font: { family: 'DM Mono', size: 8 },
-          color: '#5a5650',
-          callback: v => '$' + v
-        },
-        grid: { color: 'rgba(255,255,255,0.04)' },
-        border: { color: 'rgba(255,255,255,0.08)' }
-      }
-    }
-  }
-});
+    options: btcOpts
+  });
+
+  // ─── MSTR CHART ───
+  const mstrCtx  = mstrEl.getContext('2d');
+  const mstrGrad = mstrCtx.createLinearGradient(0, 0, 0, 100);
+  mstrGrad.addColorStop(0, 'rgba(201,168,76,0.38)');
+  mstrGrad.addColorStop(1, 'rgba(201,168,76,0.02)');
+
+  const mstrOpts = chartOptions(v => '$' + v.toFixed(2));
+  mstrOpts.scales.y.ticks.callback = v => '$' + v;
+
+  mstrEl._chartInstance = new Chart(mstrCtx, {
+    type: 'line',
+    data: {
+      labels: sharedLabels,
+      datasets: [{
+        data: mstrData,
+        borderColor: '#c9a84c',
+        borderWidth: 1.8,
+        backgroundColor: mstrGrad,
+        fill: true,
+        tension: 0.4,
+        pointRadius: 0,
+        pointHoverRadius: 4,
+        pointHoverBackgroundColor: '#c9a84c'
+      }]
+    },
+    options: mstrOpts
+  });
+})(); // end initCharts IIFE
 </script>
 
 </body>
