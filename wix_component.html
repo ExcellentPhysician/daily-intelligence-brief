@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lato:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Lato', sans-serif;
+  background: #fff;
+  color: #19233a;
+}
+
+/* ── STATS STRIP ─────────────────────────────────────── */
+.stats-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  background: #f4f8fc;
+  border: 1px solid #cce0f0;
+  border-left: 4px solid #4a9ed6;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+.stats-left h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  color: #19233a;
+  margin-bottom: 2px;
+}
+.stats-left p {
+  font-size: 12px;
+  color: #7a8a9a;
+}
+.stats-nums {
+  display: flex;
+  gap: 24px;
+}
+.stat-num .n {
+  font-family: 'Space Mono', monospace;
+  font-size: 22px;
+  font-weight: 700;
+  color: #19233a;
+  display: block;
+}
+.stat-num .l {
+  font-size: 10px;
+  color: #9aacbc;
+  letter-spacing: 0.06em;
+}
+
+/* ── DASHBOARD PANEL ─────────────────────────────────── */
+.dashboard-wrap {
+  border: 1px solid #ccddf0;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 2px 20px rgba(26,35,58,0.08);
+  margin-bottom: 32px;
+}
+.dashboard-topbar {
+  background: #eef4fb;
+  border-bottom: 1px solid #ccddf0;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.dashboard-url {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  color: #7a8a9a;
+}
+.dashboard-url strong { color: #19233a; }
+.dashboard-pill {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  color: #4a9ed6;
+  background: rgba(74,158,214,0.1);
+  border: 1px solid rgba(74,158,214,0.28);
+  padding: 2px 9px;
+  border-radius: 2px;
+}
+
+/* Loading spinner */
+#dashLoading {
+  background: #070c11;
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 200px;
+}
+.pulse-ring {
+  width: 40px; height: 40px;
+  border: 2px solid #1a2a3e;
+  border-top-color: #38bdf8;
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #38bdf8;
+}
+
+/* Dashboard content injection target */
+#dashContent {
+  display: none;
+  width: 100%;
+  min-height: 860px;
+  background: #070c11;
+  overflow: auto;
+}
+
+/* ── ARCHIVE SECTION ─────────────────────────────────── */
+/* Only rendered when SHOW_ARCHIVE = true */
+#archiveSection {
+  display: none;
+}
+.archive-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e4edf6;
+}
+.archive-header h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  color: #19233a;
+}
+.archive-header span {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  color: #9aacbc;
+  letter-spacing: 0.1em;
+}
+#archiveGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+/* Archive cards */
+.archive-card {
+  border: 1px solid #dce8f4;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: box-shadow 0.18s, border-color 0.18s, transform 0.18s;
+}
+.archive-card:hover {
+  border-color: #4a9ed6;
+  box-shadow: 0 4px 16px rgba(26,35,58,0.1);
+  transform: translateY(-1px);
+}
+.archive-card.current {
+  border-color: #4a9ed6;
+  box-shadow: 0 0 0 2px rgba(74,158,214,0.2);
+}
+.card-hdr {
+  background: #19233a;
+  padding: 11px 14px 10px;
+  position: relative;
+}
+.archive-card.current .card-hdr { background: #1a3a5a; }
+.ac-month {
+  font-family: 'Playfair Display', serif;
+  font-size: 13px; font-weight: 600;
+  color: #fff; margin-bottom: 1px;
+}
+.ac-year {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px; color: #5a8aaa; letter-spacing: 0.1em;
+}
+.current-badge {
+  position: absolute; top: 8px; right: 10px;
+  font-family: 'Space Mono', monospace;
+  font-size: 7px; letter-spacing: 0.08em;
+  color: #38bdf8;
+  background: rgba(56,189,248,0.12);
+  border: 1px solid rgba(56,189,248,0.3);
+  padding: 2px 6px; border-radius: 2px;
+}
+.card-body {
+  padding: 11px 14px 13px;
+  background: #19233a;
+}
+.ac-count {
+  font-family: 'Space Mono', monospace;
+  font-size: 20px; font-weight: 700;
+  color: #faf8f4; display: block; margin-bottom: 1px;
+}
+.archive-card.current .ac-count { color: #38bdf8; }
+.ac-count-label {
+  font-size: 10px; color: #5a7890;
+  letter-spacing: 0.04em; display: block; margin-bottom: 9px;
+}
+.rel-bar { margin-bottom: 9px; }
+.rel-bar-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 8px; color: #4a6880;
+  letter-spacing: 0.08em; margin-bottom: 4px;
+  display: flex; justify-content: space-between;
+}
+.rel-track {
+  height: 4px; background: rgba(255,255,255,0.08);
+  border-radius: 2px; overflow: hidden;
+}
+.rel-fill {
+  height: 100%; border-radius: 2px;
+  background: linear-gradient(90deg, #34d399, #4a9ed6);
+  transition: width 0.6s ease;
+}
+.ac-tags { display: flex; flex-wrap: wrap; gap: 3px; margin-bottom: 10px; }
+.ac-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 7.5px; color: #5a8aaa;
+  background: rgba(74,158,214,0.08); border: 1px solid rgba(74,158,214,0.2);
+  padding: 2px 6px; border-radius: 2px;
+}
+.ac-btn {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px; letter-spacing: 0.06em;
+  color: #4a9ed6; background: transparent;
+  border: 1px solid rgba(74,158,214,0.3);
+  border-radius: 3px; padding: 5px 10px;
+  cursor: pointer; width: 100%;
+  transition: background 0.15s, color 0.15s;
+}
+.ac-btn:hover { background: rgba(74,158,214,0.08); }
+.ac-btn.viewing {
+  color: #19233a; border-color: #ccd8e4;
+  cursor: default; opacity: 0.6;
+}
+
+/* ── EMPTY / ERROR STATE ─────────────────────────────── */
+#emptyState {
+  display: none; text-align: center;
+  padding: 48px 24px; color: #7a8a9a; font-size: 13px;
+}
+#emptyState h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px; color: #19233a; margin-bottom: 8px;
+}
+</style>
+</head>
+<body>
+
+<!-- ── STATS STRIP ───────────────────────────────────── -->
+<div class="stats-strip" id="statsStrip" style="display:none">
+  <div class="stats-left">
+    <h2>Daily Intelligence Brief</h2>
+    <p id="scanDateText">Loading…</p>
+  </div>
+  <div class="stats-nums">
+    <div class="stat-num">
+      <span class="n" id="statCount">—</span>
+      <span class="l" id="statCountLabel">Items</span>
+    </div>
+    <div class="stat-num">
+      <span class="n" id="statHighlight">—</span>
+      <span class="l">High Rel.</span>
+    </div>
+    <div class="stat-num">
+      <span class="n" id="statExtra">—</span>
+      <span class="l" id="statExtraLabel">Sources</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── DASHBOARD PANEL ──────────────────────────────── -->
+<div class="dashboard-wrap">
+  <div class="dashboard-topbar">
+    <div class="dashboard-url">
+      🔒 <strong>excellentphysician.github.io</strong>/daily-intelligence-brief/latest.html
+    </div>
+    <span class="dashboard-pill" id="dashPill">loading…</span>
+  </div>
+
+  <div id="dashLoading">
+    <div class="pulse-ring"></div>
+    <div class="loading-label">Loading Daily Intelligence Brief…</div>
+  </div>
+
+  <div id="dashContent"></div>
+</div>
+
+<!-- ── ARCHIVE SECTION ──────────────────────────────── -->
+<div id="archiveSection">
+  <div class="archive-header">
+    <h3>Digests</h3>
+    <span id="archiveSubtitle">loading…</span>
+  </div>
+  <div id="archiveGrid"></div>
+</div>
+
+<!-- ── EMPTY STATE ──────────────────────────────────── -->
+<div id="emptyState">
+  <h3>No data yet</h3>
+  <p>Daily Intelligence Brief will appear here automatically after the first run.</p>
+</div>
+
+<script>
+// ── CONFIG ────────────────────────────────────────────
+const GITHUB_RAW   = 'https://raw.githubusercontent.com/ExcellentPhysician/daily-intelligence-brief/main';
+const LATEST_URL   = `${GITHUB_RAW}/latest.html`;
+const ARCHIVE_URL  = `${GITHUB_RAW}/archive.json`;
+const SHOW_ARCHIVE = true;
+
+let currentUrl  = LATEST_URL;
+let archiveData = [];
+
+// ── BOOT ─────────────────────────────────────────────
+window.addEventListener('DOMContentLoaded', async () => {
+  try {
+    // Always fetch archive to populate stats; also needed for archive grid
+    const archiveJson = await fetchRaw(ARCHIVE_URL);
+    archiveData = parseArchive(archiveJson);
+
+    if (!archiveData.length) {
+      // No runs yet — show placeholder but still try to load latest.html
+      showEmpty();
+    } else {
+      renderStats(archiveData[0]);
+      if (SHOW_ARCHIVE) renderArchiveGrid(archiveData, LATEST_URL);
+    }
+
+    // Always attempt to load the latest dashboard content
+    await loadDashboard(LATEST_URL);
+
+  } catch (err) {
+    console.error('Dashboard boot error:', err);
+    showEmpty('Unable to load dashboard. Please refresh the page.');
+  }
+});
+
+// ── FETCH RAW FROM GITHUB ─────────────────────────────
+async function fetchRaw(url) {
+  try {
+    const res = await fetch(`${url}?cb=${Date.now()}`, { cache: 'no-store' });
+    if (!res.ok) return null;
+    return await res.text();
+  } catch (e) {
+    console.warn('Fetch failed:', url, e);
+    return null;
+  }
+}
+
+// ── PARSE ARCHIVE JSON ────────────────────────────────
+function parseArchive(json) {
+  if (!json) return [];
+  try {
+    const arr = JSON.parse(json);
+    return Array.isArray(arr) ? arr : [];
+  } catch (e) { return []; }
+}
+
+// ── RENDER STATS STRIP ────────────────────────────────
+function renderStats(entry) {
+  document.getElementById('statsStrip').style.display = 'flex';
+  document.getElementById('scanDateText').textContent  = `Last updated: ${formatDate(entry.date)}`;
+  document.getElementById('statCount').textContent     = entry.articleCount       ?? entry.itemCount ?? '—';
+  document.getElementById('statHighlight').textContent = entry.highRelevanceCount ?? '—';
+  document.getElementById('statExtra').textContent     = (entry.journals ?? entry.sources ?? []).length || '—';
+}
+
+// ── LOAD DASHBOARD CONTENT VIA FETCH+INJECT ───────────
+async function loadDashboard(url) {
+  const content = document.getElementById('dashContent');
+  const loading = document.getElementById('dashLoading');
+  const pill    = document.getElementById('dashPill');
+
+  pill.textContent      = 'loading…';
+  content.style.display = 'none';
+  loading.style.display = 'flex';
+
+  try {
+    const html = await fetchRaw(url);
+    if (!html) throw new Error('Empty response');
+
+    // Parse and inject
+    const parser = new DOMParser();
+    const doc    = parser.parseFromString(html, 'text/html');
+
+    // Inject styles
+    doc.querySelectorAll('style, link[rel="stylesheet"]').forEach(el => {
+      document.head.appendChild(el.cloneNode(true));
+    });
+
+    // Inject body content
+    content.innerHTML = doc.body.innerHTML;
+
+    // Re-execute scripts
+    content.querySelectorAll('script').forEach(old => {
+      const s = document.createElement('script');
+      if (old.src) { s.src = old.src; }
+      else { s.textContent = old.textContent; }
+      old.replaceWith(s);
+    });
+
+    loading.style.display = 'none';
+    content.style.display = 'block';
+    pill.textContent      = 'auto-updates each run';
+
+  } catch (err) {
+    console.error('loadDashboard error:', err);
+    loading.innerHTML = `
+      <div style="color:#f87171;font-family:'Space Mono',monospace;font-size:11px;text-align:center;padding:32px">
+        ⚠ Could not load dashboard content.<br>
+        <span style="color:#3a5060;font-size:10px">Please refresh the page.</span>
+      </div>`;
+    pill.textContent = 'error';
+  }
+}
+
+// ── RENDER ARCHIVE GRID ───────────────────────────────
+function renderArchiveGrid(archive, latestUrl) {
+  if (!archive.length) return;
+
+  const grid = document.getElementById('archiveGrid');
+  grid.innerHTML = '';
+
+  archive.forEach(entry => {
+    const isCurrent = entry.url === latestUrl || archive.indexOf(entry) === 0;
+    const count     = entry.articleCount ?? entry.itemCount ?? 0;
+    const highlight = entry.highRelevanceCount ?? 0;
+    const pct       = count > 0 ? Math.round((highlight / count) * 100) : 0;
+    const tags      = (entry.journals ?? entry.sources ?? []).slice(0, 3);
+    const extra     = (entry.journals ?? entry.sources ?? []).length - 3;
+
+    const card = document.createElement('div');
+    card.className   = 'archive-card' + (isCurrent ? ' current' : '');
+    card.dataset.url = entry.url;
+    card.innerHTML   = `
+      <div class="card-hdr">
+        <div class="ac-month">${formatMonthYear(entry.date)}</div>
+        <div class="ac-year">${formatYear(entry.date)}</div>
+        ${isCurrent ? '<div class="current-badge">current</div>' : ''}
+      </div>
+      <div class="card-body">
+        <span class="ac-count">${count}</span>
+        <span class="ac-count-label">items</span>
+        ${highlight > 0 ? `
+        <div class="rel-bar">
+          <div class="rel-bar-label"><span>highlighted</span><span>${highlight} / ${count}</span></div>
+          <div class="rel-track"><div class="rel-fill" style="width:${pct}%"></div></div>
+        </div>` : ''}
+        <div class="ac-tags">
+          ${tags.map(t => `<span class="ac-tag">${t}</span>`).join('')}
+          ${extra > 0 ? `<span class="ac-tag">+${extra}</span>` : ''}
+        </div>
+        <button class="ac-btn ${isCurrent ? 'viewing' : ''}" data-url="${entry.url}">
+          ${isCurrent ? 'Viewing Now' : 'Load →'}
+        </button>
+      </div>`;
+    grid.appendChild(card);
+  });
+
+  // Wire buttons
+  grid.querySelectorAll('.ac-btn:not(.viewing)').forEach(btn => {
+    btn.addEventListener('click', () => switchIssue(btn.dataset.url));
+  });
+
+  const section = document.getElementById('archiveSection');
+  section.style.display = 'block';
+  document.getElementById('archiveSubtitle').textContent =
+    `${archive.length} ${archive.length === 1 ? 'issue' : 'digests'} · click any card to load`;
+}
+
+// ── SWITCH TO A PAST ISSUE ────────────────────────────
+async function switchIssue(url) {
+  currentUrl = url;
+
+  // Reset and reload
+  const content = document.getElementById('dashContent');
+  const loading = document.getElementById('dashLoading');
+  content.style.display = 'none';
+  content.innerHTML     = '';
+  loading.style.display = 'flex';
+  loading.innerHTML     = '<div class="pulse-ring"></div><div class="loading-label">Loading…</div>';
+
+  await loadDashboard(url);
+  document.querySelector('.dashboard-wrap').scrollIntoView({ behavior: 'smooth' });
+
+  // Update card states
+  document.querySelectorAll('.archive-card').forEach(card => {
+    const isCurrent = card.dataset.url === url;
+    card.classList.toggle('current', isCurrent);
+    card.querySelector('.card-hdr').style.background = isCurrent ? '#1a3a5a' : '#19233a';
+    const btn = card.querySelector('.ac-btn');
+    btn.textContent = isCurrent ? 'Viewing Now' : 'Load →';
+    btn.classList.toggle('viewing', isCurrent);
+    btn.disabled = isCurrent;
+  });
+
+  // Update stats for selected issue
+  const selected = archiveData.find(e => e.url === url);
+  if (selected) renderStats(selected);
+}
+
+// ── EMPTY STATE ───────────────────────────────────────
+function showEmpty(msg) {
+  document.getElementById('dashLoading').style.display = 'none';
+  const el = document.getElementById('emptyState');
+  if (msg) el.querySelector('p').textContent = msg;
+  el.style.display = 'block';
+}
+
+// ── DATE HELPERS ──────────────────────────────────────
+function formatDate(iso) {
+  try { return new Date(iso).toLocaleDateString('en-US', { month: 'long', year: 'numeric' }); }
+  catch(e) { return iso; }
+}
+function formatMonthYear(iso) {
+  try { return new Date(iso).toLocaleDateString('en-US', { month: 'long' }); }
+  catch(e) { return iso; }
+}
+function formatYear(iso) {
+  try { return new Date(iso).getFullYear().toString(); }
+  catch(e) { return ''; }
+}
+</script>
+
+</body>
+</html>
