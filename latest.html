@@ -1,796 +1,831 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daily Intelligence Digest — June 10, 2026</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-  <!-- Chart.js loaded inline by the chart script for Wix injection compatibility -->
-  <style>
-    :root {
-      --ink:       #0d1117;
-      --ink-mid:   #161b27;
-      --ink-light: #1e2535;
-      --paper:     #faf8f4;
-      --cream:     #f0ece3;
-      --gold:      #c9a84c;
-      --gold-dim:  #a88a38;
-      --stone:     #9a9488;
-      --sage:      #4a7c59;
-      --rust:      #b5451b;
-      --red:       #e05555;
-      --green:     #5dd4a0;
-      --border:    rgba(201,168,76,0.18);
-      --rule:      rgba(255,255,255,0.06);
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Daily Intelligence Digest — June 11, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<style>
+  :root {
+    --ink:       #0d1117;
+    --ink-mid:   #161b27;
+    --ink-light: #1e2535;
+    --paper:     #faf8f4;
+    --cream:     #f0ece3;
+    --gold:      #c9a84c;
+    --gold-dim:  #a88a38;
+    --stone:     #9a9488;
+    --sage:      #4a7c59;
+    --rust:      #b5451b;
+    --red:       #e05555;
+    --green:     #5dd4a0;
+    --border:    rgba(201,168,76,0.18);
+    --rule:      rgba(255,255,255,0.06);
+  }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    body {
-      background: var(--ink);
-      color: var(--paper);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 15px;
-      line-height: 1.6;
-      min-height: 100vh;
-    }
+  body {
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
 
-    /* ─── HEADER ─── */
-    .site-header {
-      background: var(--ink);
-      background-image:
-        repeating-linear-gradient(
-          -45deg,
-          transparent,
-          transparent 8px,
-          rgba(201,168,76,0.04) 8px,
-          rgba(201,168,76,0.04) 9px
-        );
-      border-bottom: 1px solid var(--border);
-      padding: 2.5rem 2rem 2rem;
-      text-align: center;
-    }
+  a { color: var(--gold); text-decoration: none; }
+  a:hover { text-decoration: underline; }
 
-    .header-eyebrow {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.6rem;
-    }
+  /* ── HEADER ── */
+  .site-header {
+    background: var(--ink);
+    background-image:
+      repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 18px,
+        rgba(201,168,76,0.04) 18px,
+        rgba(201,168,76,0.04) 19px
+      );
+    border-bottom: 1px solid var(--border);
+    padding: 3rem 2rem 2.2rem;
+    text-align: center;
+  }
+  .header-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.7rem;
+  }
+  .header-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    color: var(--paper);
+    line-height: 1.15;
+    margin-bottom: 0.5rem;
+  }
+  .header-title span { color: var(--gold); }
+  .header-sub {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--stone);
+    letter-spacing: 0.08em;
+  }
 
-    .header-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      font-weight: 700;
-      color: var(--paper);
-      line-height: 1.2;
-    }
+  /* ── LAYOUT ── */
+  .digest-body {
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 2rem 1.25rem 4rem;
+  }
 
-    .header-title span { color: var(--gold); }
+  /* ── SECTION HEADING ── */
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 2.4rem 0 1rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 1.3rem;
+  }
+  .section-icon { font-size: 1.35rem; }
+  .section-head h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--gold);
+    flex: 1;
+  }
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--stone);
+    background: var(--ink-light);
+    padding: 0.25em 0.6em;
+    border-radius: 3px;
+  }
 
-    .header-date {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.72rem;
-      color: var(--stone);
-      margin-top: 0.5rem;
-      letter-spacing: 0.1em;
-    }
+  /* ── CARD GRID ── */
+  .card-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+  .card-grid.two-col { grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); }
+  .card-grid.wide { grid-template-columns: 1fr; }
 
-    /* ─── MAIN LAYOUT ─── */
-    .digest-main {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 2rem 1.25rem 4rem;
-    }
+  /* ── CARD ── */
+  .card {
+    background: var(--ink-mid);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .card:hover { border-color: rgba(201,168,76,0.38); }
+  .card-body {
+    padding: 1.1rem 1.25rem 0.9rem;
+    flex: 1;
+  }
+  .card-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 0.4rem;
+  }
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--paper);
+    line-height: 1.3;
+    margin-bottom: 0.55rem;
+  }
+  .card-text {
+    font-size: 0.86rem;
+    color: #b8b4ae;
+    line-height: 1.65;
+  }
+  .card-footer {
+    padding: 0.75rem 1.25rem;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .card-source {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    color: var(--stone);
+    letter-spacing: 0.06em;
+  }
+  .link-btn {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    border: 1px solid var(--border);
+    padding: 0.28em 0.75em;
+    border-radius: 4px;
+    transition: background 0.18s;
+    white-space: nowrap;
+  }
+  .link-btn:hover {
+    background: rgba(201,168,76,0.1);
+    text-decoration: none;
+    border-color: var(--gold);
+  }
 
-    /* ─── SECTION HEADING ─── */
-    .section-heading {
-      display: flex;
-      align-items: center;
-      gap: 0.65rem;
-      margin: 2.5rem 0 1.25rem;
-      padding-bottom: 0.75rem;
-      border-bottom: 1px solid var(--border);
-    }
+  /* ── TAGS ── */
+  .tag-row { margin: 0.5rem 0 0.1rem; display: flex; flex-wrap: wrap; gap: 0.35rem; }
+  .tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.2em 0.55em;
+    border-radius: 3px;
+  }
+  .tag-blue  { background: rgba(78,133,200,0.15); color: #7eb3f5; border: 1px solid rgba(78,133,200,0.25); }
+  .tag-gold  { background: rgba(201,168,76,0.12); color: var(--gold); border: 1px solid var(--border); }
+  .tag-green { background: rgba(93,212,160,0.1);  color: var(--green); border: 1px solid rgba(93,212,160,0.2); }
+  .tag-red   { background: rgba(224,85,85,0.1);   color: var(--red); border: 1px solid rgba(224,85,85,0.2); }
+  .tag-sage  { background: rgba(74,124,89,0.15);  color: #7db990; border: 1px solid rgba(74,124,89,0.25); }
+  .tag-rust  { background: rgba(181,69,27,0.15);  color: #e07a50; border: 1px solid rgba(181,69,27,0.25); }
 
-    .section-heading .icon { font-size: 1.25rem; line-height: 1; }
+  /* ── CALLOUT ── */
+  .callout {
+    border-left: 3px solid var(--gold-dim);
+    background: var(--ink-light);
+    padding: 0.75rem 1rem;
+    border-radius: 0 6px 6px 0;
+    font-style: italic;
+    font-size: 0.84rem;
+    color: var(--cream);
+    margin: 0.6rem 0;
+  }
 
-    .section-heading h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--gold);
-    }
+  /* ── FINANCE CARDS ── */
+  .price-big {
+    font-family: 'DM Mono', monospace;
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--paper);
+    margin: 0.35rem 0 0.1rem;
+  }
+  .price-change {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    margin-bottom: 0.5rem;
+  }
+  .price-change.up   { color: var(--green); }
+  .price-change.down { color: var(--red); }
+  .price-meta {
+    font-size: 0.78rem;
+    color: var(--stone);
+    margin-bottom: 0.6rem;
+  }
+  .chart-wrap {
+    position: relative;
+    height: 110px;
+    margin: 0.5rem 0;
+  }
 
-    .section-heading .section-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.62rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--stone);
-      margin-left: auto;
-    }
+  /* ── INCOME IDEA ── */
+  .income-card .card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .income-row {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.82rem;
+  }
+  .income-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    min-width: 80px;
+    padding-top: 0.05rem;
+  }
+  .income-val { color: #b8b4ae; }
 
-    /* ─── CARD GRID ─── */
-    .card-grid { display: grid; gap: 1rem; }
-    .card-grid-3 { grid-template-columns: repeat(3, 1fr); }
-    .card-grid-2 { grid-template-columns: repeat(2, 1fr); }
-    .card-grid-4 { grid-template-columns: repeat(2, 1fr); }
-    .card-wide   { grid-column: 1 / -1; }
+  /* ── INVEST CARD ── */
+  .invest-alert {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.06em;
+    color: var(--stone);
+    margin-top: 0.5rem;
+    padding-top: 0.4rem;
+    border-top: 1px solid var(--rule);
+  }
 
-    @media (max-width: 768px) {
-      .card-grid-3,
-      .card-grid-2,
-      .card-grid-4 { grid-template-columns: 1fr; }
-    }
+  /* ── WIDE PERSONAL CARD ── */
+  .card.wide-card .card-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  @media (max-width: 640px) {
+    .card.wide-card .card-body { grid-template-columns: 1fr; }
+    .card-grid.two-col { grid-template-columns: 1fr; }
+  }
+  .wide-col-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+  }
+  .wide-col-text { font-size: 0.84rem; color: #b8b4ae; line-height: 1.6; }
 
-    /* ─── CARD ─── */
-    .card {
-      background: var(--ink-mid);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1.2rem 1.3rem 1rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-      transition: background 0.2s;
-    }
-
-    .card:hover { background: var(--ink-light); }
-
-    .card-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--stone);
-    }
-
-    .card-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--paper);
-      line-height: 1.35;
-    }
-
-    .card-body {
-      font-size: 0.87rem;
-      color: #b8b4ae;
-      line-height: 1.6;
-      flex: 1;
-    }
-
-    .card-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: 0.4rem;
-      gap: 0.5rem;
-    }
-
-    .card-source {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--stone);
-    }
-
-    .link-btn {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.66rem;
-      letter-spacing: 0.08em;
-      color: var(--gold);
-      border: 1px solid var(--gold-dim);
-      border-radius: 4px;
-      padding: 0.25rem 0.6rem;
-      text-decoration: none;
-      transition: background 0.15s;
-      white-space: nowrap;
-    }
-
-    .link-btn:hover { background: rgba(201,168,76,0.12); }
-
-    /* ─── TAGS ─── */
-    .tag {
-      display: inline-block;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.58rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.15rem 0.5rem;
-      border-radius: 3px;
-      margin-right: 0.3rem;
-      margin-bottom: 0.2rem;
-    }
-
-    .tag-gold  { background: rgba(201,168,76,0.15); color: var(--gold); }
-    .tag-green { background: rgba(93,212,160,0.12); color: var(--green); }
-    .tag-sage  { background: rgba(74,124,89,0.18);  color: #7abf8e; }
-    .tag-red   { background: rgba(224,85,85,0.12);  color: var(--red); }
-    .tag-blue  { background: rgba(80,130,200,0.14); color: #7ab0e8; }
-    .tag-rust  { background: rgba(181,69,27,0.16);  color: #e07050; }
-
-    /* ─── CALLOUT ─── */
-    .callout {
-      background: var(--ink-light);
-      border-left: 3px solid var(--gold-dim);
-      border-radius: 0 6px 6px 0;
-      padding: 0.8rem 1rem;
-      font-style: italic;
-      font-size: 0.87rem;
-      color: var(--cream);
-      line-height: 1.6;
-    }
-
-    /* ─── FINANCE ─── */
-    .price-display {
-      display: flex;
-      align-items: baseline;
-      gap: 0.5rem;
-      margin: 0.2rem 0;
-    }
-
-    .price-value {
-      font-family: 'DM Mono', monospace;
-      font-size: 1.5rem;
-      font-weight: 500;
-      color: var(--paper);
-    }
-
-    .price-change { font-family: 'DM Mono', monospace; font-size: 0.78rem; }
-    .price-change.down { color: var(--red); }
-    .price-change.up   { color: var(--green); }
-
-    .price-meta {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.68rem;
-      color: var(--stone);
-      margin-bottom: 0.4rem;
-    }
-
-    .chart-container { height: 100px; margin: 0.4rem 0; }
-
-    /* ─── INCOME CARD ─── */
-    .income-row {
-      display: flex;
-      gap: 0.5rem;
-      align-items: flex-start;
-      font-size: 0.83rem;
-      color: #b8b4ae;
-      margin-top: 0.4rem;
-    }
-
-    .income-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.61rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--gold);
-      min-width: 86px;
-      margin-top: 0.15rem;
-    }
-
-    .income-divider {
-      border: none;
-      border-top: 1px solid var(--rule);
-      margin: 0.6rem 0;
-    }
-  </style>
+  /* ── FOOTER ── */
+  .digest-footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    border-top: 1px solid var(--rule);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    color: var(--stone);
+    letter-spacing: 0.08em;
+  }
+  .digest-footer span { color: var(--gold); }
+</style>
 </head>
 <body>
 
 <!-- ══════════════ HEADER ══════════════ -->
 <header class="site-header">
-  <div class="header-eyebrow">The Excellent Physician Project</div>
-  <h1 class="header-title">Daily Intelligence <span>Digest</span></h1>
-  <div class="header-date">Wednesday, June 10, 2026 &nbsp;·&nbsp; Dr. Matthew Tabbut, MD, FACEP &nbsp;·&nbsp; MetroHealth · CWRU</div>
+  <div class="header-eyebrow">The Excellent Physician · Daily Intelligence Brief</div>
+  <h1 class="header-title">Daily <span>Digest</span></h1>
+  <div class="header-sub">Thursday, June 11, 2026 &nbsp;·&nbsp; Dr. Matthew Tabbut, MD, FACEP</div>
 </header>
 
-<main class="digest-main">
+<div class="digest-body">
 
-  <!-- ══════════════════════════════════════
-       SECTION 1 — CLAUDE & AI TOOLS
-  ══════════════════════════════════════════ -->
-  <div class="section-heading">
-    <span class="icon">🤖</span>
+  <!-- ══════════════ SECTION 1: CLAUDE & AI ══════════════ -->
+  <div class="section-head">
+    <span class="section-icon">🤖</span>
     <h2>Claude &amp; AI Tools</h2>
-    <span class="section-label">Anthropic · June 2026</span>
+    <span class="section-label">Technology</span>
   </div>
 
-  <div class="card-grid card-grid-3">
+  <div class="card-grid">
 
-    <!-- Card 1: Latest Claude Feature -->
+    <!-- Card 1: Latest Claude Tool -->
     <div class="card">
-      <div class="card-label">Latest Release</div>
-      <div class="card-title">Claude Fable 5 — The First Mythos-Class Model Drops</div>
-      <div>
-        <span class="tag tag-gold">Fable 5</span>
-        <span class="tag tag-blue">Released Jun 9</span>
-        <span class="tag tag-red">Mythos-Class</span>
-      </div>
       <div class="card-body">
-        Anthropic released <strong style="color:var(--paper);">Claude Fable 5</strong> on June 9, 2026 — the first publicly available "Mythos-class" model, positioned above Claude Opus 4.8. Priced at $10 / $50 per million input/output tokens (2× Opus 4.8), it scores roughly 80% on SWE-Bench Pro and leads all agentic-coding evaluations. Built for long-horizon autonomous tasks, complex reasoning chains, and multi-step agent workflows. Access now via claude.ai (Pro / Team / Enterprise) or the Anthropic API.
+        <div class="card-label">Latest Release</div>
+        <div class="card-title">Claude Fable 5 — Mythos-Class Model Drops</div>
+        <div class="tag-row">
+          <span class="tag tag-gold">New Model</span>
+          <span class="tag tag-blue">Agentic Coding</span>
+        </div>
+        <p class="card-text" style="margin-top:0.5rem">
+          Anthropic released Claude Fable 5 on June 9 — the first publicly available "Mythos-class" model, sitting above Claude Opus 4.8 in capability. Priced at $10 / $50 per million input/output tokens (2× Opus 4.8), it leads agentic-coding benchmarks with an estimated 80% on SWE-Bench Pro. Independent devs report it handling multi-file refactors in one pass with fewer hallucinations than prior models. Access via API or Claude.ai Pro/Max.
+        </p>
+        <div class="callout">The Advisor Tool (also new in beta) pairs Fable 5 as a "strategic advisor" with a cheaper executor model — delivering near-Fable-5 quality at dramatically lower token cost for long-horizon agent runs.</div>
       </div>
       <div class="card-footer">
-        <span class="card-source">Anthropic · Releasebot.io</span>
-        <a class="link-btn" href="https://releasebot.io/updates/anthropic/claude" target="_blank">Read ↗</a>
+        <span class="card-source">TechCrunch · Anthropic · June 9, 2026</span>
+        <a class="link-btn" href="https://techcrunch.com/2026/06/09/anthropic-released-claude-fable-5-its-most-powerful-model-publicly-days-after-warning-ai-is-getting-too-dangerous/" target="_blank">Read More ↗</a>
       </div>
     </div>
 
-    <!-- Card 2: Claude in Medical Practice (no patient data) -->
+    <!-- Card 2: Claude in Medical Practice -->
     <div class="card">
-      <div class="card-label">Claude in Your Practice</div>
-      <div class="card-title">Build an Entire Residency Lecture Series in One Fable 5 Session</div>
-      <div>
-        <span class="tag tag-sage">Medical Education</span>
-        <span class="tag tag-green">CME</span>
-      </div>
       <div class="card-body">
-        Fable 5's extended context and Mythos-level reasoning make it ideal for <strong style="color:var(--paper);">lecture series generation</strong>. Prompt: "You are an emergency medicine educator. Given these learning objectives and this source article, produce a 45-minute lecture with 3 case-based scenarios, board-format knowledge-check questions, and ACEP-compatible CME learning objectives." Export via the PPTX skill. What used to take 4 hours of prep now takes under 30 minutes — with better structure.
+        <div class="card-label">Clinical Education Use</div>
+        <div class="card-title">Build a Full Lecture Deck in 20 Minutes with Fable 5</div>
+        <div class="tag-row">
+          <span class="tag tag-sage">Teaching</span>
+          <span class="tag tag-blue">CME</span>
+        </div>
+        <p class="card-text" style="margin-top:0.5rem">
+          With Fable 5's expanded context and sharper reasoning, you can now paste a journal article + your department's learning objectives and get a complete, properly referenced lecture outline — slides, case vignettes, and MCQs — in a single prompt. Ideal for Grand Rounds prep, resident lecture series, or Guardians of the Sound educational module scripting. Follow with a PPTX skill call to produce the actual deck.
+        </p>
+        <div class="callout" style="font-style:normal">
+          <strong style="color:var(--gold)">Try this prompt:</strong> "You are a medical educator. Using the attached Annals article and these 3 learning objectives, create a 25-slide lecture outline with speaker notes and 5 board-style practice questions."
+        </div>
       </div>
       <div class="card-footer">
-        <span class="card-source">Approved Use — Medical Education Only</span>
+        <span class="card-source">Approved Use Case · HIPAA-Safe</span>
         <a class="link-btn" href="https://claude.ai" target="_blank">Open Claude ↗</a>
       </div>
     </div>
 
     <!-- Card 3: Claude for Side Projects -->
     <div class="card">
-      <div class="card-label">Side Project</div>
-      <div class="card-title">One Blog Post → A Full Week of Content Across Every Channel</div>
-      <div>
-        <span class="tag tag-gold">excellentphysician.com</span>
-      </div>
       <div class="card-body">
-        Paste any completed blog post into Fable 5 and send: <em>"Repurpose this into: (1) a 60-second Instagram Reel script, (2) a Twitter/X 3-tweet thread, (3) a 300-word newsletter excerpt, and (4) a YouTube Short script with hook + CTA."</em> One source piece becomes four distribution assets in under 3 minutes. Pair with your daily email skill to auto-queue the newsletter segment. You write once; Claude multiplies everywhere.
+        <div class="card-label">Side Project Workflow</div>
+        <div class="card-title">Repurpose Blog Posts into 5-Format Content Packages</div>
+        <div class="tag-row">
+          <span class="tag tag-gold">excellentphysician.com</span>
+          <span class="tag tag-green">Content</span>
+        </div>
+        <p class="card-text" style="margin-top:0.5rem">
+          Use Claude's new Managed Agents (public beta) to build a standing automation: every time you publish a post on excellentphysician.com, the agent auto-generates (1) a 60-second YouTube script, (2) three Instagram caption variants, (3) an email newsletter teaser, (4) a LinkedIn long-form post, and (5) a Twitter/X thread. Set it once, and each new piece of content multiplies into a week's worth of social material without extra effort.
+        </p>
       </div>
       <div class="card-footer">
-        <span class="card-source">excellentphysician.com</span>
-        <a class="link-btn" href="https://www.excellentphysician.com" target="_blank">Visit Blog ↗</a>
+        <span class="card-source">Claude Managed Agents · Public Beta</span>
+        <a class="link-btn" href="https://platform.claude.com/docs/en/release-notes/overview" target="_blank">API Docs ↗</a>
       </div>
     </div>
 
-    <!-- Wide Card: Claude Personal Use -->
-    <div class="card card-wide">
-      <div class="card-label">Personal Use — New Beta Feature</div>
-      <div class="card-title">The Advisor Tool: Mythos-Quality Reasoning at Executor-Model Speed and Cost</div>
-      <div>
-        <span class="tag tag-blue">Advisor Tool</span>
-        <span class="tag tag-gold">Public Beta</span>
-      </div>
+  </div><!-- /card-grid -->
+
+  <!-- Wide Personal Card -->
+  <div style="margin-top:1rem">
+    <div class="card wide-card">
       <div class="card-body">
-        Anthropic's new <strong style="color:var(--paper);">Advisor Tool</strong> (public beta) pairs a fast executor model with a high-intelligence advisor that provides strategic guidance mid-generation. For long-horizon personal projects — structuring the Riverview Legacy Fund investment policy statement, planning the Heritage Classical Academy curriculum project, or drafting a full QuickBooks financial report for Tabbut Real Estate LLC — you get near-Fable-5 quality at executor-model cost. Enable in Claude Settings → Beta Features. Biggest win: complex multi-section documents with internal consistency checks.
+        <div>
+          <div class="wide-col-label">Personal Productivity</div>
+          <p class="wide-col-text">
+            <strong style="color:var(--paper)">Claude on iOS 27 via Apple Foundation Models (Tomorrow):</strong> Anthropic announced Claude support through Apple's Foundation Models framework, landing tomorrow with iOS 27, iPadOS 27, and macOS 27. This means on-device Claude inference for quick drafts, patient education handouts, and church ministry notes — without opening the Claude app. Privacy-first (processing on device), instant access via Siri, and free for tasks within token limits.
+          </p>
+        </div>
+        <div>
+          <div class="wide-col-label">Home &amp; Family Finance</div>
+          <p class="wide-col-text">
+            <strong style="color:var(--paper)">QuickBooks Automation Idea:</strong> Now that Claude has richer SEC/financial data via Enhanced Web Search, build a monthly Tabbut Real Estate LLC summary: point Claude at your QBO data (via the QBO MCP already installed) and ask it to compare your rental income yield against current cap rates in the Cleveland metro. One prompt, actionable monthly benchmark.
+          </p>
+        </div>
       </div>
       <div class="card-footer">
-        <span class="card-source">Anthropic Platform Release Notes</span>
-        <a class="link-btn" href="https://platform.claude.com/docs/en/release-notes/overview" target="_blank">Release Notes ↗</a>
+        <span class="card-source">Anthropic · Apple · June 2026</span>
+        <a class="link-btn" href="https://www.scriptbyai.com/anthropic-claude-timeline/" target="_blank">Full Timeline ↗</a>
       </div>
     </div>
-
   </div>
 
-  <!-- ══════════════════════════════════════
-       SECTION 2 — EMERGENCY MEDICINE
-  ══════════════════════════════════════════ -->
-  <div class="section-heading">
-    <span class="icon">🚨</span>
+  <!-- ══════════════ SECTION 2: EMERGENCY MEDICINE ══════════════ -->
+  <div class="section-head">
+    <span class="section-icon">🚨</span>
     <h2>Emergency Medicine</h2>
-    <span class="section-label">Annals · ACEP · Medscape · June 2026</span>
+    <span class="section-label">Clinical</span>
   </div>
 
-  <div class="card-grid card-grid-3">
+  <div class="card-grid">
 
-    <!-- Card 1: Top EM Highlight -->
+    <!-- Card 1: Top Highlight -->
     <div class="card">
-      <div class="card-label">Clinical Alert · Toxicology</div>
-      <div class="card-title">Medetomidine Infiltrating the Illicit Drug Supply — Know This Now</div>
-      <div>
-        <span class="tag tag-red">Urgent</span>
-        <span class="tag tag-gold">Annals EM</span>
-        <span class="tag tag-rust">Toxicology</span>
-      </div>
       <div class="card-body">
-        A new <em>Annals of Emergency Medicine</em> paper flags <strong style="color:var(--paper);">medetomidine</strong> — a veterinary alpha-2 agonist — appearing alongside xylazine and fentanyl in the illicit supply. Clinical pearl: naloxone <em>won't reverse</em> alpha-2 agonist sedation. Presentation: profound bradycardia, hypotension, initial preserved respiratory drive, then rapid decompensation. Atipamezole (investigational in the US) is the specific reversal agent; current standard of care is aggressive supportive care. Your inner-city ED is likely already seeing it without recognizing it.
+        <div class="card-label">Clinical Alert</div>
+        <div class="card-title">Cychlorphine: A Lethal New Synthetic Opioid in the ED</div>
+        <div class="tag-row">
+          <span class="tag tag-red">Toxicology</span>
+          <span class="tag tag-rust">Emerging Threat</span>
+        </div>
+        <p class="card-text" style="margin-top:0.5rem">
+          Toxicologist Dr. Lewis Nelson (Medscape/ACEP) is raising the alarm on cychlorphine — a newly emerged synthetic opioid linked to fatal overdoses across several US cities. Key points for the ED: (1) standard urine tox screens do NOT detect it; (2) naloxone response is inconsistent and may require higher doses or repeated dosing; (3) it is circulating in pressed counterfeit pills mixed with fentanyl. Maintain high suspicion in any refractory opioid presentation.
+        </p>
       </div>
       <div class="card-footer">
-        <span class="card-source">Annals of Emergency Medicine · 2026</span>
-        <a class="link-btn" href="https://www.annemergmed.com/inpress" target="_blank">Read ↗</a>
+        <span class="card-source">Medscape · Dr. Lewis Nelson · June 2026</span>
+        <a class="link-btn" href="https://www.medscape.com/emergencymedicine" target="_blank">Medscape ↗</a>
       </div>
     </div>
 
     <!-- Card 2: Top Journal Article -->
     <div class="card">
-      <div class="card-label">Journal Article · Triage Science</div>
-      <div class="card-title">Undertriage Is Deadlier Than Overtriage — New Outcomes Data Confirms It</div>
-      <div>
-        <span class="tag tag-blue">Annals EM · 2026</span>
-        <span class="tag tag-gold">Triage</span>
-      </div>
       <div class="card-body">
-        A new <em>Annals</em> study finds undertriage measurably worsens outcomes: delayed antibiotics in sepsis, increased ICU admissions, higher 30-day mortality in time-sensitive conditions (STEMI, stroke, septic shock). Overtriage, by contrast, correlates with resource strain but not mortality. The take-home: when ESI 2 vs. ESI 3 is ambiguous, triage up. Data validates the "when in doubt, escalate" instinct — and gives you a citable study for your next quality improvement discussion.
+        <div class="card-label">Annals of Emergency Medicine</div>
+        <div class="card-title">Medetomidine in the Illicit Drug Supply: EM Implications</div>
+        <div class="tag-row">
+          <span class="tag tag-blue">Annals EM</span>
+          <span class="tag tag-red">Toxicology</span>
+        </div>
+        <p class="card-text" style="margin-top:0.5rem">
+          Lynch et al. (Annals EM, 2026) examine the growing presence of medetomidine — a veterinary alpha-2 agonist — in the illicit drug supply. Unlike xylazine (which responds to dexmedetomidine antagonism), medetomidine has no approved reversal agent and causes profound bradycardia and sedation. The authors review detection challenges, ED management principles (supportive care, atropine for bradycardia), and withdrawal considerations for patients using contaminated opioids.
+        </p>
       </div>
       <div class="card-footer">
-        <span class="card-source">Annals of Emergency Medicine · 2026</span>
-        <a class="link-btn" href="https://www.annemergmed.com/inpress" target="_blank">Read Article ↗</a>
+        <span class="card-source">Annals of Emergency Medicine · Lynch et al. · 2026</span>
+        <a class="link-btn" href="https://www.annemergmed.com/inpress" target="_blank">Annals ↗</a>
       </div>
     </div>
 
-    <!-- Card 3: Bonus EM -->
+    <!-- Card 3: Bonus EM Item -->
     <div class="card">
-      <div class="card-label">Residency &amp; Training</div>
-      <div class="card-title">Emergency Medicine Exits ERAS — Full Transition to Residency CAS in 2026</div>
-      <div>
-        <span class="tag tag-sage">Admin</span>
-        <span class="tag tag-blue">Residency CAS</span>
-      </div>
       <div class="card-body">
-        EM has officially departed from ERAS, moving all residency applications to <strong style="color:var(--paper);">Residency CAS</strong> this cycle. Reasons: lower applicant cost, enhanced holistic-review tools, better program-facing data, and streamlined technology. As associate professor and residency educator at CWRU/MetroHealth, expect changes to your program's applicant review workflow. Medical students you teach this year are the first cohort navigating the new system — they'll have questions.
+        <div class="card-label">Practice & Training</div>
+        <div class="card-title">EM Residency Applications Switch to Residency CAS in 2026</div>
+        <div class="tag-row">
+          <span class="tag tag-sage">Education</span>
+          <span class="tag tag-blue">Residency</span>
+        </div>
+        <p class="card-text" style="margin-top:0.5rem">
+          Emergency medicine is moving from ERAS to the Residency Centralized Application Service (Residency CAS) for the 2026 match cycle. The stated goals: reduced applicant cost, more holistic review tools, and better program data access. As an Associate Professor at CWRU/MetroHealth, this affects how you advise 4th-year students. The new platform emphasizes narrative components and structured reference letters — consider updating your rec letter templates accordingly.
+        </p>
       </div>
       <div class="card-footer">
-        <span class="card-source">ACEP Now · EM News 2026</span>
+        <span class="card-source">ACEP Now · EM Match 2026</span>
         <a class="link-btn" href="https://www.acepnow.com/" target="_blank">ACEP Now ↗</a>
       </div>
     </div>
 
   </div>
 
-  <!-- ══════════════════════════════════════
-       SECTION 3 — FREE MARKET MEDICINE
-  ══════════════════════════════════════════ -->
-  <div class="section-heading">
-    <span class="icon">🏛️</span>
+  <!-- ══════════════ SECTION 3: FREE MARKET MEDICINE ══════════════ -->
+  <div class="section-head">
+    <span class="section-icon">🏛️</span>
     <h2>Free Market Medicine</h2>
-    <span class="section-label">DPC · Concierge · Policy · 2026</span>
+    <span class="section-label">Policy &amp; Practice</span>
   </div>
 
-  <div class="card-grid card-grid-2">
+  <div class="card-grid two-col">
 
     <div class="card">
-      <div class="card-label">NEJM Perspective</div>
-      <div class="card-title">Primary Care: "From Common Good to Free-Market Commodity"</div>
-      <div>
-        <span class="tag tag-gold">NEJM</span>
-        <span class="tag tag-blue">Policy Debate</span>
-      </div>
       <div class="card-body">
-        A major <em>NEJM</em> perspective argues the DPC/concierge wave is commodifying primary care — pulling physicians from traditional panel medicine and worsening access for Medicaid and uninsured patients. Critics warn of an accelerating two-tier system; defenders note the burnout epidemic and insurance bureaucracy that drove doctors away. This piece is a direct challenge to the free-market medicine thesis you write about — and it deserves a well-argued response on excellentphysician.com. The NEJM has a megaphone; you have the insider view.
+        <div class="card-label">NEJM Commentary</div>
+        <div class="card-title">NEJM: "Primary Care — From Common Good to Free-Market Commodity"</div>
+        <div class="tag-row">
+          <span class="tag tag-blue">NEJM</span>
+          <span class="tag tag-gold">DPC</span>
+        </div>
+        <p class="card-text" style="margin-top:0.5rem">
+          A pointed NEJM Perspective argues that the DPC movement's rapid growth (now nearly 3,000 practices in the US) is creating a two-tiered primary care system — affluent patients pay monthly fees for superior access while Medicaid patients face longer waits. The authors acknowledge the model's appeal for physicians seeking autonomy but raise equity concerns as Republican Medicaid cuts deepen. Essential reading for physicians considering the DPC model: the policy debate is heating up, and the NEJM frame will shape payer and legislative responses.
+        </p>
       </div>
       <div class="card-footer">
-        <span class="card-source">New England Journal of Medicine</span>
+        <span class="card-source">NEJM · PMC · 2026</span>
         <a class="link-btn" href="https://www.nejm.org/doi/full/10.1056/NEJMp2501717" target="_blank">Read NEJM ↗</a>
       </div>
     </div>
 
     <div class="card">
-      <div class="card-label">DPC Growth</div>
-      <div class="card-title">~3,000 DPC Practices Nationwide — And Doctors Are Forming IPAs to Scale</div>
-      <div>
-        <span class="tag tag-green">Growth</span>
-        <span class="tag tag-sage">DPC</span>
-        <span class="tag tag-gold">IPA</span>
-      </div>
       <div class="card-body">
-        Direct primary care has doubled to nearly 3,000 US practices from 1,700 two years ago. Average adult membership: $85/month. In parallel, independent physician associations (IPAs) are forming to aggregate DPC and independent EM physicians into collective bargaining units — accessing value-based payer contracts previously only available to large systems. This IPA model is the structural answer to the access-equity critique: market-based medicine with physician ownership, not corporate capture.
+        <div class="card-label">Market Trends</div>
+        <div class="card-title">IPAs Banding Together as Medicaid Cuts Loom</div>
+        <div class="tag-row">
+          <span class="tag tag-sage">IPA</span>
+          <span class="tag tag-rust">Policy</span>
+        </div>
+        <p class="card-text" style="margin-top:0.5rem">
+          KFF Health News and NPR report independent physicians are forming Independent Physician Associations (IPAs) at accelerating rates in 2026, driven by the need to negotiate collectively as Medicaid reimbursement cuts take effect. IPAs offer solo and small-group physicians value-based contract leverage, shared infrastructure (billing, credentialing), and a viable alternative to hospital employment. The movement aligns with free-market medicine's thesis: physician-owned networks that bypass the hospital-insurer duopoly. DPC News is tracking the largest new IPA formations in Ohio, Texas, and Florida.
+        </p>
       </div>
       <div class="card-footer">
-        <span class="card-source">KFF Health News · DPC News · NPR</span>
-        <a class="link-btn" href="https://kffhealthnews.org/news/article/primary-care-independent-physicians-boost-market-power" target="_blank">KFF Report ↗</a>
+        <span class="card-source">KFF Health News · NPR · DPC News · 2026</span>
+        <a class="link-btn" href="https://kffhealthnews.org/news/article/primary-care-independent-physicians-boost-market-power" target="_blank">KFF Health ↗</a>
       </div>
     </div>
 
   </div>
 
-  <div class="callout" style="margin-top: 1rem;">
-    The NEJM piece frames DPC as extraction. The IPA movement proves it's actually physician liberation with structural answers to access. Your readers need this counternarrative — written by someone who works in an inner-city academic ED and believes in the market.
-  </div>
-
-  <!-- ══════════════════════════════════════
-       SECTION 4 — HEALTH SHARING MINISTRIES
-  ══════════════════════════════════════════ -->
-  <div class="section-heading">
-    <span class="icon">✝️</span>
+  <!-- ══════════════ SECTION 4: HEALTH SHARING ══════════════ -->
+  <div class="section-head">
+    <span class="section-icon">✝️</span>
     <h2>Health Sharing Ministries</h2>
-    <span class="section-label">HCSM · Legislation · IRS · 2026</span>
+    <span class="section-label">HCSM &amp; Legislation</span>
   </div>
 
-  <div class="card-grid card-grid-2">
+  <div class="card-grid two-col">
 
     <div class="card">
-      <div class="card-label">Federal Legislation</div>
-      <div class="card-title">Health Care Sharing Ministry Tax Parity Act Introduced in Congress</div>
-      <div>
-        <span class="tag tag-gold">Federal</span>
-        <span class="tag tag-blue">Tax Parity</span>
-      </div>
       <div class="card-body">
-        Representatives Kelly (R-PA), Murphy (R-NC), and Smith (R-NJ) introduced the <strong style="color:var(--paper);">HCSM Tax Parity Act</strong>, classifying monthly ministry "shares" as deductible qualified medical expenses for federal tax purposes — eliminating the structural disadvantage vs. traditional insurance premiums. If enacted during any ACA reform window, this would be transformational. Watch the reconciliation bill; this could be attached as a rider. ~1 million Americans currently in health sharing ministries would benefit immediately.
+        <div class="card-label">Federal Legislation</div>
+        <div class="card-title">Health Care Sharing Ministry Tax Parity Act Introduced in Congress</div>
+        <div class="tag-row">
+          <span class="tag tag-gold">Tax Policy</span>
+          <span class="tag tag-blue">Federal</span>
+        </div>
+        <p class="card-text" style="margin-top:0.5rem">
+          Reps. Mike Kelly (R-PA), Greg Murphy MD (R-NC), and Chris Smith (R-NJ) introduced the Health Care Sharing Ministry Tax Parity Act, which would classify HCSM monthly share payments as qualified medical expenses — making them tax-deductible under the same rules that govern insurance premiums. For HCSM members (estimated 1.3 million Americans sharing $1B+ annually), this would effectively provide the same pre-tax treatment that employer-sponsored insurance enjoys. The bill is in Ways &amp; Means subcommittee. Companion to the IRS proposed HRA rule.
+        </p>
       </div>
       <div class="card-footer">
-        <span class="card-source">Congressman Mike Kelly · Congress.gov</span>
+        <span class="card-source">Rep. Kelly Press Release · 2026</span>
         <a class="link-btn" href="https://kelly.house.gov/media/press-releases/kelly-murphy-smith-introduce-health-care-sharing-ministry-tax-parity-act" target="_blank">Read Bill ↗</a>
       </div>
     </div>
 
     <div class="card">
-      <div class="card-label">IRS Proposed Rule</div>
-      <div class="card-title">IRS Proposes HRAs Can Reimburse HCSM Shares Tax-Free — A Major Employer Unlock</div>
-      <div>
-        <span class="tag tag-green">IRS Rule</span>
-        <span class="tag tag-gold">HRA · DPC</span>
-      </div>
       <div class="card-body">
-        A proposed IRS rule would allow Health Reimbursement Arrangements (HRAs) to reimburse HCSM monthly shares, DPC membership fees, and certain public coverage payments as tax-free qualified medical expenses. If finalized: employers — including small practices and solo physician LLCs — could offer HRA + HCSM as a legitimate benefits alternative to traditional group coverage. Oklahoma is separately advancing a state income tax deduction for HCSM members starting in tax year 2027. The legislative trifecta is forming.
+        <div class="card-label">IRS &amp; State Action</div>
+        <div class="card-title">IRS Proposes HRA Expansion + Oklahoma State Tax Deduction</div>
+        <div class="tag-row">
+          <span class="tag tag-green">IRS</span>
+          <span class="tag tag-sage">State Law</span>
+        </div>
+        <p class="card-text" style="margin-top:0.5rem">
+          Two parallel developments: (1) The IRS issued a proposed rule allowing HRAs to reimburse employees tax-free for HCSM share payments — a major practical win for small-employer HCSM adoption. (2) Oklahoma advanced legislation to allow members to deduct HCSM contributions on state income tax returns beginning in tax year 2027. Both moves track the broader Republican-aligned regulatory environment that is systematically building parity between faith-based health sharing and conventional insurance. Watch for Ohio and Texas to follow Oklahoma's lead.
+        </p>
       </div>
       <div class="card-footer">
-        <span class="card-source">Take Command Health · HSA for America</span>
-        <a class="link-btn" href="https://www.takecommandhealth.com/blog/hra-sharing-ministries-irs-update" target="_blank">Read Update ↗</a>
+        <span class="card-source">Oklahoma Voice · HSA for America · Wolters Kluwer · 2026</span>
+        <a class="link-btn" href="https://oklahomavoice.com/2026/02/23/members-of-health-care-sharing-ministries-would-get-tax-breaks-under-oklahoma-bill/" target="_blank">Oklahoma Bill ↗</a>
       </div>
     </div>
 
   </div>
 
-  <!-- ══════════════════════════════════════
-       SECTION 5 — FINANCE & INVESTING
-  ══════════════════════════════════════════ -->
-  <div class="section-heading">
-    <span class="icon">₿</span>
+  <!-- ══════════════ SECTION 5: FINANCE ══════════════ -->
+  <div class="section-head">
+    <span class="section-icon">₿</span>
     <h2>Finance &amp; Investing</h2>
-    <span class="section-label">Bitcoin · MSTR · Portfolio · June 10, 2026</span>
+    <span class="section-label">Bitcoin · MSTR · Portfolio</span>
   </div>
 
-  <div class="card-grid card-grid-4">
+  <div class="card-grid">
 
-    <!-- Bitcoin Card -->
+    <!-- BTC Card -->
     <div class="card">
-      <div class="card-label">Bitcoin · BTC-USD · Live</div>
-      <div class="card-title">Bitcoin</div>
-      <div class="price-display">
-        <span class="price-value">$61,500</span>
-        <span class="price-change down">▼ 17.1% (7d)</span>
-      </div>
-      <div class="price-meta">30d High: ~$78,200 &nbsp;·&nbsp; 30d Low: ~$59,200 &nbsp;·&nbsp; CPI Report Today</div>
-      <div class="chart-container">
-        <canvas id="btcChart" width="400" height="100"></canvas>
-      </div>
-      <div class="card-body" style="font-size:0.8rem;">
-        BTC briefly cracked $60K for the first time since 2024 before recovering. Selling pressure: record ETF outflows, US-Iran military tensions, and capital rotating into AI stocks and IPOs. Today's 8:30 AM ET CPI print is the binary catalyst — hot print could push toward $57K; cool print may ignite a relief rally toward $65K+. Tread carefully until the number drops.
+      <div class="card-body">
+        <div class="card-label">Bitcoin · BTC-USD</div>
+        <div class="price-big" id="btcPrice">$61,531</div>
+        <div class="price-change down">▼ Recovering from sub-$60K crash · June 8–10</div>
+        <div class="price-meta">30-day high: ~$108,000 · 30-day low: ~$58,200 · Market cap: ~$1.22T</div>
+        <div class="chart-wrap">
+          <canvas id="btcChart"></canvas>
+        </div>
+        <p class="card-text">
+          Bitcoin suffered a sharp correction in early June, briefly falling below $60,000 — a 44% pullback from the May 14 local high near $108K. The move tracked global risk-off sentiment as US Treasuries spiked post-CPI. Recovery began June 8; BTC is now consolidating in the $61–63K range. Long-term thesis intact — this is the kind of flush that historically precedes the next leg higher in bull markets.
+        </p>
       </div>
       <div class="card-footer">
-        <span class="card-source">Yahoo Finance · BlockchainReporter · Fortune</span>
+        <span class="card-source">Yahoo Finance · Fortune · Intellectia.ai · June 11, 2026</span>
         <a class="link-btn" href="https://finance.yahoo.com/quote/BTC-USD/history/" target="_blank">BTC History ↗</a>
       </div>
     </div>
 
     <!-- MSTR Card -->
     <div class="card">
-      <div class="card-label">Strategy Inc. · MSTR · Nasdaq</div>
-      <div class="card-title">MicroStrategy / Strategy</div>
-      <div class="price-display">
-        <span class="price-value">$117.53</span>
-        <span class="price-change down">▼ 7.6% (prev. close $127.20)</span>
-      </div>
-      <div class="price-meta">52w High: $457.22 &nbsp;·&nbsp; 52w Low: $104.17 &nbsp;·&nbsp; Day: $114.21–$125.85</div>
-      <div class="chart-container">
-        <canvas id="mstrChart" width="400" height="100"></canvas>
-      </div>
-      <div class="card-body" style="font-size:0.8rem;">
-        MSTR trading within 13% of its 52-week low ($104.17). 14 analyst consensus: Strong Buy. Average 12-month price target: $351.54 — a 3× from current levels. Beta vs. BTC: ~2.8×. This is deep-value territory on the BTC leverage thesis if you believe in the long-term BTC story. Risk: BTC continues lower toward $50K.
+      <div class="card-body">
+        <div class="card-label">Strategy Inc · MSTR</div>
+        <div class="price-big" id="mstrPrice">$116.41</div>
+        <div class="price-change down">▼ −37.7% from May 14 high of $186.97</div>
+        <div class="price-meta">52-week range: ~$95 – $380 · Market cap: $41.01B · BTC Treasury Co.</div>
+        <div class="chart-wrap">
+          <canvas id="mstrChart"></canvas>
+        </div>
+        <p class="card-text">
+          MSTR (formerly MicroStrategy) rebranded as Strategy Inc in 2025 and continues its bitcoin treasury strategy. The June correction tracked BTC directionally with characteristic 2.5–3×leverage. Stock closed at $186.97 on May 14, then slid to $120.44 by June 5 on BTC weakness. Current ~$116 represents a potential accumulation zone if BTC holds above $60K support. Watch bitcoin for the leading signal.
+        </p>
       </div>
       <div class="card-footer">
-        <span class="card-source">MarketBeat · Seeking Alpha · StockAnalysis</span>
+        <span class="card-source">CNBC · StockAnalysis · Yahoo Finance · June 11, 2026</span>
         <a class="link-btn" href="https://stockanalysis.com/stocks/mstr/" target="_blank">MSTR Analysis ↗</a>
       </div>
     </div>
 
-    <!-- $1,000 Investment Pick -->
+    <!-- $1,000 Investment -->
     <div class="card">
-      <div class="card-label">$1,000 Deployment · Today · June 10</div>
-      <div class="card-title">This Week's $1,000 Physician Portfolio Move</div>
-      <div>
-        <span class="tag tag-gold">Roth IRA</span>
-        <span class="tag tag-blue">IBIT + MSTR</span>
-      </div>
       <div class="card-body">
-        <strong style="color: var(--paper);">Split: $500 IBIT (Roth IRA) + $500 MSTR (taxable)</strong>
-        <br><br>
-        IBIT (BlackRock Bitcoin ETF) inside your Roth IRA captures any BTC recovery tax-free — compounding the upside asymmetry. BTC at $61,500 is down 17% in a week; this is a CPI-catalyst entry. Meanwhile, MSTR at $117 sits 13% above its 52-week low with a Strong Buy consensus and $351 analyst target. As a physician with existing STRC dividend income, real estate (Harwood Rd), and 1099 income, the Roth bucket is underutilized for volatile-upside assets — this corrects that.
-        <br><br>
-        <em style="color: var(--stone); font-size: 0.78rem;">Not financial advice. Not a licensed advisor. Consult your own.</em>
+        <div class="card-label">$1,000 Deployment Idea</div>
+        <div class="card-title">Add to BTC via a Roth IRA Contribution on the Dip</div>
+        <div class="tag-row">
+          <span class="tag tag-gold">Tax-Advantaged</span>
+          <span class="tag tag-blue">BTC Accumulation</span>
+        </div>
+        <p class="card-text" style="margin-top:0.5rem">
+          With BTC 44% below its May 14 high and consolidating at ~$62K, this is a textbook dollar-cost-averaging entry for a long-thesis holder. Physician-specific logic: you have W2 income + 1099 income from locums, which means you likely still have 2026 Roth IRA contribution room ($7,000 limit; check MAGI eligibility — Roth phaseout starts at $236K single / $236K for MFJ in 2026). Buy BTC directly via a Roth IRA through a self-directed IRA provider (Unchained, Bitcoin IRA, or Fidelity's crypto offering). This makes long-term BTC gains permanently tax-free.
+        </p>
+        <div class="invest-alert">⚠ Not financial advice. Consult a licensed financial advisor before investing.</div>
       </div>
       <div class="card-footer">
-        <span class="card-source">Yahoo Finance · iShares · MSTR</span>
-        <a class="link-btn" href="https://finance.yahoo.com/quote/IBIT/" target="_blank">IBIT Info ↗</a>
+        <span class="card-source">IRS · Unchained · Fidelity · 2026</span>
+        <a class="link-btn" href="https://unchained.com/blog/bitcoin-ira/" target="_blank">Bitcoin IRA Guide ↗</a>
       </div>
     </div>
 
     <!-- New Income Idea -->
-    <div class="card">
-      <div class="card-label">New Income Idea — Tech / AI</div>
-      <div class="card-title">Sell Packaged Claude Prompt Bundles for Physicians on Gumroad</div>
-      <div>
-        <span class="tag tag-gold">Passive</span>
-        <span class="tag tag-blue">AI</span>
-        <span class="tag tag-green">Low Friction</span>
-      </div>
+    <div class="card income-card">
       <div class="card-body">
-        You have a skill combination no other physician-creator has: deep FACEP clinical credibility + genuine Claude power-user expertise. Package 15–20 tested, annotated Claude prompts for physicians (lecture creation, CME outlines, peer review letters, grant language, blog-to-social repurposing) as a $29–$49 digital product on Gumroad or Lemon Squeezy.
-
-        <hr class="income-divider">
-
-        <div class="income-row">
-          <span class="income-label">Why Matt</span>
-          <span>You live this daily. No other FACEP + Claude power user is selling this. You own the niche.</span>
+        <div class="card-label">New Income Idea · Tech / AI</div>
+        <div class="card-title">Sell Claude Workflow Templates for Small Medical Practices</div>
+        <div class="tag-row">
+          <span class="tag tag-green">Novel</span>
+          <span class="tag tag-blue">AI / Tech</span>
+          <span class="tag tag-gold">Low Friction</span>
         </div>
-        <div class="income-row">
-          <span class="income-label">Income Range</span>
-          <span>$300 – $3,500/month; scales with email list and Substack promotion</span>
-        </div>
-        <div class="income-row">
-          <span class="income-label">Start Today</span>
-          <span>gumroad.com — create account, upload PDF bundle, live in 30 minutes</span>
-        </div>
-        <div class="income-row">
-          <span class="income-label">Friction</span>
-          <span>Low. No credentialing, no upfront cost. Gumroad fee: 10%. Time to launch: 2–3 hours.</span>
-        </div>
+        <p class="card-text" style="margin-top:0.5rem">
+          You are already a Claude power-user and prompt engineer. Small DPC and concierge practices desperately need Claude-based automations (patient newsletter drafts, CME tracking, staff training materials) but have no technical skill to build them. Package your best workflows as downloadable prompt templates + instructional PDFs and sell on Gumroad or a new Substack tier. Non-clinical, HIPAA-safe, zero overhead — this is information product income from expertise you already have.
+        </p>
+        <div class="income-row"><span class="income-label">Fit for Matt</span><span class="income-val">Claude expert + physician audience + content creator infrastructure already built</span></div>
+        <div class="income-row"><span class="income-label">Income Est.</span><span class="income-val">$200–$2,000/mo at scale (low overhead, purely passive once published)</span></div>
+        <div class="income-row"><span class="income-label">Start Today</span><span class="income-val">Create a free Gumroad account at gumroad.com and list your first template (e.g., "Physician Lecture Builder — Claude Prompt Pack") for $19–$29</span></div>
+        <div class="income-row"><span class="income-label">Friction</span><span class="income-val">Low: 2–3 hours to package first product. No credential or license needed. No upfront cost.</span></div>
       </div>
       <div class="card-footer">
-        <span class="card-source">Gumroad · Lemon Squeezy</span>
-        <a class="link-btn" href="https://gumroad.com" target="_blank">Start Today ↗</a>
+        <span class="card-source">Gumroad · Substack · 2026</span>
+        <a class="link-btn" href="https://gumroad.com" target="_blank">Gumroad ↗</a>
       </div>
     </div>
 
-  </div>
+  </div><!-- /finance card grid -->
 
-</main>
+</div><!-- /digest-body -->
 
-<!-- FOOTER -->
-<footer style="text-align:center; padding:1.75rem; border-top:1px solid var(--rule);">
-  <span style="font-family:'DM Mono',monospace; font-size:0.62rem; color:var(--stone); letter-spacing:0.12em; text-transform:uppercase;">
-    The Excellent Physician Project &nbsp;·&nbsp; Daily Intelligence Digest &nbsp;·&nbsp; June 10, 2026 &nbsp;·&nbsp; Generated by Claude
-  </span>
+<footer class="digest-footer">
+  Generated by <span>Claude</span> for Dr. Matthew Tabbut, MD, FACEP · The Excellent Physician Project ·
+  <span>June 11, 2026</span> · Not financial or medical advice.
 </footer>
 
 <script>
-// ─── SHARED DATA ───
-const sharedLabels = [
-  'May 11','','May 13','','May 15','','May 17','','May 19','May 21',
-  '','May 23','','May 25','','May 27','','May 29','','Jun 1',
-  '','Jun 3','','Jun 5','Jun 6','Jun 7','Jun 8','Jun 9','Jun 10'
-];
-const btcData = [
-  78200, 77600, 76900, 76100, 75400, 74800, 74200, 73500, 72800, 72100,
-  71400, 70800, 71500, 72300, 73100, 73800, 74200, 73600, 72900,
-  73400, 72100, 74200, 71000, 68500, 65200, 62000, 59400, 62640, 61500
-];
-const mstrData = [
-  185, 183, 179, 175, 171, 167, 163, 158, 153, 148,
-  144, 140, 147, 154, 160, 166, 169, 163, 157,
-  161, 152, 163, 148, 133, 122, 115, 108, 117, 115
-];
+// ── BTC SPARKLINE ──
+(function() {
+  const labels = [
+    'May 12','','May 15','','May 18','','May 21',
+    'May 24','','May 27','','May 30','Jun 2','',
+    'Jun 5','','Jun 8','Jun 9','Jun 10','Jun 11'
+  ];
+  const data = [
+    102000, 105000, 108000, 104000, 99000, 93000, 85000,
+    78000,  72000,  68000,  64000,  61000, 59000, 58200,
+    58500,  59800,  60200,  61000,  61531, 62000
+  ];
+  const ctx = document.getElementById('btcChart').getContext('2d');
+  const gradient = ctx.createLinearGradient(0, 0, 0, 110);
+  gradient.addColorStop(0, 'rgba(224,85,85,0.35)');
+  gradient.addColorStop(1, 'rgba(224,85,85,0.02)');
 
-// ─── CHART INIT: self-loads Chart.js if missing (works standalone + Wix inject) ───
-(function bootstrap() {
-  const CHARTJS_CDN = 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js';
-
-  function initCharts() {
-    const btcEl  = document.getElementById('btcChart');
-    const mstrEl = document.getElementById('mstrChart');
-    if (!btcEl || !mstrEl) { setTimeout(initCharts, 100); return; }
-
-  // Destroy any existing instances to prevent duplicate-canvas errors on re-injection
-  if (btcEl._chartInstance)  { btcEl._chartInstance.destroy(); }
-  if (mstrEl._chartInstance) { mstrEl._chartInstance.destroy(); }
-
-  const chartOptions = (yCallback) => ({
-    responsive: true,
-    maintainAspectRatio: false,
-    animation: { duration: 600 },
-    plugins: {
-      legend: { display: false },
-      tooltip: {
-        callbacks: { label: ctx => yCallback(ctx.raw) },
-        backgroundColor: '#1e2535',
-        titleColor: '#9a9488',
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [{
+        data,
+        borderColor: '#e05555',
+        borderWidth: 1.8,
+        backgroundColor: gradient,
+        fill: true,
+        tension: 0.38,
+        pointRadius: 0,
+        pointHoverRadius: 3
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false }, tooltip: {
+        callbacks: {
+          label: ctx => '$' + ctx.parsed.y.toLocaleString()
+        },
+        backgroundColor: '#161b27',
+        titleColor: '#c9a84c',
         bodyColor: '#faf8f4',
         borderColor: 'rgba(201,168,76,0.3)',
         borderWidth: 1
-      }
-    },
-    scales: {
-      x: {
-        ticks: { font: { family: 'DM Mono', size: 8 }, color: '#5a5650', maxRotation: 0, maxTicksLimit: 6 },
-        grid: { color: 'rgba(255,255,255,0.04)' },
-        border: { color: 'rgba(255,255,255,0.08)' }
-      },
-      y: {
-        ticks: { font: { family: 'DM Mono', size: 8 }, color: '#5a5650' },
-        grid: { color: 'rgba(255,255,255,0.04)' },
-        border: { color: 'rgba(255,255,255,0.08)' }
+      }},
+      scales: {
+        x: {
+          ticks: {
+            color: '#9a9488',
+            font: { family: 'DM Mono', size: 8 },
+            maxRotation: 0,
+            autoSkip: true,
+            maxTicksLimit: 6
+          },
+          grid: { color: 'rgba(255,255,255,0.04)' },
+          border: { color: 'transparent' }
+        },
+        y: {
+          ticks: {
+            color: '#9a9488',
+            font: { family: 'DM Mono', size: 8 },
+            callback: v => '$' + (v/1000).toFixed(0) + 'K'
+          },
+          grid: { color: 'rgba(255,255,255,0.04)' },
+          border: { color: 'transparent' }
+        }
       }
     }
   });
+})();
 
-  // ─── BTC CHART ───
-  const btcCtx  = btcEl.getContext('2d');
-  const btcGrad = btcCtx.createLinearGradient(0, 0, 0, 100);
-  btcGrad.addColorStop(0, 'rgba(224,85,85,0.38)');
-  btcGrad.addColorStop(1, 'rgba(224,85,85,0.02)');
+// ── MSTR SPARKLINE ──
+(function() {
+  const labels = [
+    'May 12','','May 15','','May 18','','May 21',
+    'May 24','','May 27','','May 30','Jun 2','',
+    'Jun 5','','Jun 8','Jun 9','Jun 10','Jun 11'
+  ];
+  const data = [
+    168, 174, 187, 178, 162, 150, 140,
+    133, 128, 125, 122, 121, 120, 120,
+    120.44, 118, 117, 116, 116.41, 117
+  ];
+  const ctx = document.getElementById('mstrChart').getContext('2d');
+  const gradient = ctx.createLinearGradient(0, 0, 0, 110);
+  gradient.addColorStop(0, 'rgba(201,168,76,0.35)');
+  gradient.addColorStop(1, 'rgba(201,168,76,0.02)');
 
-  const btcOpts = chartOptions(v => '$' + v.toLocaleString());
-  btcOpts.scales.y.ticks.callback = v => '$' + (v/1000).toFixed(0) + 'k';
-
-  btcEl._chartInstance = new Chart(btcCtx, {
+  new Chart(ctx, {
     type: 'line',
     data: {
-      labels: sharedLabels,
+      labels,
       datasets: [{
-        data: btcData,
-        borderColor: '#e05555',
-        borderWidth: 1.8,
-        backgroundColor: btcGrad,
-        fill: true,
-        tension: 0.4,
-        pointRadius: 0,
-        pointHoverRadius: 4,
-        pointHoverBackgroundColor: '#e05555'
-      }]
-    },
-    options: btcOpts
-  });
-
-  // ─── MSTR CHART ───
-  const mstrCtx  = mstrEl.getContext('2d');
-  const mstrGrad = mstrCtx.createLinearGradient(0, 0, 0, 100);
-  mstrGrad.addColorStop(0, 'rgba(201,168,76,0.38)');
-  mstrGrad.addColorStop(1, 'rgba(201,168,76,0.02)');
-
-  const mstrOpts = chartOptions(v => '$' + v.toFixed(2));
-  mstrOpts.scales.y.ticks.callback = v => '$' + v;
-
-  mstrEl._chartInstance = new Chart(mstrCtx, {
-    type: 'line',
-    data: {
-      labels: sharedLabels,
-      datasets: [{
-        data: mstrData,
+        data,
         borderColor: '#c9a84c',
         borderWidth: 1.8,
-        backgroundColor: mstrGrad,
+        backgroundColor: gradient,
         fill: true,
-        tension: 0.4,
+        tension: 0.38,
         pointRadius: 0,
-        pointHoverRadius: 4,
-        pointHoverBackgroundColor: '#c9a84c'
+        pointHoverRadius: 3
       }]
     },
-    options: mstrOpts
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false }, tooltip: {
+        callbacks: {
+          label: ctx => '$' + ctx.parsed.y.toFixed(2)
+        },
+        backgroundColor: '#161b27',
+        titleColor: '#c9a84c',
+        bodyColor: '#faf8f4',
+        borderColor: 'rgba(201,168,76,0.3)',
+        borderWidth: 1
+      }},
+      scales: {
+        x: {
+          ticks: {
+            color: '#9a9488',
+            font: { family: 'DM Mono', size: 8 },
+            maxRotation: 0,
+            autoSkip: true,
+            maxTicksLimit: 6
+          },
+          grid: { color: 'rgba(255,255,255,0.04)' },
+          border: { color: 'transparent' }
+        },
+        y: {
+          ticks: {
+            color: '#9a9488',
+            font: { family: 'DM Mono', size: 8 },
+            callback: v => '$' + v
+          },
+          grid: { color: 'rgba(255,255,255,0.04)' },
+          border: { color: 'transparent' }
+        }
+      }
+    }
   });
-  } // end initCharts
-
-  // Load Chart.js if not already present, then run initCharts
-  if (typeof Chart !== 'undefined') {
-    initCharts();
-  } else if (document.querySelector('script[data-chartjs-loading]')) {
-    // Another instance already loading — just poll
-    (function wait() {
-      typeof Chart !== 'undefined' ? initCharts() : setTimeout(wait, 100);
-    })();
-  } else {
-    const s = document.createElement('script');
-    s.setAttribute('data-chartjs-loading', '1');
-    s.src = CHARTJS_CDN;
-    s.onload  = initCharts;
-    s.onerror = () => console.warn('Chart.js failed to load');
-    document.head.appendChild(s);
-  }
-})(); // end bootstrap
+})();
 </script>
 
 </body>
