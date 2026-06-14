@@ -1,8 +1,16 @@
 [
   {
     "date": "2026-06-14",
-    "label": "June 14, 2026",
-    "file": "issues/daily_digest_2026-06-14.html"
+    "url": "https://excellentphysician.github.io/daily-intelligence-brief/issues/daily_digest_2026-06-14.html",
+    "articleCount": 14,
+    "highRelevanceCount": 7,
+    "journals": [
+      "Annals EM",
+      "Releasebot/Anthropic",
+      "Ohio Capital Journal",
+      "Yahoo Finance/LatestLY",
+      "WEF/GlobeNewswire"
+    ]
   },
   {
     "date": "2026-06-13",
