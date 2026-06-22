@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dr. Matt's Daily Digest — June 19, 2026</title>
+<title>Dr. Matt's Daily Digest — June 22, 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
@@ -79,7 +79,7 @@
   footer { text-align: center; padding: 1.5rem; border-top: 1px solid var(--border); margin-top: 2rem; font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--stone); letter-spacing: 0.08em; }
   footer a { color: var(--gold); text-decoration: none; }
 
-  .inline-link { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(201,168,76,0.35); }
+  a.inline { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(201,168,76,0.35); }
 </style>
 </head>
 <body>
@@ -87,14 +87,12 @@
 <header>
   <div class="header-eyebrow">The Excellent Physician · Daily Intelligence Brief</div>
   <h1>Dr. Matt's <span>Daily Digest</span></h1>
-  <div class="header-sub">Friday · June 19, 2026 &nbsp;·&nbsp; Emergency Medicine · Finance · Technology · Life</div>
+  <div class="header-sub">Monday · June 22, 2026 &nbsp;·&nbsp; Emergency Medicine · Finance · Technology · Life</div>
 </header>
 
 <div class="page">
 
-<!-- ══════════════════════════════════
-     SECTION: CLAUDE & AI TOOLS
-══════════════════════════════════ -->
+<!-- CLAUDE & AI TOOLS -->
 <div class="section-heading">
   <div class="icon">🤖</div>
   <h2>Claude &amp; AI Tools</h2>
@@ -105,55 +103,54 @@
 <div class="grid-3">
   <div class="card">
     <div class="card-top">
-      <div class="card-top-icon">🛰️</div>
+      <div class="card-top-icon">🆕</div>
       <div>
-        <div class="card-label">Anthropic Platform · Jun 9, 2026</div>
-        <div class="card-title">Claude Managed Agents Can Now Run on a Schedule</div>
+        <div class="card-label">Latest Release</div>
+        <div class="card-title">Claude Code Artifacts Go Live</div>
       </div>
     </div>
     <div class="card-body">
-      <p>Anthropic moved scheduled deployments for <strong>Claude Managed Agents</strong> into public beta on June 9 — attach a cron schedule to an agent and it spins up a fresh session every time the schedule fires, with no scheduler to build or host yourself.</p>
-      <p>Pitched for recurring work like a nightly data sync or a weekly compliance scan — or, fittingly, the daily digest you're reading right now, which runs on exactly this kind of scheduled agent.</p>
+      <p>Anthropic's newest <a class="inline" href="https://venturebeat.com/data/anthropics-claude-code-artifacts-update-brings-live-shared-dashboards-and-interactive-workspaces-to-enterprises" target="_blank">Claude Code Artifacts update</a> turns a Claude Code session's work into a live, interactive, shareable webpage — plug in code and multiple data sources and Claude surfaces it on a URL you can hand to a colleague.</p>
+      <p>Paired with new <a class="inline" href="https://www.mindstudio.ai/blog/code-with-claude-2026-new-agent-features" target="_blank">multi-agent orchestration</a>, a lead agent can now split a job and delegate pieces to specialist sub-agents working in parallel on a shared file system — useful for anyone running multi-step research or build workflows.</p>
     </div>
     <div class="card-footer">
-      <span class="card-source">TechTimes · Jun 2026</span>
-      <a href="https://www.techtimes.com/articles/318163/20260610/claude-managed-agents-add-cron-schedules-credential-vaultsanthropic-beta-puts-agents-autopilot.htm" class="link-btn" target="_blank">Source</a>
+      <span class="card-source">VentureBeat</span>
+      <a class="link-btn" href="https://venturebeat.com/data/anthropics-claude-code-artifacts-update-brings-live-shared-dashboards-and-interactive-workspaces-to-enterprises" target="_blank">Read</a>
     </div>
   </div>
 
   <div class="card">
     <div class="card-top">
-      <div class="card-top-icon">🎓</div>
+      <div class="card-top-icon">🏥</div>
       <div>
-        <div class="card-label">Academic Medicine · No Patient Data</div>
-        <div class="card-title">Claude for CME Drafting &amp; Journal Club Synthesis</div>
+        <div class="card-label">In Your Practice</div>
+        <div class="card-title">Journal Club, Without the Chart Review</div>
       </div>
     </div>
     <div class="card-body">
-      <p>Zero patient data, zero chart review — just the use cases that are actually safe under MetroHealth's HIPAA rules: drafting CME outlines, synthesizing recent literature into a journal-club summary, and writing first-pass department protocol language for human review.</p>
-      <p>It's a narrow lane on purpose. Anything that touches a patient, a chart, or a care pathway stays out of Claude entirely.</p>
+      <p>A clean, HIPAA-safe use case for this week: have Claude draft a journal club summary synthesizing the EM literature below — the <a class="inline" href="https://www.annemergmed.com/inpress" target="_blank">medetomidine</a> and triage-outcomes papers — into a one-page resident teaching handout with discussion questions.</p>
+      <p>No patient data or chart content goes in; only published literature. Same workflow works for CME outline drafting or conference slide prep.</p>
     </div>
     <div class="card-footer">
-      <span class="card-source">Prompting Guide</span>
-      <a href="https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview" class="link-btn" target="_blank">Source</a>
+      <span class="card-source">Claude Docs</span>
+      <a class="link-btn" href="https://platform.claude.com/docs/en/release-notes/overview" target="_blank">Read</a>
     </div>
   </div>
 
   <div class="card">
     <div class="card-top">
-      <div class="card-top-icon">🏠</div>
+      <div class="card-top-icon">📝</div>
       <div>
-        <div class="card-label">Tabbut Real Estate LLC</div>
-        <div class="card-title">Automating the Monthly Books with Claude + QuickBooks</div>
+        <div class="card-label">Side Projects</div>
+        <div class="card-title">One Blog Post, Five Formats</div>
       </div>
     </div>
     <div class="card-body">
-      <p>Cowork now has QuickBooks Online tools wired in directly — pull a profit &amp; loss, generate a cash-flow summary, or check AR/AP aging by just asking, instead of logging into QBO and exporting reports by hand.</p>
-      <p>A clean monthly habit: ask for last month's P&amp;L and cash flow side-by-side on the 1st, and have it flag anything that moved more than 10% from the prior month.</p>
+      <p>Feed Claude a finished <a class="inline" href="https://www.excellentphysician.com" target="_blank">excellentphysician.com</a> post and ask for a repurposing pass: a YouTube script outline, three Instagram caption variants, a newsletter teaser, and a pull-quote graphic brief — all in one sitting instead of four separate writing sessions.</p>
     </div>
     <div class="card-footer">
-      <span class="card-source">QuickBooks Online</span>
-      <a href="https://quickbooks.intuit.com/" class="link-btn" target="_blank">Source</a>
+      <span class="card-source">Anthropic</span>
+      <a class="link-btn" href="https://www.anthropic.com/news" target="_blank">Read</a>
     </div>
   </div>
 </div>
@@ -161,26 +158,24 @@
 <div class="grid-1" style="margin-top:16px">
   <div class="card">
     <div class="card-top">
-      <div class="card-top-icon">🛠️</div>
+      <div class="card-top-icon">🏠</div>
       <div>
-        <div class="card-label">Home &amp; Family · Personal Use</div>
-        <div class="card-title">A Claude-Assisted Weekly Network &amp; Camera Health Check</div>
+        <div class="card-label">Personal Use</div>
+        <div class="card-title">Letting Claude Triage Your Camera Feed Instead of Just Recording It</div>
       </div>
     </div>
     <div class="card-body">
-      <p>For the <a href="https://openwrt.org/" class="inline-link" target="_blank">OpenWRT</a>/ZoneMinder setup at home, a five-minute Friday habit: paste recent router logs and camera-uptime stats into Claude and ask it to flag anomalies — a device hammering DNS, a camera that's been silently offline for two days, a VLAN saturating QoS. It won't replace real monitoring tooling, but it turns "I should really check the network" into something that actually happens every week instead of every quarter.</p>
+      <p>If your home <a class="inline" href="https://zoneminder.com/" target="_blank">ZoneMinder</a> setup is just storing clips nobody watches, a small Python bridge that hands Claude a daily batch of flagged frames (package on the porch, kids home from school, garage door left up) and asks for a one-line summary turns raw motion-detection noise into an actual morning briefing — no cloud subscription, runs on your own <a class="inline" href="https://openwrt.org/" target="_blank">OpenWRT</a> network.</p>
     </div>
     <div class="card-footer">
-      <span class="card-source">OpenWRT Docs</span>
-      <a href="https://openwrt.org/" class="link-btn" target="_blank">Source</a>
+      <span class="card-source">Anthropic</span>
+      <a class="link-btn" href="https://www.anthropic.com/news" target="_blank">Read</a>
     </div>
   </div>
 </div>
 
 
-<!-- ══════════════════════════════════
-     SECTION: EMERGENCY MEDICINE
-══════════════════════════════════ -->
+<!-- EMERGENCY MEDICINE -->
 <div class="section-heading">
   <div class="icon">🚨</div>
   <h2>Emergency Medicine</h2>
@@ -193,35 +188,35 @@
     <div class="card-top">
       <div class="card-top-icon">⚖️</div>
       <div>
-        <div class="card-label">No Surprises Act · May 28, 2026</div>
-        <div class="card-title">Federal IDR Operations Final Rule Lands — ACEP Applauds</div>
+        <div class="card-label">Top Highlight</div>
+        <div class="card-title">No Surprises Act Dispute Process Gets a Real Fix</div>
       </div>
     </div>
     <div class="card-body">
-      <p>HHS, Labor, Treasury, and OPM finalized the <a href="https://www.cms.gov/newsroom/fact-sheets/federal-independent-dispute-resolution-operations-final-rule" class="inline-link" target="_blank">Federal IDR Operations rule</a> on May 28, cutting the per-dispute administrative fee from $115 to $15 — an 85%+ reduction, effective for disputes filed June 11 or later — and tightening the communication requirements that have plagued the No Surprises Act's dispute process since it launched.</p>
-      <p><a href="https://www.newswise.com/articles/acep-acr-and-asa-applaud-final-idr-operations-rule-as-major-step-forward-for-no-surprises-act-implementation" class="inline-link" target="_blank">ACEP, ACR, and ASA jointly applauded</a> it as the most significant structural fix yet to a process that's been a real source of friction for out-of-network EM billing.</p>
+      <p>HHS, Labor, Treasury, and OPM released the <a class="inline" href="https://www.newswise.com/articles/acep-acr-and-asa-applaud-final-idr-operations-rule-as-major-step-forward-for-no-surprises-act-implementation" target="_blank">final IDR Operations Rule</a> on May 28, and <a class="inline" href="https://www.emergencyphysicians.org/newsroom/" target="_blank">ACEP</a>, ACR, and ASA all applauded it. The administrative filing fee for the independent dispute resolution process drops from $115 to $15 per party, and insurers now must hand over all information needed to process claims correctly.</p>
+      <p>ACEP President <strong>L. Anthony Cirillo, MD</strong> called it "meaningful progress" toward a system that's "predictable, efficient, and grounded in transparency" — directly relevant to any out-of-network EM billing dispute.</p>
     </div>
     <div class="card-footer">
-      <span class="card-source">CMS · May 28, 2026</span>
-      <a href="https://www.cms.gov/newsroom/fact-sheets/federal-independent-dispute-resolution-operations-final-rule" class="link-btn" target="_blank">Source</a>
+      <span class="card-source">Newswise / ACEP</span>
+      <a class="link-btn" href="https://www.newswise.com/articles/acep-acr-and-asa-applaud-final-idr-operations-rule-as-major-step-forward-for-no-surprises-act-implementation" target="_blank">Read</a>
     </div>
   </div>
 
   <div class="card">
     <div class="card-top">
-      <div class="card-top-icon">📄</div>
+      <div class="card-top-icon">📚</div>
       <div>
-        <div class="card-label">Annals of Emergency Medicine · Jun 2026</div>
-        <div class="card-title">Rethinking the Surgical Reflex on Appendicitis</div>
+        <div class="card-label">Top Journal Article</div>
+        <div class="card-title">Medetomidine Is the New Adulterant to Watch</div>
       </div>
     </div>
     <div class="card-body">
-      <p>A June 2026 narrative review in <a href="https://www.annemergmed.com/article/S0196-0644(25)01283-1/fulltext" class="inline-link" target="_blank">Annals of Emergency Medicine</a> (Talan et al., Vol. 87, Issue 6) lays out the evidence that antibiotic-first, nonoperative management of uncomplicated appendicitis doesn't increase perforation risk.</p>
-      <p>Directly useful for ED disposition decisions and shared decision-making with patients who'd rather skip the OR if it's reasonable to.</p>
+      <p><a class="inline" href="https://www.annemergmed.com/inpress" target="_blank">Annals of Emergency Medicine</a>'s June in-press slate includes "Emergence of Medetomidine in the Illicit Drug Supply: Implications for Emergency Care and Withdrawal Management" — a veterinary sedative now showing up cut into fentanyl supply, producing a withdrawal syndrome that doesn't respond to standard opioid protocols.</p>
+      <p>Worth a quick scan before your next toxicology-heavy shift.</p>
     </div>
     <div class="card-footer">
-      <span class="card-source">Annals of EM · Vol. 87, Iss. 6</span>
-      <a href="https://www.annemergmed.com/article/S0196-0644(25)01283-1/fulltext" class="link-btn" target="_blank">Source</a>
+      <span class="card-source">Annals of EM</span>
+      <a class="link-btn" href="https://www.annemergmed.com/inpress" target="_blank">Read</a>
     </div>
   </div>
 </div>
@@ -229,57 +224,53 @@
 <div class="grid-1" style="margin-top:16px">
   <div class="card">
     <div class="card-top">
-      <div class="card-top-icon">🔬</div>
+      <div class="card-top-icon">🩺</div>
       <div>
-        <div class="card-label">POCUS · Diagnostic Accuracy</div>
-        <div class="card-title">Lung Ultrasound Keeps Beating the Chest X-Ray for Pneumonia</div>
+        <div class="card-label">Bonus Item</div>
+        <div class="card-title">Triage Accuracy Is Quietly Driving Your Outcomes Data</div>
       </div>
     </div>
     <div class="card-body">
-      <p>A June 2026 <a href="https://jamanetwork.com/journals/jama/fullarticle/2849858" class="inline-link" target="_blank">JAMA</a> piece on the Bedside Lung Ultrasound in Emergency (BLUE) protocol adds to a growing body of data showing point-of-care lung ultrasound outperforms plain chest radiography for pneumonia — pooled sensitivity north of 90% versus the high-60s/low-70s typical of X-ray, no radiation, and a result in the time it takes to do the scan. Good ammunition next time POCUS billing or credentialing comes up at a department meeting.</p>
+      <p>Also in the June <a class="inline" href="https://www.annemergmed.com/inpress" target="_blank">Annals of Emergency Medicine</a> in-press queue: a study on the "Association Between Emergency Department Undertriage or Overtriage With Timeliness of Care and Patient Outcomes" — a useful one to flag for residents given how often triage-level disputes come up on shift.</p>
     </div>
     <div class="card-footer">
-      <span class="card-source">JAMA · Jun 2026</span>
-      <a href="https://jamanetwork.com/journals/jama/fullarticle/2849858" class="link-btn" target="_blank">Source</a>
+      <span class="card-source">Annals of EM</span>
+      <a class="link-btn" href="https://www.annemergmed.com/inpress" target="_blank">Read</a>
     </div>
   </div>
 </div>
 
 
-<!-- ══════════════════════════════════
-     SECTION: HEALTHCARE TECHNOLOGY
-══════════════════════════════════ -->
+<!-- HEALTHCARE TECHNOLOGY -->
 <div class="section-heading">
   <div class="icon">💊</div>
   <h2>Healthcare Technology</h2>
   <div class="rule"></div>
-  <div class="mono">Innovation · AI · Digital Health · Last 24 Hours</div>
+  <div class="mono">Innovation · AI · Digital Health</div>
 </div>
 
 <div class="grid-1">
   <div class="card">
     <div class="card-top">
-      <div class="card-top-icon">🩺</div>
+      <div class="card-top-icon">🤖</div>
       <div>
-        <div class="card-label">Innovation Policy · Jun 18, 2026</div>
-        <div class="card-title">CMS Says It Wants to Fast-Track AI and New Health Tech</div>
+        <div class="card-label">Published week of June 15, 2026 — most current strong item found; nothing stronger surfaced in the past 24–48h</div>
+        <div class="card-title">"Bot vs. Bot": Why Hospital AI Keeps Hitting the Same Wall</div>
       </div>
     </div>
     <div class="card-body">
-      <p>In remarks reported June 18, <a href="https://www.usnews.com/news/live-events/healthcare-of-tomorrow/articles/2026-06-18/cms-plans-to-fast-track-new-health-technologies-including-ai" class="inline-link" target="_blank">CMS Administrator Mehmet Oz</a> said the agency is looking for "more innovative ways" to clear new health technologies — including AI tools — for patient use while still policing safety, with the regulatory bar varying by use case: a tool offering a second opinion gets reviewed differently than an app making oncology treatment decisions.</p>
-      <p>It lands the same week ARPA-H's ADVOCATE program is selecting innovation teams to build the first FDA-authorized agentic AI aimed at 24/7 cardiovascular specialty coverage — worth watching as an early signal of how regulators will eventually treat agentic tools in acute and emergency settings.</p>
+      <p>At HFMA's 2026 annual conference, executives from <strong>Oracle Health</strong>, <strong>HCA Healthcare</strong>, and <strong>BJC Health</strong> argued — on the record — that no amount of sophisticated AI can overcome a broken, antiquated data foundation. The panel's blunt framing: health systems keep buying smarter models and layering them on top of the same fragmented, inconsistent data, which is why so much AI spend isn't translating into better care or lower cost.</p>
+      <p>Why it matters for a physician-entrepreneur: it's a useful gut-check before recommending or adopting any new clinical AI tool — the model is rarely the bottleneck; the data plumbing underneath it usually is. Covered by <a class="inline" href="https://medcitynews.com/2026/06/healthcare-ai-hfma/" target="_blank">MedCity News</a>.</p>
     </div>
     <div class="card-footer">
-      <span class="card-source">U.S. News · Jun 18, 2026</span>
-      <a href="https://www.usnews.com/news/live-events/healthcare-of-tomorrow/articles/2026-06-18/cms-plans-to-fast-track-new-health-technologies-including-ai" class="link-btn" target="_blank">Source</a>
+      <span class="card-source">MedCity News · HFMA 2026</span>
+      <a class="link-btn" href="https://medcitynews.com/2026/06/healthcare-ai-hfma/" target="_blank">Read</a>
     </div>
   </div>
 </div>
 
 
-<!-- ══════════════════════════════════
-     SECTION: HEALTHCARE POLICY
-══════════════════════════════════ -->
+<!-- HEALTHCARE POLICY -->
 <div class="section-heading">
   <div class="icon">🏛️</div>
   <h2>Healthcare Policy</h2>
@@ -290,45 +281,43 @@
 <div class="grid-2">
   <div class="card">
     <div class="card-top">
-      <div class="card-top-icon">🏦</div>
+      <div class="card-top-icon">🇺🇸</div>
       <div>
-        <div class="card-label">Congress · Appropriations</div>
-        <div class="card-title">House Rejects HHS Restructuring in FY27 Spending Bill</div>
+        <div class="card-label">Federal</div>
+        <div class="card-title">Insurers Push Back on Medicaid Work-Requirement Timeline</div>
       </div>
     </div>
     <div class="card-body">
-      <p>The House LHHS Appropriations Subcommittee released its <a href="https://www.astho.org/advocacy/federal-government-affairs/leg-alerts/2026/summary-fy27-house-lhhs-appropriations-bill-june-2026/" class="inline-link" target="_blank">FY27 spending bill</a> June 4, marked it up June 5, and the full committee advanced it June 9 — rejecting much of the administration's proposed restructuring of HHS public health programs, a sign the House isn't on board with large-scale reorganization.</p>
-      <p>Separately, the reconciliation 2.0 bill passed the House and was signed into law the same week. Both parties are voicing support for further price-transparency rules, though a stand-alone transparency bill looks unlikely before the lame-duck session.</p>
+      <p><a class="inline" href="https://www.cms.gov/about-cms/contact/newsroom" target="_blank">CMS</a> issued an interim final rule tightening the medical-frailty exemption tied to the new Medicaid work requirements (disability, substance use disorder, and complex medical conditions still qualify for exemption). The requirement itself — 80 hours/month of work for adults 19–64 — takes effect January 1, 2027.</p>
+      <p>At AHIP 2026, healthcare leaders publicly asked CMS for a state-implementation extension, per <a class="inline" href="https://medcitynews.com/2026/06/cms-medicaid-eligibility-leaders/" target="_blank">MedCity News</a>: "you can't create systems in six months... I'd argue sometimes in even 18 months."</p>
     </div>
     <div class="card-footer">
-      <span class="card-source">McDermott+ Check · Week of Jun 12</span>
-      <a href="https://natlawreview.com/article/mcdermott-check-june-12-2026" class="link-btn" target="_blank">Source</a>
+      <span class="card-source">MedCity News / CMS</span>
+      <a class="link-btn" href="https://medcitynews.com/2026/06/cms-medicaid-eligibility-leaders/" target="_blank">Read</a>
     </div>
   </div>
 
   <div class="card">
     <div class="card-top">
-      <div class="card-top-icon">🏥</div>
+      <div class="card-top-icon">🌳</div>
       <div>
-        <div class="card-label">Northeast Ohio · MetroHealth · Jun 10, 2026</div>
-        <div class="card-title">MetroHealth Steps Back From Pediatric Trauma Verification</div>
+        <div class="card-label">Ohio</div>
+        <div class="card-title">Senate Greenlights Gig-Platform Staffing Bill</div>
       </div>
     </div>
     <div class="card-body">
-      <p>On June 10, <a href="https://www.metrohealth.org/en/newsroom/2026/metrohealth-aligns-pediatric-trauma-care-with-regional-capacity/" class="inline-link" target="_blank">MetroHealth announced</a> it will not seek ACS reverification of its Level II Pediatric Trauma Center designation, citing a regional decline in pediatric trauma volume and a nationwide shortage of pediatric neurosurgeons.</p>
-      <p>All four MetroHealth EDs (Main, Brecksville, Cleveland Heights, Parma) keep treating pediatric emergencies and will stabilize/transfer serious pediatric injuries to UH Rainbow Babies &amp; Children's, while MetroHealth remains the region's Level I adult trauma center. A real regional trauma-system realignment with direct implications for ED disposition and transfer protocols.</p>
+      <p>The Ohio Senate unanimously passed <a class="inline" href="https://www.legislature.ohio.gov/legislation/136/sb423" target="_blank">Senate Bill 423</a> this week, updating state labor law to cover healthcare workers booked through staffing apps that connect them with care facilities short-term. Sponsor <strong>Sen. Susan Manchester (R-Waynesfield)</strong> framed it as a tool for hospitals — including systems like MetroHealth — to fill gaps faster.</p>
+      <p>The bill arrives a month after the <a class="inline" href="https://www.ohionursesassociation.org/" target="_blank">Ohio Nurses Association</a> reported that over 91% of Ohio healthcare workers say their workplace isn't always appropriately staffed. SB 423 now moves to the Ohio House.</p>
     </div>
     <div class="card-footer">
-      <span class="card-source">MetroHealth Newsroom · Jun 10, 2026</span>
-      <a href="https://www.metrohealth.org/en/newsroom/2026/metrohealth-aligns-pediatric-trauma-care-with-regional-capacity/" class="link-btn" target="_blank">Source</a>
+      <span class="card-source">NBC4 WCMH / Ohio Senate</span>
+      <a class="link-btn" href="https://www.nbc4i.com/news/politics/ohio-senate-passes-bill-addressing-healthcare-staffing-issues-on-online-platforms/" target="_blank">Read</a>
     </div>
   </div>
 </div>
 
 
-<!-- ══════════════════════════════════
-     SECTION: FREE MARKET MEDICINE
-══════════════════════════════════ -->
+<!-- FREE MARKET MEDICINE -->
 <div class="section-heading">
   <div class="icon">🏛️</div>
   <h2>Free Market Medicine</h2>
@@ -339,45 +328,42 @@
 <div class="grid-2">
   <div class="card">
     <div class="card-top">
-      <div class="card-top-icon">💵</div>
+      <div class="card-top-icon">💳</div>
       <div>
-        <div class="card-label">DPC · HSA Policy, One Year In</div>
-        <div class="card-title">The DPC-HSA Fix Didn't Fix Access</div>
+        <div class="card-label">June 2026</div>
+        <div class="card-title">The DPC/HSA Fix Created a New Problem</div>
       </div>
     </div>
     <div class="card-body">
-      <p>Direct primary care advocates are about to mark one year since federal law let HSA dollars pay DPC membership fees — but a <a href="https://kevinmd.com/2026/06/the-direct-primary-care-hsa-rule-did-not-fix-access.html" class="inline-link" target="_blank">KevinMD analysis</a> published this month argues the bigger effect wasn't improved affordability.</p>
-      <p>IRS Notice 2026-05 caps the HSA-eligible membership fee at $150/month, so a practice pricing itself even slightly above that (say, $160/month) disqualifies its patients' HSA contributions for the year — an odd incentive nudging some practices to hold pricing down rather than expand capacity.</p>
+      <p><a class="inline" href="https://kevinmd.com/2026/06/the-direct-primary-care-hsa-rule-did-not-fix-access.html" target="_blank">KevinMD</a> lays out the catch in this year's HSA rule for DPC: patients in qualifying high-deductible plans can now pay DPC membership fees with HSA dollars, but <strong>IRS Notice 2026-05</strong> caps that at $150/month. Any DPC practice priced above that cap — common in higher cost-of-living markets — leaves HSA-paying patients losing their contribution eligibility for the year entirely.</p>
+      <p>A reminder that "free market" fixes still run through a regulatory needle's eye.</p>
     </div>
     <div class="card-footer">
-      <span class="card-source">KevinMD · Jun 2026</span>
-      <a href="https://kevinmd.com/2026/06/the-direct-primary-care-hsa-rule-did-not-fix-access.html" class="link-btn" target="_blank">Source</a>
+      <span class="card-source">KevinMD</span>
+      <a class="link-btn" href="https://kevinmd.com/2026/06/the-direct-primary-care-hsa-rule-did-not-fix-access.html" target="_blank">Read</a>
     </div>
   </div>
 
   <div class="card">
     <div class="card-top">
-      <div class="card-top-icon">🔁</div>
+      <div class="card-top-icon">🤝</div>
       <div>
-        <div class="card-label">DPC · Market Structure · Jun 8, 2026</div>
-        <div class="card-title">Mending Exits the Insurance Business to Go All-In on DPC</div>
+        <div class="card-label">Ongoing storyline — Feb 2026, still developing</div>
+        <div class="card-title">Independent Doctors Are Banding Together for Leverage</div>
       </div>
     </div>
     <div class="card-body">
-      <p>Mending told Maine's Bureau of Insurance on June 8 it's exiting its health-plan carrier business in Maine and Oklahoma by January 2027, affecting roughly 1,100 members — even as it doubles down on Mending Access, a platform launched earlier this year to help self-funded employers and TPAs bolt direct primary care onto their existing plans.</p>
-      <p>A small but telling data point on where the DPC-adjacent insurance market is placing its bets: away from being a carrier, toward being the DPC integration layer.</p>
+      <p><a class="inline" href="https://kffhealthnews.org/news/article/primary-care-independent-physicians-boost-market-power" target="_blank">KFF Health News</a> (via <a class="inline" href="https://www.npr.org/2026/02/16/nx-s1-5715996/primary-care-independent-physician-association-ipa-medicaid-cuts-value-based-reimbursement" target="_blank">NPR</a>) reports independent primary care doctors are forming Independent Physician Associations (IPAs) to negotiate value-based contracts as a bloc, in direct response to Medicaid cuts and shrinking margins — a market-based counter-move worth tracking against the DPC/IPA wave more broadly.</p>
     </div>
     <div class="card-footer">
-      <span class="card-source">Becker's Payer Issues</span>
-      <a href="https://www.beckerspayer.com/payer/aca/mending-to-no-longer-serve-as-health-insurance-carrier-amid-its-nationwide-direct-primary-care-push/" class="link-btn" target="_blank">Source</a>
+      <span class="card-source">KFF Health News / NPR</span>
+      <a class="link-btn" href="https://kffhealthnews.org/news/article/primary-care-independent-physicians-boost-market-power" target="_blank">Read</a>
     </div>
   </div>
 </div>
 
 
-<!-- ══════════════════════════════════
-     SECTION: HEALTH SHARING
-══════════════════════════════════ -->
+<!-- HEALTH SHARING -->
 <div class="section-heading">
   <div class="icon">✝️</div>
   <h2>Health Sharing Ministries</h2>
@@ -388,19 +374,18 @@
 <div class="grid-2">
   <div class="card">
     <div class="card-top">
-      <div class="card-top-icon">⏳</div>
+      <div class="card-top-icon">🏦</div>
       <div>
-        <div class="card-label">Federal Legislation · Still Pending</div>
-        <div class="card-title">Health Care Sharing Ministry Tax Parity Act Still Awaiting a Vote</div>
+        <div class="card-label">Federal — Pending, 119th Congress</div>
+        <div class="card-title">Tax Parity Bill for Sharing Ministry Members Still Alive</div>
       </div>
     </div>
     <div class="card-body">
-      <p>Reps. <a href="https://kelly.house.gov/media/press-releases/kelly-introduces-health-care-sharing-ministry-tax-parity-act" class="inline-link" target="_blank">Mike Kelly</a>, Greg Murphy, and Chris Smith's bill to let HCSM members deduct their monthly shares as qualified medical expenses was introduced back in March 2025 and remains pending in committee as of this month.</p>
-      <p><em>Note: this is an ongoing story, not breaking news — included here as a reminder that tax-parity for the roughly 1 million Americans using health sharing is still a legislative aspiration, not current law.</em></p>
+      <p><a class="inline" href="https://www.congress.gov/bill/119th-congress/house-bill/2062" target="_blank">H.R. 2062</a>, the Health Care Sharing Ministry Tax Parity Act from Reps. <strong>Mike Kelly (R-PA)</strong>, <strong>Greg Murphy, MD (R-NC)</strong>, and <strong>Chris Smith (R-NJ)</strong>, remains pending — it would let the roughly 1.3 million Americans in HCSMs deduct membership payments as a qualified medical expense, the same treatment traditional insurance premiums get.</p>
     </div>
     <div class="card-footer">
-      <span class="card-source">Rep. Kelly's Office</span>
-      <a href="https://kelly.house.gov/media/press-releases/kelly-introduces-health-care-sharing-ministry-tax-parity-act" class="link-btn" target="_blank">Source</a>
+      <span class="card-source">Congress.gov</span>
+      <a class="link-btn" href="https://www.congress.gov/bill/119th-congress/house-bill/2062" target="_blank">Read</a>
     </div>
   </div>
 
@@ -408,25 +393,22 @@
     <div class="card-top">
       <div class="card-top-icon">📋</div>
       <div>
-        <div class="card-label">Consumer Guidance · 2026</div>
-        <div class="card-title">Where Health Sharing Actually Stands on Tax Deductibility</div>
+        <div class="card-label">Practical Guidance</div>
+        <div class="card-title">HRAs Can Now Reimburse Sharing-Ministry Payments Tax-Free</div>
       </div>
     </div>
     <div class="card-body">
-      <p>A 2026 <a href="https://hsaforamerica.com/blog/is-health-sharing-tax-deductible/" class="inline-link" target="_blank">HSA for America</a> guide lays out the current (non-)deductibility of health sharing payments in plain terms: absent the Tax Parity Act passing, HCSM contributions still don't count as deductible medical expenses or qualify for HSA reimbursement the way insurance premiums or DPC fees under the $150/month cap now do.</p>
-      <p>Worth keeping on hand before assuming the IRS treats a health share like insurance — it doesn't, yet.</p>
+      <p>A separate IRS update, explained by <a class="inline" href="https://www.takecommandhealth.com/blog/hra-sharing-ministries-irs-update" target="_blank">Take Command Health</a>, expands the ability of employer HRAs to reimburse health-sharing ministry payments tax-free, and treats DPC fees and certain "shares" as qualified medical expenses — distinct from, but complementary to, the HSA cap issue in the free-market section above.</p>
     </div>
     <div class="card-footer">
-      <span class="card-source">HSA for America</span>
-      <a href="https://hsaforamerica.com/blog/is-health-sharing-tax-deductible/" class="link-btn" target="_blank">Source</a>
+      <span class="card-source">Take Command Health</span>
+      <a class="link-btn" href="https://www.takecommandhealth.com/blog/hra-sharing-ministries-irs-update" target="_blank">Read</a>
     </div>
   </div>
 </div>
 
 
-<!-- ══════════════════════════════════
-     SECTION: FINANCE & INVESTING
-══════════════════════════════════ -->
+<!-- FINANCE & INVESTING -->
 <div class="section-heading">
   <div class="icon">₿</div>
   <h2>Finance &amp; Investing</h2>
@@ -439,47 +421,47 @@
     <div class="card-top">
       <div class="card-top-icon">₿</div>
       <div>
-        <div class="card-label">Bitcoin · BTC-USD</div>
-        <div class="card-title">BTC Slips Below $63K as Risk Assets Sell Off</div>
+        <div class="card-label">Bitcoin</div>
+        <div class="card-title">Cooling Off After the Spring Run</div>
       </div>
     </div>
     <div class="card-body">
-      <div class="price-row"><span class="price-label">Current Price</span><span class="price-val down">$62,716 ▼2.03%</span></div>
-      <div class="price-row"><span class="price-label">30-Day High</span><span class="price-val neutral">$71,360 <span class="tag tag-gold">Jun 2</span></span></div>
-      <div class="price-row"><span class="price-label">30-Day Low</span><span class="price-val neutral">$62,606 <span class="tag tag-gold">Jun 18</span></span></div>
-      <p style="margin-top:0.7rem">Per <a href="https://www.coindesk.com/price/bitcoin" class="inline-link" target="_blank">CoinDesk</a>, bitcoin fell below $63,000 on Jun 19 as a broader risk-asset sell-off erased most of the bounce that followed a brief mid-June rally above $67,000 tied to a US-Iran ceasefire announcement. BTC is now down roughly 12% from its June 2 high.</p>
+      <div class="price-row"><span class="price-label">Price today</span><span class="price-val down">$64,338</span></div>
+      <div class="price-row"><span class="price-label">30-day high</span><span class="price-val neutral">$71,218</span></div>
+      <div class="price-row"><span class="price-label">30-day low</span><span class="price-val neutral">$63,395</span></div>
+      <p style="margin-top:8px">BTC has slid roughly 10% off its 30-day high, with reporting pointing to a stretch of heavy spot-ETF outflows pressuring price. Coverage from <a class="inline" href="https://www.coingabbar.com/en/crypto-currency-news/bitcoin-news-2026-06-15" target="_blank">CoinGabbar</a> mid-month still had BTC bouncing in the mid-$60Ks.</p>
     </div>
     <div class="chart-wrap">
-      <div class="chart-title">30-Day Trend (Reconstructed)</div>
+      <div class="chart-title">30-Day Trend</div>
       <canvas id="btcChart" height="90"></canvas>
     </div>
     <div class="card-footer">
-      <span class="card-source">CoinDesk · Jun 19, 2026</span>
-      <a href="https://www.coindesk.com/price/bitcoin" class="link-btn" target="_blank">Source</a>
+      <span class="card-source">CoinGabbar / Fortune</span>
+      <a class="link-btn" href="https://www.coingabbar.com/en/crypto-currency-news/bitcoin-news-2026-06-15" target="_blank">Read</a>
     </div>
   </div>
 
   <div class="card">
     <div class="card-top">
-      <div class="card-top-icon">📉</div>
+      <div class="card-top-icon">📊</div>
       <div>
-        <div class="card-label">Strategy · MSTR</div>
-        <div class="card-title">MSTR Falls 6% as Scrutiny on STRC Grows</div>
+        <div class="card-label">MSTR · Strategy Inc</div>
+        <div class="card-title">Leverage Cuts Both Ways</div>
       </div>
     </div>
     <div class="card-body">
-      <div class="price-row"><span class="price-label">Current Price (intraday)</span><span class="price-val down">~$110.50 ▼6%</span></div>
-      <div class="price-row"><span class="price-label">52-Week Range</span><span class="price-val neutral">$104.17 – $457.22</span></div>
-      <div class="price-row"><span class="price-label">BTC Holdings</span><span class="price-val neutral">846,842 BTC</span></div>
-      <p style="margin-top:0.7rem">Per <a href="https://www.cryptotimes.io/2026/06/18/strategys-bitcoin-empire-under-pressure-mstr-slide-5-amid-growing-scrutiny-on-strc/" class="inline-link" target="_blank">CryptoTimes</a>, MSTR is trading ~76% below its 52-week high amid growing scrutiny of the STRC preferred. Strategy's average BTC cost basis is $66,384/coin against a current BTC price around $62,716 — meaning the treasury itself is now sitting on an unrealized loss at today's BTC price.</p>
+      <div class="price-row"><span class="price-label">Price today</span><span class="price-val down">$112.53</span></div>
+      <div class="price-row"><span class="price-label">52-week range</span><span class="price-val neutral">$104.17 – $457.22</span></div>
+      <div class="price-row"><span class="price-label">Avg. 12-mo analyst target</span><span class="price-val up">$351.54</span></div>
+      <p style="margin-top:8px">MSTR is sitting near the bottom of its 52-week range, down sharply from its highs as BTC's pullback gets amplified through the company's leveraged balance sheet — exactly the volatility you're signing up for by holding it instead of spot BTC. <a class="inline" href="https://stockanalysis.com/stocks/mstr/" target="_blank">13 of the covering analysts</a> still rate it a buy.</p>
     </div>
     <div class="chart-wrap">
-      <div class="chart-title">30-Day Trend (Reconstructed)</div>
+      <div class="chart-title">30-Day Trend</div>
       <canvas id="mstrChart" height="90"></canvas>
     </div>
     <div class="card-footer">
-      <span class="card-source">CryptoTimes · Jun 18, 2026</span>
-      <a href="https://www.cryptotimes.io/2026/06/18/strategys-bitcoin-empire-under-pressure-mstr-slide-5-amid-growing-scrutiny-on-strc/" class="link-btn" target="_blank">Source</a>
+      <span class="card-source">StockAnalysis.com</span>
+      <a class="link-btn" href="https://stockanalysis.com/stocks/mstr/" target="_blank">Read</a>
     </div>
   </div>
 </div>
@@ -487,37 +469,38 @@
 <div class="grid-2" style="margin-top:16px">
   <div class="card">
     <div class="card-top">
-      <div class="card-top-icon">💰</div>
+      <div class="card-top-icon">💵</div>
       <div>
-        <div class="card-label">Not Financial Advice</div>
-        <div class="card-title">Where $1,000 Probably Beats Adding to BTC/MSTR Right Now</div>
+        <div class="card-label">$1,000 Today</div>
+        <div class="card-title">Don't Add to the Crypto Pile — Shelter It Instead</div>
       </div>
     </div>
     <div class="card-body">
-      <p>With MSTR down roughly 70% from its 52-week high and BTC off about 12% from its June 2 high, "buy the dip" is tempting — but between Tabbut Real Estate LLC's existing illiquid real estate exposure and an already-concentrated BTC/MSTR/STRC position, $1,000 of new money probably does more sitting somewhere currently empty: a 2026 Roth IRA contribution (the limit rose to <a href="https://www.irs.gov/newsroom/401k-limit-increases-to-24500-for-2026-ira-limit-increases-to-7500" class="inline-link" target="_blank">$7,500</a> this year) in a broad, low-cost index fund.</p>
-      <p>If the Roth's already maxed, the family HSA limit climbed to $8,750 for 2026 — also tax-advantaged, and unlike the Roth, usable on medical costs without penalty if the money's ever needed. This is a diversification observation based on existing exposures, not personalized investment advice.</p>
+      <p>You're already concentrated in BTC-correlated assets (MSTR, STRC preferred) plus illiquid real estate through <a class="inline" href="https://www.tabbutrealestate.com" target="_blank">Tabbut Real Estate LLC</a>. The marginal $1,000 is better spent buying diversification than buying more of what you already own a lot of.</p>
+      <p>Concretely: route it toward a 2026 <strong>backdoor Roth IRA</strong> contribution ($7,500 limit this year, per the <a class="inline" href="https://www.irs.gov/newsroom/401k-limit-increases-to-24500-for-2026-ira-limit-increases-to-7500" target="_blank">IRS's 2026 limits</a>) invested in a plain low-cost total-market index fund (VTI/VOO). If you've got 1099 income still uncommitted this year, a Solo 401k employer contribution shelters it from current tax too — total 2026 Solo 401k ceiling is $72,000.</p>
     </div>
     <div class="card-footer">
-      <span class="card-source">IRS · 2026 Limits</span>
-      <a href="https://www.irs.gov/newsroom/401k-limit-increases-to-24500-for-2026-ira-limit-increases-to-7500" class="link-btn" target="_blank">Source</a>
+      <span class="card-source">IRS · Not financial advice</span>
+      <a class="link-btn" href="https://www.irs.gov/newsroom/401k-limit-increases-to-24500-for-2026-ira-limit-increases-to-7500" target="_blank">Read</a>
     </div>
   </div>
 
   <div class="card">
     <div class="card-top">
-      <div class="card-top-icon">💡</div>
+      <div class="card-top-icon">⚙️</div>
       <div>
-        <div class="card-label">New Idea · Technology</div>
-        <div class="card-title">Freelance "AI Workflow + Home Network" Consulting</div>
+        <div class="card-label">New Income Idea · Technology</div>
+        <div class="card-title">Sell the Automation, Not Just the Advice</div>
       </div>
     </div>
     <div class="card-body">
-      <p>Combines two things already running for free at home — Claude/Cowork automation and a tuned <a href="https://openwrt.org/" class="inline-link" target="_blank">OpenWRT</a>/VLAN/QoS network with ZoneMinder computer vision — into a billable service for small businesses and small practices that need both AI workflow setup and basic network hardening but can't justify a full-time IT hire.</p>
-      <p><strong>Range:</strong> $75–150/hr; realistically $500–$2,500/month part-time, higher with 2–3 retainer clients. <strong>Start today:</strong> a one-page <a href="https://www.upwork.com/resources/how-to-become-a-freelancer" class="inline-link" target="_blank">Upwork</a> profile scoped to "AI workflow automation + small business network setup," with a free 20-minute audit call as the lead magnet — Clarity.fm is a fast way to land the first few paid calls without building a sales funnel. <strong>Friction:</strong> no license required; the real cost is time spent landing the first 2–3 clients.</p>
+      <p>You already build Claude + Python automations for your own QuickBooks workflow. Small local businesses (real estate offices, law firms, medical practices) will pay for exactly that, and most have no idea it's affordable now.</p>
+      <p><strong>Starting point:</strong> apply to the <a class="inline" href="https://zapier.com/l/solution-partner" target="_blank">Zapier Solution Partner Program</a> (needs a basic business website, no Zapier account required to apply) or list "AI workflow automation" services on Upwork today.</p>
+      <p><strong>Realistic range:</strong> $1,500–$5,000 per build, or $500–$2,000/mo retainers — call it $1,000–$8,000/month part-time once you have 3–4 clients. <strong>Friction:</strong> low — no license needed, but expect a 7–21 business day review on the Zapier partner application, and 10–15 hrs/week once you're running client work.</p>
     </div>
     <div class="card-footer">
-      <span class="card-source">Upwork</span>
-      <a href="https://www.upwork.com/resources/how-to-become-a-freelancer" class="link-btn" target="_blank">Source</a>
+      <span class="card-source">Zapier / NextAutomation</span>
+      <a class="link-btn" href="https://zapier.com/l/solution-partner" target="_blank">Read</a>
     </div>
   </div>
 </div>
@@ -525,78 +508,41 @@
 </div><!-- /page -->
 
 <footer>
-  Dr. Matt's Daily Digest &nbsp;·&nbsp; The Excellent Physician Project &nbsp;·&nbsp; Friday, June 19, 2026
+  Dr. Matt's Daily Digest &nbsp;·&nbsp; The Excellent Physician Project &nbsp;·&nbsp; June 22, 2026
   &nbsp;·&nbsp; <em>Not financial or medical advice</em>
   &nbsp;·&nbsp; <a href="https://www.excellentphysician.com">excellentphysician.com</a>
 </footer>
 
 <script>
-  const dimGrid = 'rgba(255,255,255,0.06)';
-  const dmMono = "'DM Mono', monospace";
+  const monoFont = "'DM Mono', monospace";
+  const baseLabels = ["May 23","May 24","May 26","May 27","May 29","May 30","Jun 1","Jun 2","Jun 4","Jun 5","Jun 7","Jun 9","Jun 10","Jun 12","Jun 13","Jun 15","Jun 17","Jun 19","Jun 20","Jun 22"];
+  const labels = baseLabels.map((d,i) => i % 3 === 0 ? d : "");
 
-  const btcLabels = ["May 21","May 23","May 25","May 27","May 29","May 31","Jun 2","Jun 4","Jun 6","Jun 8","Jun 10","Jun 12","Jun 14","Jun 15","Jun 16","Jun 17","Jun 18","Jun 19"];
-  const btcPrices = [68200,69400,70300,70900,71150,71300,71360,69200,65800,63400,62850,63552,65200,67200,65900,64100,62606,62716];
-  const btcLabelShow = btcLabels.map((l,i) => (i % 3 === 0 || i === btcLabels.length-1) ? l : "");
+  const btcData = [68500, 69800, 71218, 70600, 69900, 69200, 68400, 67600, 66800, 65900, 65100, 64300, 63395, 64100, 65695, 66449, 65200, 64600, 64000, 64338];
+  const mstrData = [134.4, 141.2, 148.7, 145.3, 141.7, 138.1, 133.9, 129.6, 125.4, 120.7, 116.5, 112.3, 107.6, 111.3, 119.6, 123.6, 117.0, 113.9, 110.7, 112.53];
 
-  const mstrPrices = [175,182,192,198,203,207,210,188,158,135,124,121,128,138,129,116.56,112,110.5];
-
-  new Chart(document.getElementById('btcChart'), {
-    type: 'line',
-    data: {
-      labels: btcLabelShow,
-      datasets: [{
-        data: btcPrices,
-        borderColor: '#e05555',
-        backgroundColor: (ctx) => {
-          const g = ctx.chart.ctx.createLinearGradient(0,0,0,90);
-          g.addColorStop(0, 'rgba(224,85,85,0.35)');
-          g.addColorStop(1, 'rgba(224,85,85,0.02)');
-          return g;
-        },
-        fill: true,
-        tension: 0.35,
-        pointRadius: 0,
-        borderWidth: 2
-      }]
+  const commonOpts = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: { legend: { display: false }, tooltip: { backgroundColor: '#1e2535', titleFont:{family:monoFont,size:10}, bodyFont:{family:monoFont,size:11}, padding:8, borderColor:'rgba(201,168,76,0.3)', borderWidth:1 } },
+    scales: {
+      x: { grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: '#9a9488', font: { family: monoFont, size: 9 }, maxRotation: 0 } },
+      y: { grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: '#9a9488', font: { family: monoFont, size: 9 } } }
     },
-    options: {
-      responsive: true,
-      plugins: { legend: { display: false }, tooltip: { enabled: true } },
-      scales: {
-        x: { grid: { color: dimGrid, display: false }, ticks: { color: '#9a9488', font: { family: dmMono, size: 9 }, maxRotation: 0 } },
-        y: { grid: { color: dimGrid }, ticks: { color: '#9a9488', font: { family: dmMono, size: 9 }, callback: (v) => '$' + (v/1000) + 'k' } }
-      }
-    }
-  });
+    elements: { point: { radius: 0 }, line: { tension: 0.35 } }
+  };
 
-  new Chart(document.getElementById('mstrChart'), {
-    type: 'line',
-    data: {
-      labels: btcLabelShow,
-      datasets: [{
-        data: mstrPrices,
-        borderColor: '#c9a84c',
-        backgroundColor: (ctx) => {
-          const g = ctx.chart.ctx.createLinearGradient(0,0,0,90);
-          g.addColorStop(0, 'rgba(201,168,76,0.35)');
-          g.addColorStop(1, 'rgba(201,168,76,0.02)');
-          return g;
-        },
-        fill: true,
-        tension: 0.35,
-        pointRadius: 0,
-        borderWidth: 2
-      }]
-    },
-    options: {
-      responsive: true,
-      plugins: { legend: { display: false }, tooltip: { enabled: true } },
-      scales: {
-        x: { grid: { color: dimGrid, display: false }, ticks: { color: '#9a9488', font: { family: dmMono, size: 9 }, maxRotation: 0 } },
-        y: { grid: { color: dimGrid }, ticks: { color: '#9a9488', font: { family: dmMono, size: 9 }, callback: (v) => '$' + v } }
-      }
-    }
-  });
+  const btcCtx = document.getElementById('btcChart').getContext('2d');
+  const btcGrad = btcCtx.createLinearGradient(0,0,0,90);
+  btcGrad.addColorStop(0, 'rgba(224,85,85,0.35)');
+  btcGrad.addColorStop(1, 'rgba(224,85,85,0)');
+  new Chart(btcCtx, { type: 'line', data: { labels, datasets: [{ data: btcData, borderColor: '#e05555', backgroundColor: btcGrad, fill: true, borderWidth: 2 }] }, options: commonOpts });
+
+  const mstrCtx = document.getElementById('mstrChart').getContext('2d');
+  const mstrGrad = mstrCtx.createLinearGradient(0,0,0,90);
+  mstrGrad.addColorStop(0, 'rgba(201,168,76,0.35)');
+  mstrGrad.addColorStop(1, 'rgba(201,168,76,0)');
+  new Chart(mstrCtx, { type: 'line', data: { labels, datasets: [{ data: mstrData, borderColor: '#c9a84c', backgroundColor: mstrGrad, fill: true, borderWidth: 2 }] }, options: commonOpts });
 </script>
 
 </body>
