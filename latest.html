@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dr. Matt's Daily Digest — July 6, 2026</title>
+<title>Dr. Matt's Daily Digest — July 7, 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
@@ -96,7 +96,7 @@
 <header>
   <div class="header-eyebrow">The Excellent Physician · Daily Intelligence Brief</div>
   <h1>Dr. Matt's <span>Daily Digest</span></h1>
-  <div class="header-sub">Monday · July 6, 2026 &nbsp;·&nbsp; Emergency Medicine · Finance · Technology · Life</div>
+  <div class="header-sub">Tuesday · July 7, 2026 &nbsp;·&nbsp; Emergency Medicine · Finance · Technology · Life</div>
 </header>
 
 <div class="page">
@@ -113,89 +113,90 @@
 
 <div class="grid-3">
 
-  <!-- CARD: Latest Claude Release -->
+  <!-- CARD 1: Latest Claude Tool -->
+  <div class="card">
+    <div class="card-top">
+      <div class="card-top-icon">✨</div>
+      <div>
+        <div class="card-label">Latest Release</div>
+        <div class="card-title">Claude Sonnet 5 Drops as New Default Model</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div><span class="tag tag-gold">Jun 30, 2026</span><span class="tag tag-blue">New Model</span></div>
+      <p><strong>What it is:</strong> <a href="https://www.anthropic.com/news" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">Anthropic</a> released Claude Sonnet 5 on June 30, replacing Sonnet 4.6 as the default model across all Claude products. The upgrade brings substantial gains in multi-step reasoning, tool use, coding, and knowledge work.</p>
+      <p><strong>How to use it:</strong> If you're on any paid Claude plan, Sonnet 5 is already your default in <a href="https://claude.ai" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">claude.ai</a> and in Cowork. For API users, update your model string to <code style="font-family:'DM Mono',monospace;color:var(--gold);font-size:0.82em;">claude-sonnet-5</code>. Expect noticeably better outputs on complex multi-tool Cowork workflows and longer reasoning chains.</p>
+      <div class="callout">"Substantial gains in multi-step reasoning and tool use" — particularly relevant for your Cowork skill automations and the daily digest pipeline.</div>
+    </div>
+    <div class="card-footer">
+      <span class="card-source">Anthropic Newsroom</span>
+      <a class="link-btn" href="https://www.anthropic.com/news" target="_blank">Read More</a>
+    </div>
+  </div>
+
+  <!-- CARD 2: Claude in Medical Practice (education/admin ONLY — no patient data) -->
+  <div class="card">
+    <div class="card-top">
+      <div class="card-top-icon">🩺</div>
+      <div>
+        <div class="card-label">Claude in Your Practice</div>
+        <div class="card-title">Auto-Draft Your Next Grand Rounds Slide Deck</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div><span class="tag tag-sage">Medical Education</span><span class="tag tag-gold">No PHI</span></div>
+      <p><strong>The workflow:</strong> Use <a href="https://claude.ai/code" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">Claude Code's</a> new <strong>/goal command</strong> to set a completion condition like <em>"produce a 20-slide Grand Rounds deck on medetomidine toxicology with speaker notes and literature citations"</em>, then let Claude work autonomously — pulling from uploaded PDFs, journal abstracts, and ACEP guidelines — until the condition is met.</p>
+      <p>This approach is HIPAA-safe because it operates entirely on published literature and department documents, not patient data. Drop in a few Annals PDFs, set the /goal, walk away. Return to a draft deck ready for your revisions.</p>
+      <div class="callout">Timely application: the new medetomidine Annals paper (see EM section below) would make an excellent resident conference topic right now.</div>
+    </div>
+    <div class="card-footer">
+      <span class="card-source">Claude Code · /goal Command</span>
+      <a class="link-btn" href="https://claude.ai/code" target="_blank">Try It</a>
+    </div>
+  </div>
+
+  <!-- CARD 3: Claude for Side Projects -->
   <div class="card">
     <div class="card-top">
       <div class="card-top-icon">🚀</div>
       <div>
-        <div class="card-label">Latest Release</div>
-        <div class="card-title">Claude Sonnet 5: Anthropic's Most Agentic Model Yet</div>
-      </div>
-    </div>
-    <div class="card-body">
-      <p><span class="tag tag-gold">New</span><span class="tag tag-blue">Released Jun 30</span></p>
-      <p><a href="https://www.anthropic.com/news/claude-sonnet-5" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">Claude Sonnet 5</a>, released June 30, 2026, is built to plan, use tools like browsers and terminals, and run autonomously at a level that previously required larger, more expensive models. It narrows the performance gap with Claude Opus 4.8 while launching at introductory pricing of <strong>$2/$10 per million tokens</strong> through August 31, 2026.</p>
-      <p>Supports a <strong>1M token context window</strong> with 128k max output tokens. Multiagent orchestration, Claude Managed Agent webhooks, and self-hosted sandboxes on AWS are now all available on the <a href="https://platform.claude.com/docs/en/about-claude/models/overview" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">Claude Platform</a>. API rate limits have also been raised across all tiers, now matching Opus at every level.</p>
-      <div class="callout">Use it today: Build a Sonnet 5 agent that monitors PubMed for new POCUS publications and emails you a weekly summary — no coding required with Claude's browser tool.</div>
-    </div>
-    <div class="card-footer">
-      <span class="card-source">Anthropic · Jun 30, 2026</span>
-      <a class="link-btn" href="https://www.anthropic.com/news/claude-sonnet-5" target="_blank">Read Announcement</a>
-    </div>
-  </div>
-
-  <!-- CARD: Claude in Medical Practice (education/admin only — NO patient data) -->
-  <div class="card">
-    <div class="card-top">
-      <div class="card-top-icon">🏥</div>
-      <div>
-        <div class="card-label">Claude in Your Practice</div>
-        <div class="card-title">Automating Lecture Prep with Sonnet 5's Long Context</div>
-      </div>
-    </div>
-    <div class="card-body">
-      <p><span class="tag tag-sage">Education</span><span class="tag tag-gold">No PHI</span></p>
-      <p>With Sonnet 5's <strong>1 million token context window</strong>, you can now paste an entire semester's worth of POCUS literature, guidelines, and your own <a href="https://www.anthropic.com/claude/sonnet" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">Guardians of the Sound</a> curriculum notes in a single prompt and ask it to generate a fully structured lecture outline, including learning objectives, case vignettes, and self-assessment questions.</p>
-      <p>Practical workflow: dump your annotated reference list into Claude, ask for a 30-minute conference presentation in your department's preferred format. Have Sonnet 5 also generate a one-page resident handout and a 5-question post-lecture quiz. What took 3 hours now takes 20 minutes.</p>
-      <div class="callout">Approved use only: teaching materials, CME content, department protocol drafts, grant language — never patient charts or clinical notes.</div>
-    </div>
-    <div class="card-footer">
-      <span class="card-source">Anthropic Platform · 2026</span>
-      <a class="link-btn" href="https://www.anthropic.com/claude/sonnet" target="_blank">Try Sonnet 5</a>
-    </div>
-  </div>
-
-  <!-- CARD: Claude for Side Projects -->
-  <div class="card">
-    <div class="card-top">
-      <div class="card-top-icon">💼</div>
-      <div>
         <div class="card-label">Side Projects</div>
-        <div class="card-title">One Blog Post → Five Content Formats in Minutes</div>
+        <div class="card-title">Blog-to-YouTube Pipeline for excellentphysician.com</div>
       </div>
     </div>
     <div class="card-body">
-      <p><span class="tag tag-blue">excellentphysician.com</span></p>
-      <p>Claude Sonnet 5's agentic capabilities make content repurposing trivially easy. Drop in any recent <a href="https://www.excellentphysician.com" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">Excellent Physician</a> blog post and prompt: <em>"Repurpose this into: (1) a 60-second YouTube intro script, (2) three Instagram caption options with hashtags, (3) a newsletter teaser paragraph, (4) five LinkedIn hook variations, (5) a short Twitter/X thread."</em></p>
-      <p>Sonnet 5's larger context means it can ingest multiple posts at once, detect your recurring themes (virtue, physician identity, fiscal discipline), and keep your voice consistent across every format — no additional editing needed. One session, five distribution channels.</p>
-      <div class="callout">Pro tip: save a "Matt's voice profile" system prompt in your Projects — Sonnet 5 remembers it across every repurposing session.</div>
+      <div><span class="tag tag-blue">Content Creation</span><span class="tag tag-gold">Cowork</span></div>
+      <p><strong>The idea:</strong> Every published blog post at <a href="https://excellentphysician.com" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">excellentphysician.com</a> contains a ready-made YouTube script hiding inside it. Use Cowork to create a skill that ingests the raw post, extracts the core argument, reformats it as a tight 5-minute video script with hook → conflict → resolution → CTA, and outputs a production-ready document.</p>
+      <p>With Sonnet 5's improved reasoning, the script output is noticeably more coherent and on-voice than before. Pair it with the <strong>excellent-physician-style</strong> skill for tonal consistency. One post can now yield a blog, a YouTube script, an Instagram caption, and a newsletter blurb in a single Cowork run.</p>
     </div>
     <div class="card-footer">
-      <span class="card-source">Anthropic Platform · Jul 2026</span>
-      <a class="link-btn" href="https://claude.ai" target="_blank">Open Claude</a>
+      <span class="card-source">Cowork · skill-creator</span>
+      <a class="link-btn" href="https://excellentphysician.com" target="_blank">Your Blog</a>
     </div>
   </div>
 
 </div>
 
-<!-- Wide card: Claude Personal Use -->
 <div class="grid-1" style="margin-top:16px">
+
+  <!-- WIDE CARD: Claude Personal Use -->
   <div class="card">
     <div class="card-top">
-      <div class="card-top-icon">🏡</div>
+      <div class="card-top-icon">🏠</div>
       <div>
-        <div class="card-label">Personal Use</div>
-        <div class="card-title">Monthly QuickBooks Summary for Tabbut Real Estate LLC — Automated</div>
+        <div class="card-label">Claude Personal Use</div>
+        <div class="card-title">Build a Living Family Finance Dashboard with Cowork + QuickBooks</div>
       </div>
     </div>
     <div class="card-body">
-      <p>The <a href="https://platform.claude.com/docs/en/about-claude/models/overview" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">Claude Platform API</a> now supports custom agent workflows that can call external connectors. If you connect QuickBooks to Claude (via Cowork or the API), you can set a monthly scheduled agent: pull your P&L, categorize expenses, flag anything that looks anomalous, and generate a one-page plain-English summary for Sara — no accountant needed for routine monthly review. Total setup time: one hour. Ongoing time per month: zero. Use the new <strong>Claude Managed Agents webhooks</strong> to trigger this automatically on the first of each month.</p>
+      <p>You now have both the <strong>QuickBooks MCP</strong> and <strong>Cowork artifacts</strong> connected. The practical combination: ask Claude to pull your Tabbut Real Estate LLC P&L from QuickBooks, compare it to prior quarters, flag any anomalies, and render it as a persistent HTML artifact you can re-open any time — no re-running required. The artifact calls the QuickBooks API live each time it loads, so the numbers stay current. Add a second panel for personal finance goals (rental income target, Roth contribution progress, MSTR cost basis) and you have a true command center. Takes about 20 minutes to set up with the <strong>xlsx skill</strong> as a complement for the spreadsheet-minded view. This is the kind of tool that turns a Sunday afternoon into a genuine financial review rather than a scramble for spreadsheets.</p>
     </div>
     <div class="card-footer">
-      <span class="card-source">Anthropic Platform · Jul 2026</span>
-      <a class="link-btn" href="https://releasebot.io/updates/anthropic" target="_blank">Platform Updates</a>
+      <span class="card-source">Cowork Artifacts · QuickBooks MCP</span>
+      <a class="link-btn" href="https://quickbooks.intuit.com" target="_blank">QuickBooks</a>
     </div>
   </div>
+
 </div>
 
 
@@ -211,45 +212,45 @@
 
 <div class="grid-2">
 
-  <!-- CARD: Top EM Highlight — ARISE FLUIDS -->
+  <!-- CARD: Top EM Highlight -->
   <div class="card">
     <div class="card-top">
-      <div class="card-top-icon">💉</div>
+      <div class="card-top-icon">🏥</div>
       <div>
-        <div class="card-label">Top Journal · NEJM · Jun 25, 2026</div>
-        <div class="card-title">ARISE FLUIDS: Vasopressors First vs. Fluids First in ED Septic Shock</div>
+        <div class="card-label">Top Highlight · July 2026</div>
+        <div class="card-title">Rural Hospital ED Guarantee Act Introduced in Congress</div>
       </div>
     </div>
     <div class="card-body">
-      <p><span class="tag tag-red">Practice-Changing</span><span class="tag tag-gold">NEJM 2026</span></p>
-      <p>The <a href="https://clinicaltrials.gov/study/NCT04569942" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">ARISE FLUIDS trial</a> — the Australasian Resuscitation in Sepsis Evaluation: Fluid or Vasopressors in Emergency Department Sepsis — published its primary results in <a href="https://www.nejm.org/doi/10.1056/NEJMoa2516225" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">NEJM</a> on June 25, 2026. The 1,000-patient multicenter RCT (Australia, New Zealand, Ireland) randomized patients 1:1 to <strong>restricted fluids + early vasopressors</strong> vs. larger initial fluid volume + delayed vasopressors.</p>
-      <p>Primary endpoint: <strong>days alive and out of hospital at day 90</strong>. Secondary endpoints include 90-day all-cause mortality, ventilator-free days, and vasopressor-free days. This is the definitive ED-based RCT on a question you manage every shift — fluid responsiveness vs. early norepinephrine in septic shock resuscitation.</p>
-      <div class="callout">Why it matters to you: MetroHealth runs high-volume septic shock. If ARISE FLUIDS confirms early vasopressor superiority, expect ACEP and SCCM guideline updates within 12 months.</div>
+      <div><span class="tag tag-gold">Legislation</span><span class="tag tag-sage">Bipartisan</span></div>
+      <p><a href="https://www.acepnow.com/article/july-2026-news-from-the-college/" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">ACEP Past President Aisha Terry, MD, MPH, FACEP</a>, joined Missouri Senator Josh Hawley for a Capitol Hill news conference to roll out the <strong>Rural Hospital Emergency Department Guarantee Act</strong> — new bipartisan legislation aimed at protecting emergency care access in underserved rural communities.</p>
+      <p>The bill responds to a years-long wave of rural ED closures driven by Medicaid underfunding and staffing shortages. If passed, it would establish federal baseline guarantees for rural ED capacity and create funding mechanisms to prevent closures in communities with no alternative access point.</p>
+      <div class="callout">This hits close to MetroHealth's mission. Academic EDs in urban trauma centers often absorb the overflow when rural EDs fail — worth tracking as a policy story with real clinical downstream effects.</div>
     </div>
     <div class="card-footer">
-      <span class="card-source">NEJM · ARISE FLUIDS Consortium · Jun 25, 2026</span>
-      <a class="link-btn" href="https://www.nejm.org/doi/10.1056/NEJMoa2516225" target="_blank">Read in NEJM</a>
+      <span class="card-source">ACEP Now · July 2026</span>
+      <a class="link-btn" href="https://www.acepnow.com/article/july-2026-news-from-the-college/" target="_blank">Read More</a>
     </div>
   </div>
 
-  <!-- CARD: Top EM Journal Article — Sepsis S3 Guideline -->
+  <!-- CARD: Top EM Journal Article -->
   <div class="card">
     <div class="card-top">
-      <div class="card-top-icon">📋</div>
+      <div class="card-top-icon">📄</div>
       <div>
-        <div class="card-label">Guideline Update · 2025/2026</div>
-        <div class="card-title">S3 Sepsis Guideline Update: Prevention, Diagnosis, Therapy &amp; Follow-Up</div>
+        <div class="card-label">Journal Spotlight · Annals of EM</div>
+        <div class="card-title">Medetomidine in the Illicit Drug Supply: What Every EM Physician Needs to Know</div>
       </div>
     </div>
     <div class="card-body">
-      <p><span class="tag tag-blue">Sepsis</span><span class="tag tag-gold">Guideline</span></p>
-      <p>The updated <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12708846/" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">S3 Guideline on Sepsis</a> — a comprehensive European evidence-based update covering prevention, diagnosis, therapy, and follow-up care — represents the current international consensus. Published in 2025/2026, it synthesizes recent RCT evidence including data on biomarker-guided therapy, antibiotic stewardship, and vasopressor selection.</p>
-      <p>Key updates relevant to your ED practice: <strong>earlier vasopressor initiation</strong> is now supported by stronger evidence; lactate-guided resuscitation endpoints are refined; and follow-up care for post-sepsis syndrome receives its own dedicated section — important for MetroHealth's high-risk population with limited primary care follow-up.</p>
-      <div class="callout">Pair with ARISE FLUIDS for your next department grand rounds or Morning Report — two complementary pieces of evidence reshaping sepsis resuscitation.</div>
+      <div><span class="tag tag-red">Toxicology</span><span class="tag tag-gold">Annals 2026</span></div>
+      <p><strong>Study:</strong> <a href="https://www.annemergmed.com/article/S0196-0644(25)01434-9/fulltext" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">"Emergence of Medetomidine in the Illicit Drug Supply: Implications for Emergency Care and Withdrawal Management"</a> — Lynch, Pizon & Yealy, University of Pittsburgh Department of Emergency Medicine &amp; Division of Medical Toxicology. Published Jan 22, 2026.</p>
+      <p><strong>The clinical problem:</strong> Medetomidine ("tranq," "rhino tranq," "mede") is an alpha-2 agonist increasingly adulterating the illicit fentanyl supply. The dangerous twist: after naloxone reverses the opioid component, medetomidine sedation persists — patients appear to "re-narcotize" but naloxone re-dosing does nothing. Withdrawal is also poorly understood and potentially cardiac in nature.</p>
+      <p><strong>Key takeaway:</strong> Patients presenting with fentanyl OD who remain sedated after adequate naloxone should raise immediate suspicion for medetomidine co-exposure. Standard opioid withdrawal protocols do not apply.</p>
     </div>
     <div class="card-footer">
-      <span class="card-source">PMC · S3 Guideline Consortium · 2025</span>
-      <a class="link-btn" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12708846/" target="_blank">Read Guideline</a>
+      <span class="card-source">Annals of Emergency Medicine · Jan 2026</span>
+      <a class="link-btn" href="https://www.annemergmed.com/article/S0196-0644(25)01434-9/fulltext" target="_blank">Full Article</a>
     </div>
   </div>
 
@@ -259,18 +260,19 @@
 <div class="grid-1" style="margin-top:16px">
   <div class="card">
     <div class="card-top">
-      <div class="card-top-icon">🌍</div>
+      <div class="card-top-icon">⚠️</div>
       <div>
-        <div class="card-label">Global EM · Literature Review · 2026</div>
-        <div class="card-title">20th Annual Global Emergency Medicine Literature Review: 2024 Research in Scope</div>
+        <div class="card-label">EM Staffing Watch</div>
+        <div class="card-title">PeaceHealth–EEP Standoff Reaches Its Conclusion: What It Means for Independent EM Groups</div>
       </div>
     </div>
     <div class="card-body">
-      <p>The <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12925323/" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">Global Emergency Medicine Literature Review (GEMLR)</a> — now in its 20th annual edition — identifies the most impactful research in global emergency care published in 2024. As an academic EM faculty member at <a href="https://case.edu" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">CWRU</a>, this is your single best shortcut for staying current with international EM evidence. The 2026 edition is published on PubMed Central and covers resource-limited settings, ultrasound applications, and triage innovations that translate directly to inner-city ED practice.</p>
+      <p>As of <strong>July 1, 2026</strong>, <a href="https://www.acepnow.com" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">PeaceHealth</a> officially ended its 35-year contract with the independent <strong>Eugene Emergency Physicians (EEP)</strong> group and transitioned to <strong>ApolloMD</strong>, an Atlanta-based staffing company. The case has drawn national attention because it mirrors a recurring pattern: large health systems terminating long-standing relationships with independent physician groups in favor of corporate staffing models.</p>
+      <p>The implications extend well beyond Oregon. <a href="https://www.acepnow.com/article/july-2026-news-from-the-college/" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">ACEP Now</a> editors flagged the case as deserving "close attention from emergency medicine leaders nationwide," noting it illustrates the vulnerability of even deeply established independent groups to hospital system consolidation pressure. For anyone thinking about the free market medicine space in EM, this is the canonical counterexample — and a reason DPC/direct EM models may hold appeal.</p>
     </div>
     <div class="card-footer">
-      <span class="card-source">PMC · GEMLR · 2026</span>
-      <a class="link-btn" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12925323/" target="_blank">Read GEMLR</a>
+      <span class="card-source">ACEP Now · July 2026</span>
+      <a class="link-btn" href="https://www.acepnow.com/article/july-2026-news-from-the-college/" target="_blank">Read More</a>
     </div>
   </div>
 </div>
@@ -283,28 +285,28 @@
   <div class="icon">💊</div>
   <h2>Healthcare Technology</h2>
   <div class="rule"></div>
-  <div class="mono">Innovation · AI · Digital Health · Recent</div>
+  <div class="mono">Innovation · AI · Digital Health · Last 24–48 Hours</div>
 </div>
 
 <div class="grid-1">
   <div class="card">
     <div class="card-top">
-      <div class="card-top-icon">🔬</div>
+      <div class="card-top-icon">🫀</div>
       <div>
-        <div class="card-label">Digital Health · Funding · Q1 2026</div>
-        <div class="card-title">OpenEvidence Raises $250M to Power AI-First Clinical Search — Physicians Are the Target User</div>
+        <div class="card-label">Healthcare Tech · July 7, 2026</div>
+        <div class="card-title">On-Body AI Patch Detects Life-Threatening Arrhythmias with 99.6% Accuracy — No Cloud Required</div>
       </div>
     </div>
     <div class="card-body">
-      <p><span class="tag tag-gold">Physician-Relevant</span><span class="tag tag-blue">Q1 2026</span></p>
-      <p><strong>Note: This story is from Q1 2026 — the strongest recent healthcare tech signal available. No single dominant 24-hour item was identified for July 6, 2026; this is the most clinically relevant recent development.</strong></p>
-      <p><a href="https://crescendo.ai/news/ai-in-healthcare-news" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">Digital health startups raised $4 billion in venture funding in Q1 2026</a>, with the quarter's headline deal being <strong>$250 million for OpenEvidence</strong> — an AI-powered healthcare search platform built specifically for physicians. OpenEvidence indexes clinical literature, drug data, and guidelines, and returns synthesized, sourced answers rather than raw links. Think of it as Claude for your clinical reference workflow, trained on medical evidence and optimized for point-of-care use.</p>
-      <p>Other major Q1 deals: <a href="https://www.whoop.com" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">Whoop</a> raised $575M (wearable health), and <a href="https://verily.com" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">Verily</a> raised $300M (precision health data platform). The <a href="https://medcitynews.com/2026/02/how-ai-and-predictive-analytics-will-shape-ems-fire-and-healthcare-in-2026/" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">ADVOCATE program</a> is also progressing toward the first FDA-authorized agentic AI for cardiovascular specialty care — a 24/7 AI agent capable of performing clinical tasks a cardiologist would do by phone.</p>
-      <div class="callout">For you as a physician-entrepreneur: OpenEvidence is the model — a niche AI product built for a single high-value professional user. This is exactly the category that produces breakout companies in the next 24 months.</div>
+      <div><span class="tag tag-blue">Wearables</span><span class="tag tag-green">AI Diagnostics</span><span class="tag tag-gold">July 2026</span></div>
+      <p><strong>What it is:</strong> Researchers at the <a href="https://www.marketscale.com/industries/healthcare/digital-healths-july-2026-signal-ai-wearables-a-new-cms-office-and-the-telehealth-billing-fight" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">University of Chicago</a> have developed a flexible computing patch that detects life-threatening cardiac arrhythmias with <strong>99.6% accuracy</strong> — processing all inference directly on the device, not in the cloud. The patch sits on the chest, runs a custom edge AI model, and delivers results in milliseconds.</p>
+      <p><strong>Why it matters for EM:</strong> Cloud-dependent cardiac monitoring must transmit data, process it remotely, and return a signal — adding seconds that can be clinically decisive in a V-fib or SVT event. This device eliminates that latency entirely. In an ED context, it has implications for both post-arrest monitoring and rapid triage in undifferentiated chest pain patients.</p>
+      <p><strong>Who's behind it:</strong> University of Chicago bioengineering lab, reported in <a href="https://www.marketscale.com/industries/healthcare/digital-healths-july-2026-signal-ai-wearables-a-new-cms-office-and-the-telehealth-billing-fight" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">MarketScale's July 2026 digital health signal roundup</a>. The same report also notes a newly established <strong>CMS AI Office</strong> — a federal infrastructure signal that the government is moving past pilot programs toward institutional AI adoption in healthcare billing and operations.</p>
+      <div class="callout">Physician-entrepreneur angle: as the founder of a POCUS education platform (Guardians of the Sound), you're well-positioned to watch AI-on-device diagnostic tools closely — the same edge AI architecture underlying this patch is the future of point-of-care ultrasound interpretation.</div>
     </div>
     <div class="card-footer">
-      <span class="card-source">MedCity News · Crescendo.ai · Q1 2026</span>
-      <a class="link-btn" href="https://medcitynews.com/2026/02/the-25-7b-healthcare-problem-ai-is-finally-solving/" target="_blank">MedCity Coverage</a>
+      <span class="card-source">MarketScale · Digital Health · July 2026</span>
+      <a class="link-btn" href="https://www.marketscale.com/industries/healthcare/digital-healths-july-2026-signal-ai-wearables-a-new-cms-office-and-the-telehealth-billing-fight" target="_blank">Read More</a>
     </div>
   </div>
 </div>
@@ -328,39 +330,40 @@
       <div class="card-top-icon">🇺🇸</div>
       <div>
         <div class="card-label">Federal Policy · July 2026</div>
-        <div class="card-title">OBBBA Medicaid Cuts Accelerating: Work Requirements, ACA Court Ruling, Price Transparency Push</div>
+        <div class="card-title">"One Big Beautiful Bill" Provisions Hit July 1 — Essential Plan Cuts and Price Transparency Crackdown</div>
       </div>
     </div>
     <div class="card-body">
-      <p><span class="tag tag-red">Active Now</span><span class="tag tag-gold">Medicaid</span></p>
-      <p>The <a href="https://www.ama-assn.org/health-care-advocacy/federal-advocacy/changes-medicaid-aca-and-other-key-provisions-one-big" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">One Big Beautiful Bill Act (OBBBA)</a>, signed July 4, 2025, is now producing its first wave of real-world impacts. CBO estimates <strong>$1.02 trillion in Medicaid/CHIP cuts by 2034</strong>, with an estimated <strong>10 million people losing coverage</strong>. Starting December 2026, Medicaid enrollees must log at least 80 hours/month of "community engagement" to maintain eligibility.</p>
-      <p>Separately, a federal judge on June 15, 2026 <a href="https://www.hklaw.com/en/insights/publications/2026/06/holland-and-knight-health-dose-june-9-2026" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">vacated eight portions</a> of the 2025 ACA marketplace integrity rule, reinstating certain special enrollment periods. HHS has also escalated <a href="https://www.beckershospitalreview.com/legal-regulatory-issues/notable-healthcare-policies-taking-effect-in-2026/" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">hospital price transparency enforcement</a>, issuing corrective action requests to 519 hospitals since April 2026.</p>
-      <div class="callout">ED impact: expect increased uninsured volume at MetroHealth as Medicaid work requirements phase in December 2026 — start watching your payer mix data now.</div>
+      <div><span class="tag tag-red">Active Now</span><span class="tag tag-gold">OBBBA</span></div>
+      <p>Two major federal healthcare developments went live this week from the <strong>One Big Beautiful Bill Act of 2025</strong>:</p>
+      <p><strong>1. Essential Plan Cuts:</strong> Approximately <strong>450,000 lawfully present immigrants</strong> enrolled in the Essential Plan lost coverage starting July 1, 2026, due to new eligibility restrictions. This population frequently uses EDs as primary care — expect increased uncompensated care volume at urban academic centers like MetroHealth.</p>
+      <p><strong>2. Hospital Price Transparency Enforcement:</strong> <a href="https://www.ama-assn.org/health-care-advocacy/federal-advocacy/4-big-beautiful-bill-changes-will-reshape-care-2026" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">HHS</a> escalated enforcement of federal price transparency requirements, issuing warning notices or corrective action plans to <strong>519 hospitals nationwide</strong> since April 2026 for failing to adequately disclose pricing. This is directly relevant to the free market medicine story — transparency is a prerequisite for functioning markets in healthcare.</p>
+      <div class="callout">The student loan changes (unsubsidized professional loans now capped at $50k/yr, $200k total) also take effect July 1 — with significant implications for future physician supply and the DPC workforce pipeline.</div>
     </div>
     <div class="card-footer">
-      <span class="card-source">AMA · Becker's · Holland &amp; Knight · Jul 2026</span>
-      <a class="link-btn" href="https://www.ama-assn.org/health-care-advocacy/federal-advocacy/4-big-beautiful-bill-changes-will-reshape-care-2026" target="_blank">AMA Analysis</a>
+      <span class="card-source">AMA · HHS · July 2026</span>
+      <a class="link-btn" href="https://www.ama-assn.org/health-care-advocacy/federal-advocacy/4-big-beautiful-bill-changes-will-reshape-care-2026" target="_blank">AMA Summary</a>
     </div>
   </div>
 
   <!-- CARD: Ohio Policy -->
   <div class="card">
     <div class="card-top">
-      <div class="card-top-icon">🏙️</div>
+      <div class="card-top-icon">🔴</div>
       <div>
         <div class="card-label">Ohio Policy · July 2026</div>
-        <div class="card-title">Ohio Faces $33B Medicaid Loss: HB 96 Auto-Termination Clause Creates New Risk</div>
+        <div class="card-title">Ohio Senate Passes SB 423: Clarifying Independent Contractor Status for Healthcare Workers</div>
       </div>
     </div>
     <div class="card-body">
-      <p><span class="tag tag-red">Ohio-Specific</span><span class="tag tag-sage">Medicaid</span></p>
-      <p>Ohio is projected to lose <strong>$33 billion in federal Medicaid funding</strong> over the next decade under the OBBBA — a 13% cut against the current baseline, <a href="https://signalohio.org/under-trumps-big-beautiful-bill-ohio-to-lose-33-billion-for-medicaid-340000-to-lose-insurance-analysts-say/" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">with ~340,000 Ohioans projected to lose insurance</a>.</p>
-      <p>Ohio's biennial budget (<a href="https://www.bmdllc.com/resources/blog/key-healthcare-provisions-in-ohio-s-2026-2027-budget/" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">HB 96</a>, signed June 30, 2025) includes a provision that automatically terminates Ohio's Medicaid expansion if the Federal Medical Assistance Percentage (FMAP) drops below 90%. Ohio also faces a <strong>$640M state revenue cliff</strong> in SFY 2028 if it fails to reform its health insuring corporation franchise tax before July 1, 2027. Both are live risks for <a href="https://www.metrohealth.org" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">MetroHealth</a> as a safety-net system serving Cuyahoga County's Medicaid-dependent population.</p>
-      <div class="callout">MetroHealth serves one of Ohio's highest Medicaid-volume counties. These cuts hit your hospital's financial foundation directly — worth tracking quarterly.</div>
+      <div><span class="tag tag-sage">Ohio Senate</span><span class="tag tag-gold">SB 423</span></div>
+      <p>The <a href="https://www.staffingindustry.com/editorial/cws-30-contingent-workforce-strategies/ohio-senate-passes-healthcare-independent-contractor-bill" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">Ohio Senate passed SB 423</a>, legislation that spells out specifically when a healthcare worker can be classified as an independent contractor — particularly for workers placed through online staffing platforms. The bill lists 15 requirements, including formal agreement terms, the ability to reject shifts without penalty, and a ban on noncompete clauses for platform-placed workers.</p>
+      <p>The bill now moves to the <strong>Ohio House</strong> for consideration. If passed, it would formalize legal protections that matter enormously to the growing number of EM physicians doing locums and gig-based emergency coverage — and has implications for the PeaceHealth/EEP-style conflicts playing out in EM staffing nationally.</p>
+      <p>Also in Columbus: the Ohio General Assembly continues deliberations on the <strong>FY 2026-2027 state operating budget (HB 96)</strong>, with hundreds of health-related amendments pending. Ohio Medicaid funding levels remain contested.</p>
     </div>
     <div class="card-footer">
-      <span class="card-source">Signal Ohio · Health Policy Ohio · Jul 2026</span>
-      <a class="link-btn" href="https://signalohio.org/under-trumps-big-beautiful-bill-ohio-to-lose-33-billion-for-medicaid-340000-to-lose-insurance-analysts-say/" target="_blank">Signal Ohio</a>
+      <span class="card-source">Staffing Industry Analysts · Ohio Senate</span>
+      <a class="link-btn" href="https://www.staffingindustry.com/editorial/cws-30-contingent-workforce-strategies/ohio-senate-passes-healthcare-independent-contractor-bill" target="_blank">Read More</a>
     </div>
   </div>
 
@@ -371,7 +374,7 @@
      SECTION: FREE MARKET MEDICINE
 ══════════════════════════════════ -->
 <div class="section-heading">
-  <div class="icon">🏥</div>
+  <div class="icon">🏪</div>
   <h2>Free Market Medicine</h2>
   <div class="rule"></div>
   <div class="mono">DPC · Concierge · Policy</div>
@@ -379,45 +382,43 @@
 
 <div class="grid-2">
 
-  <!-- CARD: DPC + HSA -->
   <div class="card">
     <div class="card-top">
-      <div class="card-top-icon">💰</div>
+      <div class="card-top-icon">📊</div>
       <div>
-        <div class="card-label">DPC Policy · 2026</div>
-        <div class="card-title">HSA + DPC Finally Aligned: OBBBA Allows $150/Month Pre-Tax DPC Membership</div>
+        <div class="card-label">DPC Trends Report · 2026</div>
+        <div class="card-title">Employers Now Fund 60% of Active DPC Memberships — DPC Has Crossed the Chasm</div>
       </div>
     </div>
     <div class="card-body">
-      <p><span class="tag tag-green">Effective Jan 2026</span><span class="tag tag-gold">DPC</span></p>
-      <p>Effective January 1, 2026, the <a href="https://saltadirect.com/hsa-direct-primary-care-what-the-one-big-beautiful-bill-means-for-patients-and-employers-in-2026/" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">OBBBA explicitly classifies Direct Primary Care memberships as qualified medical expenses</a>, allowing HSA funds to pay DPC membership fees up to <strong>$150/month for individuals, $300/month for families</strong>, indexed to inflation after 2026. Previously, DPC enrollment could disqualify patients from contributing to HSAs at all.</p>
-      <p>This is a structural unlock for the DPC movement. <a href="https://dpcnews.com/" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">DPC News</a> reports nearly 3,000 DPC practices in the U.S. now. The <a href="https://dpcfrontier.com/blog" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">DPC Alliance</a> held its first-ever DPC Peds conference in April 2026, signaling that the model is expanding beyond adult primary care.</p>
-      <div class="callout">For content: this is an underreported story that your Excellent Physician audience — physicians considering practice model changes — needs to understand in plain language.</div>
+      <div><span class="tag tag-green">837% Growth</span><span class="tag tag-gold">Hint Health 2026</span></div>
+      <p><a href="https://www.morningstar.com/news/pr-newswire/20260423sf41767/hint-health-releases-2026-direct-primary-care-trends-report-data-shows-dpc-has-moved-from-niche-alternative-to-national-healthcare-infrastructure" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">Hint Health's 2026 DPC Trends Report</a> confirms a tipping point: <strong>employers now fund the majority (60%) of active DPC memberships</strong> for the first time in history — a structural shift from the individual-consumer model DPC started with. DPC membership has grown <strong>837% since 2017</strong>, with nearly 3,000 practices now operating nationally.</p>
+      <p>The employer funding shift signals that DPC has moved from a niche concierge model to an institutional healthcare benefit strategy. Companies are self-insuring and directing employees to DPC practices to control costs and reduce specialist referrals — the same logic that makes free-market medicine compelling at scale.</p>
+      <div class="callout">The 60% employer figure is the inflection point market analysts have been watching for. It means DPC is now a B2B enterprise product, not just a boutique physician lifestyle choice.</div>
     </div>
     <div class="card-footer">
-      <span class="card-source">SALTA Direct · DPC News · National Law Review · 2026</span>
-      <a class="link-btn" href="https://natlawreview.com/press-releases/new-federal-law-allows-direct-primary-care-memberships-be-paid-hsas" target="_blank">National Law Review</a>
+      <span class="card-source">Hint Health · Morningstar · April 2026</span>
+      <a class="link-btn" href="https://www.morningstar.com/news/pr-newswire/20260423sf41767/hint-health-releases-2026-direct-primary-care-trends-report-data-shows-dpc-has-moved-from-niche-alternative-to-national-healthcare-infrastructure" target="_blank">Full Report</a>
     </div>
   </div>
 
-  <!-- CARD: IPA formation / primary care market power -->
   <div class="card">
     <div class="card-top">
-      <div class="card-top-icon">🤝</div>
+      <div class="card-top-icon">⚕️</div>
       <div>
-        <div class="card-label">Market Dynamics · Feb 2026</div>
-        <div class="card-title">Independent Physicians Forming IPAs to Fight Back Against Medicaid Cuts</div>
+        <div class="card-label">NEJM Perspective · 2026</div>
+        <div class="card-title">NEJM: "Primary Care — From Common Good to Free-Market Commodity"</div>
       </div>
     </div>
     <div class="card-body">
-      <p><span class="tag tag-blue">IPA</span><span class="tag tag-sage">Physician Power</span></p>
-      <p>As Medicaid reimbursements shrink under the OBBBA, independent primary care physicians are increasingly <a href="https://kffhealthnews.org/news/article/primary-care-independent-physicians-boost-market-power" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">banding together into Independent Physician Associations (IPAs)</a> to negotiate better rates and absorb administrative overhead — a trend covered extensively by <a href="https://www.npr.org/2026/02/16/nx-s1-5715996/primary-care-independent-physician-association-ipa-medicaid-cuts-value-based-reimbursement" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">NPR</a> and <a href="https://kffhealthnews.org" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">KFF Health News</a> in February 2026.</p>
-      <p>The number of people who can't find a primary care doctor has grown <strong>20% in the past decade</strong>. Meanwhile, the <a href="https://www.nejm.org/doi/full/10.1056/NEJMp2501717" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">NEJM published a landmark essay</a> framing primary care as moving "from common good to free-market commodity" — a cultural and economic shift that defines the current moment in physician-owned practice.</p>
-      <div class="callout">The tension between IPA consolidation and true free-market DPC is the defining story in ambulatory medicine right now — and a natural blog post series for Excellent Physician.</div>
+      <div><span class="tag tag-red">Debate</span><span class="tag tag-gold">NEJM</span></div>
+      <p><a href="https://www.nejm.org/doi/full/10.1056/NEJMp2501717" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">This NEJM perspective</a> frames the DPC and concierge medicine expansion as a philosophical inflection point: is primary care a public good that should be universally accessible, or a market commodity that responds to consumer signals? The authors argue the shift toward fee-for-service, subscription, and employer-funded DPC risks bifurcating care quality along income lines.</p>
+      <p>Worth reading as the counterargument to the Hint Health data above. The <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12456663/" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">PMC republication</a> is freely accessible. For your blog at <a href="https://excellentphysician.com" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">excellentphysician.com</a>, this is rich material: the tension between physician autonomy and universal access is exactly the kind of philosophical + practical question your audience engages with.</p>
+      <div class="callout">The Excellent Physician Project angle: excellence demands both clinical mastery and stewardship of the patient population you serve. That's not easily resolved by pure market logic alone.</div>
     </div>
     <div class="card-footer">
-      <span class="card-source">KFF Health News · NPR · NEJM · Feb–Jun 2026</span>
-      <a class="link-btn" href="https://kffhealthnews.org/news/article/primary-care-independent-physicians-boost-market-power" target="_blank">KFF Health News</a>
+      <span class="card-source">NEJM · 2026</span>
+      <a class="link-btn" href="https://www.nejm.org/doi/full/10.1056/NEJMp2501717" target="_blank">Read Article</a>
     </div>
   </div>
 
@@ -436,44 +437,43 @@
 
 <div class="grid-2">
 
-  <!-- CARD: Tax Parity Act -->
   <div class="card">
     <div class="card-top">
-      <div class="card-top-icon">📜</div>
+      <div class="card-top-icon">📋</div>
       <div>
-        <div class="card-label">Federal Legislation · 2026</div>
-        <div class="card-title">Health Care Sharing Ministry Tax Parity Act Reintroduced in Congress</div>
+        <div class="card-label">IRS Proposed Rule · 2026</div>
+        <div class="card-title">IRS Moves to Let HRAs Reimburse Health Sharing Ministry "Shares" Tax-Free</div>
       </div>
     </div>
     <div class="card-body">
-      <p><span class="tag tag-gold">Legislation</span><span class="tag tag-blue">HCSM</span></p>
-      <p>Reps. <a href="https://kelly.house.gov/media/press-releases/kelly-murphy-smith-introduce-health-care-sharing-ministry-tax-parity-act" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">Mike Kelly (R-PA), Greg Murphy, M.D. (R-NC), and Chris Smith (R-NJ)</a> introduced the <strong>Health Care Sharing Ministry Tax Parity Act</strong>, which would allow Americans who are HCSM members to deduct their monthly sharing contributions as eligible medical care expenses on their federal taxes — the same treatment currently afforded to traditional insurance premiums.</p>
-      <p>Currently, approximately <strong>one million Americans</strong> use health sharing programs as their primary healthcare coverage vehicle. This legislation would remove a significant cost disadvantage relative to ACA-compliant plans and employer-sponsored insurance, potentially accelerating HCSM growth substantially.</p>
-      <div class="callout">If this passes, expect HCSM enrollment to surge — especially among self-employed physicians, DPC practices, and faith-based small businesses. A strong topic for your health sharing content series.</div>
+      <div><span class="tag tag-gold">IRS Rule</span><span class="tag tag-green">Tax Treatment</span></div>
+      <p>The <a href="https://www.takecommandhealth.com/blog/hra-sharing-ministries-irs-update" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">IRS issued a proposed rule</a> that would expand the ability of Health Reimbursement Arrangements (HRAs) to reimburse employees' monthly HCSM shares tax-free. The proposed guidance classifies HCSM shares — along with fees for direct primary care — as qualified medical expenses eligible for HRA reimbursement.</p>
+      <p><strong>What changes:</strong> This doesn't redefine HCSMs as insurance, but it significantly improves their after-tax economics for employees receiving HRA benefits from employers. For small business owners and self-employed physicians like 1099 workers, it opens a new avenue to reduce the after-tax cost of health sharing coverage.</p>
+      <p>The rule is in proposed form and open for public comment. <a href="https://www.takecommandhealth.com/blog/hra-sharing-ministries-irs-update" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">Take Command Health</a> has a good lay summary of the practical implications.</p>
     </div>
     <div class="card-footer">
-      <span class="card-source">Rep. Kelly Press Release · 2026</span>
-      <a class="link-btn" href="https://kelly.house.gov/media/press-releases/kelly-murphy-smith-introduce-health-care-sharing-ministry-tax-parity-act" target="_blank">Read Bill</a>
+      <span class="card-source">IRS · Take Command Health · 2026</span>
+      <a class="link-btn" href="https://www.takecommandhealth.com/blog/hra-sharing-ministries-irs-update" target="_blank">Read More</a>
     </div>
   </div>
 
-  <!-- CARD: IRS proposed rule HRA -->
   <div class="card">
     <div class="card-top">
-      <div class="card-top-icon">📊</div>
+      <div class="card-top-icon">🏛️</div>
       <div>
-        <div class="card-label">IRS Guidance · 2026</div>
-        <div class="card-title">IRS Proposes Rule Expanding HRA Reimbursement for Health Sharing Contributions</div>
+        <div class="card-label">Legislation · Congress</div>
+        <div class="card-title">Health Care Sharing Ministry Tax Parity Act Reintroduced in House</div>
       </div>
     </div>
     <div class="card-body">
-      <p><span class="tag tag-sage">IRS</span><span class="tag tag-gold">HRA + HCSM</span></p>
-      <p>The IRS has issued a <a href="https://www.takecommandhealth.com/blog/hra-sharing-ministries-irs-update" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">proposed rule that would expand HRA eligibility</a> to allow employers to reimburse employees tax-free for their monthly health sharing ministry contributions — classifying HCSM "shares" as qualified medical expenses. This doesn't reclassify sharing ministries as insurance, but it gives them functional parity for tax purposes in employer-sponsored HRA structures.</p>
-      <p>As <a href="https://www.wolterskluwer.com/en/expert-insights/health-care-sharing-ministries-ruling-leaves-a-critical-question-unanswered" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">Wolters Kluwer notes</a>, a key question remains unanswered: whether HCSM members can still deduct the individual health insurance deduction under IRC §213(d). Legislators pushing the Tax Parity Act above are trying to close exactly this gap. Combined with the OBBBA's DPC/HSA alignment, the regulatory environment for alternative healthcare coverage models is materially improving in 2026.</p>
+      <div><span class="tag tag-blue">House Bill</span><span class="tag tag-gold">Tax Deductibility</span></div>
+      <p>U.S. Representatives <a href="https://kelly.house.gov/media/press-releases/kelly-murphy-smith-introduce-health-care-sharing-ministry-tax-parity-act" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">Mike Kelly (R-PA), Greg Murphy, MD (R-NC)</a>, and Chris Smith (R-NJ) reintroduced the <strong>Health Care Sharing Ministry Tax Parity Act</strong>, which would allow Americans enrolled in HCSMs to deduct monthly sharing contributions as medical expenses — the same deductibility currently available to traditional insurance premiums.</p>
+      <p>The bill has a simple premise: if you're covering your family's healthcare costs through a faith-based sharing ministry, the IRS should treat that the same as an insurance premium for deductibility purposes. Approximately <strong>1 million Americans</strong> use HCSMs. The legislation aligns with the broader trend in the IRS proposed rule above and reflects growing congressional interest in creating tax parity for alternative coverage models.</p>
+      <div class="callout">For any physician recommending health sharing to patients or considering it personally, these two developments together represent the best tax-treatment news the HCSM space has seen in years.</div>
     </div>
     <div class="card-footer">
-      <span class="card-source">Take Command Health · Wolters Kluwer · 2026</span>
-      <a class="link-btn" href="https://www.takecommandhealth.com/blog/hra-sharing-ministries-irs-update" target="_blank">Take Command Analysis</a>
+      <span class="card-source">Rep. Kelly · House Press Release</span>
+      <a class="link-btn" href="https://kelly.house.gov/media/press-releases/kelly-murphy-smith-introduce-health-care-sharing-ministry-tax-parity-act" target="_blank">Press Release</a>
     </div>
   </div>
 
@@ -492,79 +492,55 @@
 
 <div class="grid-2">
 
-  <!-- CARD: Bitcoin with chart -->
+  <!-- CARD: Bitcoin with sparkline chart -->
   <div class="card">
     <div class="card-top">
       <div class="card-top-icon">₿</div>
       <div>
-        <div class="card-label">Bitcoin · July 6, 2026</div>
-        <div class="card-title">BTC at 21-Month Low — Fear &amp; Greed at 24: "Extreme Fear"</div>
+        <div class="card-label">Bitcoin · BTC/USD</div>
+        <div class="card-title">Bitcoin Recovers to $62,800 After Last Week's Dip to $58k</div>
       </div>
     </div>
     <div class="card-body">
-      <div class="price-row">
-        <span class="price-label">Current Price</span>
-        <span class="price-val down">$62,904</span>
-      </div>
-      <div class="price-row">
-        <span class="price-label">30-Day High</span>
-        <span class="price-val neutral">$75,200</span>
-      </div>
-      <div class="price-row">
-        <span class="price-label">30-Day Low</span>
-        <span class="price-val down">$58,359</span>
-      </div>
-      <div class="price-row">
-        <span class="price-label">Fear &amp; Greed</span>
-        <span class="price-val down">24 — Extreme Fear</span>
-      </div>
-      <p style="margin-top:0.7rem;">Bitcoin started 2026 above <strong>$93,000</strong>, fell through June as inflation fears and macro pressure built, and hit a fresh <a href="https://en.cryptonomist.ch/2026/07/06/bitcoin-price-today-analysis-mixed-signals/" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">21-month low late June near $58,359</a>. A modest bounce to ~$62,904 on July 6. Daily EMA50 sits at $65,738 and EMA200 at $76,019 — both far above current price, confirming the structural downtrend. Key support: $62,565 (S1), then the Bollinger lower band at $58,359.</p>
+      <div class="price-row"><span class="price-label">Current Price</span><span class="price-val up">$62,800</span></div>
+      <div class="price-row"><span class="price-label">30-Day High</span><span class="price-val neutral">~$68,500</span></div>
+      <div class="price-row"><span class="price-label">30-Day Low</span><span class="price-val down">~$58,000</span></div>
+      <div class="price-row"><span class="price-label">Today's Range</span><span class="price-val neutral">$62,339 – $64,194</span></div>
+      <p style="margin-top:0.6rem;">Bitcoin sold off sharply last week, touching ~$58,000 before recovering. Context: <a href="https://www.coinbase.com/price/bitcoin" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">Coinbase</a> and <a href="https://www.kraken.com/prices/bitcoin" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">Kraken</a> both show intraday prices in the $62-64k range. The 30-day chart has been range-bound between $58-68k — consolidation after the prior year's run, or distribution? Worth watching for a break in either direction.</p>
     </div>
     <div class="chart-wrap">
-      <div class="chart-title">BTC/USD · 30-Day Trend (Jun 6 – Jul 6, 2026)</div>
-      <canvas id="btcChart" height="90"></canvas>
+      <div class="chart-title">30-Day BTC Price (USD) — Reconstructed from News Context</div>
+      <canvas id="btcChart" height="80"></canvas>
     </div>
     <div class="card-footer">
-      <span class="card-source">CryptoNomist · Fortune · CoinDesk · Jul 6, 2026</span>
-      <a class="link-btn" href="https://fortune.com/article/price-of-bitcoin-07-06-2026/" target="_blank">Fortune Analysis</a>
+      <span class="card-source">Coinbase · Kraken · July 7, 2026</span>
+      <a class="link-btn" href="https://www.coinbase.com/price/bitcoin" target="_blank">Live Price</a>
     </div>
   </div>
 
-  <!-- CARD: MSTR with chart -->
+  <!-- CARD: MSTR with sparkline chart -->
   <div class="card">
     <div class="card-top">
       <div class="card-top-icon">📈</div>
       <div>
-        <div class="card-label">Strategy Inc. (MSTR) · July 6, 2026</div>
-        <div class="card-title">MSTR: +9.17% Today, but Down 78% from 52-Week High of $457</div>
+        <div class="card-label">Strategy Inc. · MSTR</div>
+        <div class="card-title">MSTR Up 7.4% Today to $100.30 Amid Legal Scrutiny and BTC Sales</div>
       </div>
     </div>
     <div class="card-body">
-      <div class="price-row">
-        <span class="price-label">Current Price</span>
-        <span class="price-val up">$101.96 (+9.17%)</span>
-      </div>
-      <div class="price-row">
-        <span class="price-label">52-Week High</span>
-        <span class="price-val neutral">$457.22</span>
-      </div>
-      <div class="price-row">
-        <span class="price-label">52-Week Low</span>
-        <span class="price-val down">$81.81</span>
-      </div>
-      <div class="price-row">
-        <span class="price-label">Market Cap</span>
-        <span class="price-val neutral">$36.48B</span>
-      </div>
-      <p style="margin-top:0.7rem;"><a href="https://stockanalysis.com/stocks/mstr/" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">Strategy Inc.</a> (formerly MicroStrategy, rebranded August 2025) operates as a Bitcoin treasury company. Today's +9.17% bounce tracks BTC's recovery from its 21-month low. At $102, MSTR has shed 78% from its January highs near $457 — reflecting BTC's 33% drawdown amplified by ~3x equity beta. Daily volume: 35.08M shares — elevated, suggesting institutional accumulation interest at these levels.</p>
+      <div class="price-row"><span class="price-label">Current Price</span><span class="price-val up">$100.30 (+7.4%)</span></div>
+      <div class="price-row"><span class="price-label">52-Week High</span><span class="price-val neutral">$457.22</span></div>
+      <div class="price-row"><span class="price-label">52-Week Low</span><span class="price-val down">$81.81</span></div>
+      <div class="price-row"><span class="price-label">Previous Close</span><span class="price-val neutral">$100.77</span></div>
+      <p style="margin-top:0.6rem;">A shareholder-rights law firm <a href="https://www.timothysykes.com/news/strategy-inc-mstr-news-2026_07_06/" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">opened an investigation</a> into potential securities fraud at <a href="https://stockanalysis.com/stocks/mstr/" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">Strategy (MSTR)</a>, focusing on whether the company made false or misleading statements. Additionally, MSTR recently <strong>sold 3,588 BTC</strong> (~$216M) to fund dividends — a notable shift from its historical posture as a pure BTC accumulator. Down ~75% YoY from its $457 high.</p>
     </div>
     <div class="chart-wrap">
-      <div class="chart-title">MSTR/USD · 30-Day Trend (Jun 6 – Jul 6, 2026)</div>
-      <canvas id="mstrChart" height="90"></canvas>
+      <div class="chart-title">30-Day MSTR Price (USD) — Reconstructed from News Context</div>
+      <canvas id="mstrChart" height="80"></canvas>
     </div>
     <div class="card-footer">
-      <span class="card-source">Nasdaq · Stock Analysis · TradingKey · Jul 6, 2026</span>
-      <a class="link-btn" href="https://stockanalysis.com/stocks/mstr/" target="_blank">Stock Analysis</a>
+      <span class="card-source">Yahoo Finance · StockAnalysis · July 7, 2026</span>
+      <a class="link-btn" href="https://stockanalysis.com/stocks/mstr/" target="_blank">Live Price</a>
     </div>
   </div>
 
@@ -575,45 +551,49 @@
   <!-- CARD: $1,000 Investment Recommendation -->
   <div class="card">
     <div class="card-top">
-      <div class="card-top-icon">💡</div>
+      <div class="card-top-icon">💵</div>
       <div>
-        <div class="card-label">$1,000 Pick · July 6, 2026</div>
-        <div class="card-title">Deploy $1,000 into Bitcoin at Extreme Fear — Via Swan Bitcoin DCA</div>
+        <div class="card-label">$1,000 Deployment · July 7, 2026</div>
+        <div class="card-title">Add to Bitcoin via Swan or Coinbase at the $62,800 Level</div>
       </div>
     </div>
     <div class="card-body">
-      <p><span class="tag tag-gold">BTC</span><span class="tag tag-red">Extreme Fear</span></p>
-      <p><strong>Recommendation: $1,000 into Bitcoin via <a href="https://www.swanbitcoin.com" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">Swan Bitcoin</a> as a recurring DCA purchase.</strong></p>
-      <p><strong>Physician-specific rationale:</strong> Fear &amp; Greed at 24 historically appears near major market bottoms. BTC is near 21-month lows after falling from $93k — the kind of drawdown that tests conviction but has historically rewarded disciplined accumulators. You already hold BTC thesis (MSTR, STRC preferred). This adds to your lowest-cost-basis tranche. For tax optimization: consider a <strong>self-directed Roth IRA</strong> at <a href="https://bitcoinira.com" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">Bitcoin IRA</a> or <a href="https://itrustcapital.com" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">iTrust Capital</a> — growth is tax-free at recovery levels, no capital gains on a potential return to $90k+.</p>
-      <p><strong>Key risk:</strong> BTC could test $58,359 support again — size accordingly. The structural downtrend is intact until price reclaims the daily EMA50 at $65,738.</p>
-      <div class="callout"><em>Not financial advice. Past performance does not guarantee future results. Consult a financial advisor before investing.</em></div>
+      <div><span class="tag tag-gold">BTC</span><span class="tag tag-sage">DCA</span></div>
+      <p><strong>The thesis:</strong> Bitcoin consolidating between $58k–$68k for 30 days while MSTR faces legal scrutiny and BTC-selling pressure is a relatively clean entry point for a standard DCA add. The macro environment (OBBBA student loan caps squeezing physician purchasing power, continued Medicaid uncertainty) actually reinforces the case for hard-asset allocation.</p>
+      <p><strong>Account targeting:</strong> If you have 2026 Roth IRA contribution room remaining ($7,000 limit), deploying via a <a href="https://www.swanbitcoin.com" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">Swan Bitcoin</a> or <a href="https://www.coinbase.com" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">Coinbase</a> Roth IRA gives you tax-free growth on the upside. If Roth is maxed, taxable account DCA works but note the cost-basis tracking overhead.</p>
+      <p><strong>Not MSTR at this level:</strong> Given the active legal investigation, BTC-selling pivot, and 75% YoY decline, MSTR carries idiosyncratic risk beyond BTC price risk. Direct BTC is cleaner risk exposure here.</p>
+      <div class="callout"><em>This is not financial advice. Past performance does not predict future results. Consult a qualified financial advisor.</em></div>
     </div>
     <div class="card-footer">
-      <span class="card-source">CryptoNomist · 247WallSt · Jul 6, 2026</span>
-      <a class="link-btn" href="https://247wallst.com/investing/cryptocurrency/2026/07/02/bitcoin-price-prediction-for-july-2026/" target="_blank">247 Wall St Analysis</a>
+      <span class="card-source">Swan Bitcoin · Coinbase</span>
+      <a class="link-btn" href="https://www.swanbitcoin.com" target="_blank">Swan Bitcoin</a>
     </div>
   </div>
 
   <!-- CARD: New Income Idea -->
   <div class="card">
     <div class="card-top">
-      <div class="card-top-icon">💼</div>
+      <div class="card-top-icon">💡</div>
       <div>
-        <div class="card-label">New Income Idea · Technology</div>
-        <div class="card-title">Sell AI Automation Workflow Kits for Independent Medical Practices on Gumroad</div>
+        <div class="card-label">New Income Idea · Finance Category</div>
+        <div class="card-title">Sell Covered Calls on Your MSTR or STRC Preferred Stock Position</div>
       </div>
     </div>
     <div class="card-body">
-      <p><span class="tag tag-blue">Digital Products</span><span class="tag tag-gold">Passive Income</span></p>
-      <p><strong>The idea:</strong> Package your Claude prompt engineering and workflow automation expertise into ready-to-deploy digital products — "Claude Kits" for DPC practices, concierge medicine offices, and small EM groups. Think: a $49 "CME Content Generator Kit," a $79 "Patient Education Script Pack," or a $129 "Practice Documentation Automation Bundle." Sell via <a href="https://gumroad.com" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">Gumroad</a> or <a href="https://lemonsqueezy.com" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">Lemon Squeezy</a>.</p>
-      <p><strong>Why you:</strong> You're already building these workflows for yourself. Your Excellent Physician brand gives you a built-in audience of physician-entrepreneurs who trust your judgment on technology. The DPC boom creates a ready buyer who needs AI tooling but lacks your technical fluency.</p>
-      <p><strong>Income range:</strong> $500–$5,000/month once catalog is established (3–10+ products). Top creators in niche professional digital products earn $10k+/month.</p>
-      <p><strong>Starting point today:</strong> Create a free Gumroad account at <a href="https://gumroad.com" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">gumroad.com</a>, package your best Claude prompt for lecture prep into a PDF guide, and publish your first product this week — no credentialing, no licensing required.</p>
-      <p><strong>Startup friction:</strong> Low. 2–4 hours to create the first product. No upfront cost. Gumroad takes 10% fee.</p>
+      <div><span class="tag tag-gold">Options Income</span><span class="tag tag-blue">Finance</span></div>
+      <p><strong>The pitch:</strong> If you hold MSTR shares in a taxable brokerage account, you can generate monthly income by selling covered calls — collecting premium upfront while agreeing to sell your shares at a set price if they rise above the strike. Given MSTR's elevated implied volatility (the legal scrutiny and BTC-selling news spike IV), premiums are unusually rich right now.</p>
+      <p><strong>Why it fits Matt specifically:</strong> You already hold MSTR (and STRC preferred). You've got brokerage account access. This is not a new position — it's a strategy layered on top of something you already own. The income is immediate and doesn't require any new credentialing, platform signups, or content creation.</p>
+      <ul>
+        <li><strong>Income range:</strong> ~$150–$700/month per 100 shares, depending on strike selection and expiration date</li>
+        <li><strong>Starting point today:</strong> <a href="https://tastytrade.com" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.35);">tastytrade.com</a> or your existing brokerage — navigate to MSTR options chain → sell a call 10–15% out of the money, 30-day expiration</li>
+        <li><strong>Startup friction:</strong> Requires options trading approval (usually Level 2) on your brokerage — 10-minute application if not already enabled</li>
+        <li><strong>Key risk:</strong> If MSTR surges past your strike, your shares get called away — you cap the upside. Only run this strategy if you're comfortable selling at the strike price</li>
+      </ul>
+      <div class="callout"><em>Not financial advice. Options involve risk and are not suitable for all investors.</em></div>
     </div>
     <div class="card-footer">
-      <span class="card-source">Gumroad · Lemon Squeezy · DPC Market 2026</span>
-      <a class="link-btn" href="https://gumroad.com" target="_blank">Start on Gumroad</a>
+      <span class="card-source">tastytrade · Options Basics</span>
+      <a class="link-btn" href="https://tastytrade.com/options/covered-calls/" target="_blank">Learn More</a>
     </div>
   </div>
 
@@ -622,20 +602,20 @@
 </div><!-- /page -->
 
 <footer>
-  Dr. Matt's Daily Digest &nbsp;·&nbsp; The Excellent Physician Project &nbsp;·&nbsp; Monday, July 6, 2026
+  Dr. Matt's Daily Digest &nbsp;·&nbsp; The Excellent Physician Project &nbsp;·&nbsp; Tuesday, July 7, 2026
   &nbsp;·&nbsp; <em>Not financial or medical advice</em>
   &nbsp;·&nbsp; <a href="https://www.excellentphysician.com">excellentphysician.com</a>
 </footer>
 
 <script>
-// ─── BTC SPARKLINE ───────────────────────────────────────────────────
-const btcLabels = ['Jun 6','Jun 8','Jun 10','Jun 12','Jun 14','Jun 16','Jun 18','Jun 20','Jun 22','Jun 24','Jun 26','Jun 28','Jun 30','Jul 2','Jul 4','Jul 6'];
-const btcData =   [75200, 74200, 72800,  71500,  69800,  68200,  67000,  65500,  63500,  61800,  60200,  59500,  59200,  61200,  62000,  62904];
+// ── BTC Sparkline ──────────────────────────────────────────────────────────
+const btcLabels = ["Jun 7","Jun 9","Jun 11","Jun 13","Jun 15","Jun 17","Jun 19","Jun 21","Jun 23","Jun 25","Jun 27","Jun 29","Jul 1","Jul 3","Jul 5","Jul 7"];
+const btcData   = [67200, 68500, 67800, 66900, 65500, 64800, 63900, 63200, 62500, 61800, 63000, 61200, 60000, 58000, 60500, 62800];
 
 const btcCtx = document.getElementById('btcChart').getContext('2d');
-const btcGrad = btcCtx.createLinearGradient(0, 0, 0, 120);
-btcGrad.addColorStop(0, 'rgba(224,85,85,0.35)');
-btcGrad.addColorStop(1, 'rgba(224,85,85,0.03)');
+const btcGrad = btcCtx.createLinearGradient(0, 0, 0, 150);
+btcGrad.addColorStop(0, 'rgba(224,85,85,0.28)');
+btcGrad.addColorStop(1, 'rgba(224,85,85,0.0)');
 
 new Chart(btcCtx, {
   type: 'line',
@@ -646,11 +626,10 @@ new Chart(btcCtx, {
       borderColor: '#e05555',
       borderWidth: 2,
       backgroundColor: btcGrad,
-      fill: true,
-      tension: 0.4,
       pointRadius: 0,
       pointHoverRadius: 4,
-      pointHoverBackgroundColor: '#e05555'
+      fill: true,
+      tension: 0.35
     }]
   },
   options: {
@@ -660,25 +639,33 @@ new Chart(btcCtx, {
       backgroundColor: '#1e2535',
       titleColor: '#c9a84c',
       bodyColor: '#faf8f4',
-      borderColor: 'rgba(201,168,76,0.3)',
-      borderWidth: 1,
+      titleFont: { family: "'DM Mono', monospace", size: 11 },
+      bodyFont: { family: "'DM Mono', monospace", size: 11 },
       callbacks: { label: ctx => ' $' + ctx.parsed.y.toLocaleString() }
     }},
     scales: {
-      x: { ticks: { color: '#9a9488', font: { family: 'DM Mono', size: 10 }, maxRotation: 0, maxTicksLimit: 5 }, grid: { color: 'rgba(255,255,255,0.04)' } },
-      y: { ticks: { color: '#9a9488', font: { family: 'DM Mono', size: 10 }, callback: v => '$' + (v/1000).toFixed(0) + 'k' }, grid: { color: 'rgba(255,255,255,0.04)' } }
+      x: {
+        ticks: { color: '#9a9488', font: { family: "'DM Mono', monospace", size: 9 }, maxRotation: 0, maxTicksLimit: 6 },
+        grid: { color: 'rgba(255,255,255,0.04)' },
+        border: { color: 'rgba(255,255,255,0.06)' }
+      },
+      y: {
+        ticks: { color: '#9a9488', font: { family: "'DM Mono', monospace", size: 9 }, callback: v => '$' + (v/1000).toFixed(0) + 'k' },
+        grid: { color: 'rgba(255,255,255,0.04)' },
+        border: { color: 'rgba(255,255,255,0.06)' }
+      }
     }
   }
 });
 
-// ─── MSTR SPARKLINE ──────────────────────────────────────────────────
+// ── MSTR Sparkline ─────────────────────────────────────────────────────────
 const mstrLabels = btcLabels;
-const mstrData =   [148, 143, 137, 131, 124, 118, 113, 107, 99, 93, 87, 84, 83, 91, 94, 102];
+const mstrData   = [140, 155, 148, 138, 127, 122, 115, 111, 108, 105, 110, 102, 97, 82, 92, 100];
 
 const mstrCtx = document.getElementById('mstrChart').getContext('2d');
-const mstrGrad = mstrCtx.createLinearGradient(0, 0, 0, 120);
-mstrGrad.addColorStop(0, 'rgba(201,168,76,0.35)');
-mstrGrad.addColorStop(1, 'rgba(201,168,76,0.03)');
+const mstrGrad = mstrCtx.createLinearGradient(0, 0, 0, 150);
+mstrGrad.addColorStop(0, 'rgba(201,168,76,0.25)');
+mstrGrad.addColorStop(1, 'rgba(201,168,76,0.0)');
 
 new Chart(mstrCtx, {
   type: 'line',
@@ -689,11 +676,10 @@ new Chart(mstrCtx, {
       borderColor: '#c9a84c',
       borderWidth: 2,
       backgroundColor: mstrGrad,
-      fill: true,
-      tension: 0.4,
       pointRadius: 0,
       pointHoverRadius: 4,
-      pointHoverBackgroundColor: '#c9a84c'
+      fill: true,
+      tension: 0.35
     }]
   },
   options: {
@@ -703,13 +689,21 @@ new Chart(mstrCtx, {
       backgroundColor: '#1e2535',
       titleColor: '#c9a84c',
       bodyColor: '#faf8f4',
-      borderColor: 'rgba(201,168,76,0.3)',
-      borderWidth: 1,
+      titleFont: { family: "'DM Mono', monospace", size: 11 },
+      bodyFont: { family: "'DM Mono', monospace", size: 11 },
       callbacks: { label: ctx => ' $' + ctx.parsed.y.toFixed(2) }
     }},
     scales: {
-      x: { ticks: { color: '#9a9488', font: { family: 'DM Mono', size: 10 }, maxRotation: 0, maxTicksLimit: 5 }, grid: { color: 'rgba(255,255,255,0.04)' } },
-      y: { ticks: { color: '#9a9488', font: { family: 'DM Mono', size: 10 }, callback: v => '$' + v }, grid: { color: 'rgba(255,255,255,0.04)' } }
+      x: {
+        ticks: { color: '#9a9488', font: { family: "'DM Mono', monospace", size: 9 }, maxRotation: 0, maxTicksLimit: 6 },
+        grid: { color: 'rgba(255,255,255,0.04)' },
+        border: { color: 'rgba(255,255,255,0.06)' }
+      },
+      y: {
+        ticks: { color: '#9a9488', font: { family: "'DM Mono', monospace", size: 9 }, callback: v => '$' + v },
+        grid: { color: 'rgba(255,255,255,0.04)' },
+        border: { color: 'rgba(255,255,255,0.06)' }
+      }
     }
   }
 });
