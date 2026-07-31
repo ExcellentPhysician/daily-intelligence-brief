@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Matt's Daily Digest — July 31, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  :root {
+    --ink: #0d1117; --ink-mid: #161b27; --ink-light: #1e2535;
+    --paper: #faf8f4; --cream: #f0ece3;
+    --sage: #4a7c59; --rust: #b5451b;
+    --gold: #c9a84c; --gold-dim: #a88a38;
+    --stone: #9a9488; --muted: #6b7280;
+    --red: #e05555; --green: #5dd4a0;
+    --border: rgba(201,168,76,0.18); --rule: rgba(255,255,255,0.06);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--ink); color: var(--paper); line-height: 1.7; font-size: 15px; }
+
+  header { background: var(--ink); border-bottom: 1px solid var(--border); padding: 2.8rem 2.5rem 2.2rem; text-align: center; position: relative; overflow: hidden; }
+  header::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(-45deg, transparent, transparent 40px, rgba(255,255,255,0.015) 40px, rgba(255,255,255,0.015) 41px); pointer-events: none; }
+  .header-eyebrow { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; position: relative; }
+  header h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 700; line-height: 1.15; color: var(--paper); position: relative; margin-bottom: 0.6rem; }
+  header h1 span { color: var(--gold); }
+  .header-sub { font-size: 0.82rem; color: var(--stone); letter-spacing: 0.06em; position: relative; }
+
+  .page { max-width: 1200px; margin: 0 auto; padding: 0 2rem 3rem; }
+
+  .section-heading { display: flex; align-items: center; gap: 14px; margin: 2.8rem 0 1.2rem; padding-bottom: 0.7rem; border-bottom: 1px solid var(--border); }
+  .section-heading .icon { font-size: 1.4rem; }
+  .section-heading h2 { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; color: var(--gold); letter-spacing: 0.02em; }
+  .section-heading .rule { flex: 1; height: 1px; background: var(--border); }
+  .section-heading .mono { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--stone); letter-spacing: 0.14em; text-transform: uppercase; }
+
+  .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .grid-1 { display: grid; grid-template-columns: 1fr; gap: 16px; }
+  .span-2 { grid-column: span 2; }
+  @media (max-width: 800px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } .span-2 { grid-column: span 1; } .page { padding: 0 1rem 2rem; } }
+
+  .card { background: var(--ink-mid); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; transition: border-color 0.2s, box-shadow 0.2s; }
+  .card:hover { border-color: var(--border); box-shadow: 0 4px 28px rgba(201,168,76,0.08); }
+  .card-top { padding: 1rem 1.2rem 0.7rem; border-bottom: 1px solid var(--rule); display: flex; align-items: flex-start; gap: 10px; }
+  .card-top-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
+  .card-label { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--stone); margin-bottom: 3px; }
+  .card-title { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--paper); line-height: 1.3; }
+  .card-body { padding: 0.9rem 1.2rem; font-size: 0.87rem; color: #b8b4ae; line-height: 1.65; flex: 1; }
+  .card-body p { margin-bottom: 0.6rem; } .card-body p:last-child { margin-bottom: 0; }
+  .card-body strong { color: var(--paper); }
+  .card-body ul { padding-left: 1.1rem; margin: 0.4rem 0; } .card-body li { margin-bottom: 0.25rem; }
+  .card-footer { padding: 0.65rem 1.2rem; background: rgba(0,0,0,0.2); border-top: 1px solid var(--rule); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px; }
+  .card-source { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--stone); }
+
+  .link-btn { display: inline-flex; align-items: center; gap: 5px; font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); text-decoration: none; border: 1px solid rgba(201,168,76,0.3); padding: 3px 10px; border-radius: 4px; transition: background 0.15s, border-color 0.15s; white-space: nowrap; }
+  .link-btn:hover { background: rgba(201,168,76,0.12); border-color: var(--gold); }
+  .link-btn::after { content: ' ↗'; font-size: 0.7em; }
+
+  .tag { display: inline-block; font-family: 'DM Mono', monospace; font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 8px; border-radius: 3px; margin-right: 5px; margin-bottom: 6px; font-weight: 500; }
+  .tag-blue  { background: rgba(93,168,224,0.12); color: #5da8e0; border: 1px solid rgba(93,168,224,0.2); }
+  .tag-green { background: rgba(93,212,160,0.12); color: #5dd4a0; border: 1px solid rgba(93,212,160,0.2); }
+  .tag-gold  { background: rgba(201,168,76,0.12); color: var(--gold); border: 1px solid rgba(201,168,76,0.2); }
+  .tag-red   { background: rgba(224,85,85,0.12); color: #e08080; border: 1px solid rgba(224,85,85,0.2); }
+  .tag-sage  { background: rgba(74,124,89,0.15); color: #7dc493; border: 1px solid rgba(74,124,89,0.25); }
+
+  .callout { background: rgba(201,168,76,0.07); border-left: 3px solid var(--gold-dim); padding: 9px 13px; border-radius: 0 6px 6px 0; margin: 0.7rem 0 0.3rem; font-style: italic; font-size: 0.84rem; color: #c8c3bc; }
+
+  .price-row { display: flex; justify-content: space-between; align-items: center; padding: 7px 0; border-bottom: 1px solid var(--rule); }
+  .price-row:last-child { border-bottom: none; }
+  .price-label { color: var(--stone); font-size: 0.83rem; }
+  .price-val { font-family: 'DM Mono', monospace; font-size: 1.05rem; font-weight: 500; }
+  .down { color: var(--red); } .up { color: var(--green); } .neutral { color: var(--stone); }
+
+  .chart-wrap { padding: 0 1.2rem 0.8rem; background: var(--ink-mid); }
+  .chart-title { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--stone); padding: 0.6rem 0 0.4rem; }
+  canvas { display: block; width: 100% !important; }
+
+  footer { text-align: center; padding: 1.5rem; border-top: 1px solid var(--border); margin-top: 2rem; font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--stone); letter-spacing: 0.08em; }
+  footer a { color: var(--gold); text-decoration: none; }
+
+  a.inline { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(201,168,76,0.35); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-eyebrow">The Excellent Physician · Daily Intelligence Brief</div>
+  <h1>Dr. Matt's <span>Daily Digest</span></h1>
+  <div class="header-sub">Friday · July 31, 2026 &nbsp;·&nbsp; Emergency Medicine · Finance · Technology · Life</div>
+</header>
+
+<div class="page">
+
+<!-- CLAUDE & AI TOOLS -->
+<div class="section-heading">
+  <div class="icon">🤖</div>
+  <h2>Claude &amp; AI Tools</h2>
+  <div class="rule"></div>
+  <div class="mono">Technology</div>
+</div>
+
+<div class="grid-3">
+  <div class="card">
+    <div class="card-top">
+      <div class="card-top-icon">🆕</div>
+      <div><div class="card-label">Latest Release</div><div class="card-title">Claude Opus 5 &amp; Sonnet 5 Land Together</div></div>
+    </div>
+    <div class="card-body">
+      <p>Anthropic shipped <strong>Claude Opus 5</strong> and <strong>Claude Sonnet 5</strong> on the same day (July 24), with Opus 5 running a 1-million-token context window and thinking on by default at the same $5/$25-per-million pricing as its predecessor. Sonnet 5 brings near-Opus reasoning to coding and agentic work at Sonnet-tier cost — the model actually answering this brief.</p>
+      <p>Also notable: a new <strong>Reflect</strong> dashboard for visualizing your own AI usage patterns, and <strong>Cowork</strong> (this tool) now running on web and mobile with sessions syncing across devices.</p>
+    </div>
+    <div class="card-footer"><span class="card-source">Releasebot · Jul 24</span><a class="link-btn" href="https://releasebot.io/updates/anthropic" target="_blank">Source</a></div>
+  </div>
+
+  <div class="card">
+    <div class="card-top">
+      <div class="card-top-icon">🎓</div>
+      <div><div class="card-label">In the Practice — Education Only</div><div class="card-title">Journal Club Synthesis, Not Charts</div></div>
+    </div>
+    <div class="card-body">
+      <p>With Sonnet 5's stronger long-context reasoning, a clean use this week is feeding it the new <a class="inline" href="https://journals.lww.com/ccmjournal/fulltext/2026/04000/point_of_care_ultrasound_in_sepsis__from.36.aspx" target="_blank">Critical Care Medicine POCUS-in-sepsis review</a> (see EM section below) and having it draft a one-page journal club summary and three discussion questions for residents — no patient data, pure literature synthesis.</p>
+      <p>Same pattern works for CME outline drafts, grant proposal language, or a Guardians of the Sound teaching script.</p>
+    </div>
+    <div class="card-footer"><span class="card-source">Institutional use — no PHI</span><a class="link-btn" href="https://www.anthropic.com/claude" target="_blank">Claude</a></div>
+  </div>
+
+  <div class="card">
+    <div class="card-top">
+      <div class="card-top-icon">📝</div>
+      <div><div class="card-label">Side Project</div><div class="card-title">Repurpose the Blog Automatically</div></div>
+    </div>
+    <div class="card-body">
+      <p>Sonnet 5's agentic tool use makes a standing workflow realistic: drop a new <a class="inline" href="https://www.excellentphysician.com" target="_blank">excellentphysician.com</a> post into Claude and have it generate a YouTube script, three Instagram captions, and a newsletter blurb in one pass — the exact repurposing loop the yt-social-posts skill already automates for the ultrasound channel.</p>
+    </div>
+    <div class="card-footer"><span class="card-source">Content ops</span><a class="link-btn" href="https://www.excellentphysician.com" target="_blank">Site</a></div>
+  </div>
+</div>
+
+<div class="grid-1" style="margin-top:16px">
+  <div class="card">
+    <div class="card-top">
+      <div class="card-top-icon">🏠</div>
+      <div><div class="card-label">Personal Use</div><div class="card-title">Let Reflect Audit Your Own AI Habits</div></div>
+    </div>
+    <div class="card-body">
+      <p>Anthropic's new <strong>Reflect</strong> dashboard tracks how you actually use Claude over time. Worth 10 minutes this weekend: run it against your own account and see whether your usage skews toward the blog, QuickBooks automation, or the kids' ministry documentation — a cheap way to spot where you're under-using the tool relative to where it'd save the most time.</p>
+    </div>
+    <div class="card-footer"><span class="card-source">Anthropic · Reflect</span><a class="link-btn" href="https://releasebot.io/updates/anthropic" target="_blank">Source</a></div>
+  </div>
+</div>
+
+
+<!-- EMERGENCY MEDICINE -->
+<div class="section-heading">
+  <div class="icon">🚨</div>
+  <h2>Emergency Medicine</h2>
+  <div class="rule"></div>
+  <div class="mono">Clinical · Research · News</div>
+</div>
+
+<div class="grid-2">
+  <div class="card">
+    <div class="card-top">
+      <div class="card-top-icon">🎓</div>
+      <div><div class="card-label">Top Highlight</div><div class="card-title">ACGME Punts on EM Residency Length</div></div>
+    </div>
+    <div class="card-body">
+      <p>The <a class="inline" href="https://www.acepnow.com/article/july-2026-news-from-the-college/" target="_blank">ACGME</a> announced it needs more data before deciding whether to change the standard length of EM residency programs — a live question given ongoing workforce and training-adequacy debates in the specialty. No timeline given for a follow-up decision.</p>
+      <p>Separately worth a glance: measles and TB are showing up again in <a class="inline" href="https://www.acepnow.com/article/july-2026-news-from-the-college/" target="_blank">Spain's emergency departments</a>, with clinicians urged to isolate early on subtle clues rather than wait for confirmatory testing.</p>
+    </div>
+    <div class="card-footer"><span class="card-source">ACEP Now · Jul 2026</span><a class="link-btn" href="https://www.acepnow.com/article/july-2026-news-from-the-college/" target="_blank">Source</a></div>
+  </div>
+
+  <div class="card">
+    <div class="card-top">
+      <div class="card-top-icon">📚</div>
+      <div><div class="card-label">Top Journal Article</div><div class="card-title">POCUS in Sepsis: A Structured Review</div></div>
+    </div>
+    <div class="card-body">
+      <p><em>Critical Care Medicine</em>'s April 2026 review, <a class="inline" href="https://journals.lww.com/ccmjournal/fulltext/2026/04000/point_of_care_ultrasound_in_sepsis__from.36.aspx" target="_blank">"Point-of-Care Ultrasound in Sepsis"</a>, is getting fresh attention alongside a Winter 2026 <a class="inline" href="https://www.aaem.org/get-involved/sections/eus/resources/pocus-report/winter-2026-volume-9-issue-1/" target="_blank">AAEM POCUS Report</a> proposing a standardized, source-focused ultrasound workflow for undifferentiated sepsis — directly in your wheelhouse for both bedside practice and teaching.</p>
+      <p>A companion <a class="inline" href="https://www.annemergmed.com/article/S0196-0644(24)00610-3/abstract" target="_blank">Annals of Emergency Medicine</a> study is tracking outcomes tied to POCUS integration timing in septic ED patients.</p>
+    </div>
+    <div class="card-footer"><span class="card-source">Crit Care Med · Apr 2026</span><a class="link-btn" href="https://journals.lww.com/ccmjournal/fulltext/2026/04000/point_of_care_ultrasound_in_sepsis__from.36.aspx" target="_blank">Source</a></div>
+  </div>
+</div>
+
+
+<!-- HEALTHCARE TECHNOLOGY -->
+<div class="section-heading">
+  <div class="icon">💊</div>
+  <h2>Healthcare Technology</h2>
+  <div class="rule"></div>
+  <div class="mono">Innovation · AI · Digital Health · Last 24 Hours</div>
+</div>
+
+<div class="grid-1">
+  <div class="card">
+    <div class="card-top">
+      <div class="card-top-icon">🧠</div>
+      <div><div class="card-label">Published Jul 31, 2026 (today)</div><div class="card-title">FDA Clears Bedside Cerebral Fluid Monitor — STEDI Device</div></div>
+    </div>
+    <div class="card-body">
+      <p><strong>NeuraNova Inc.</strong> received FDA 510(k) clearance today for its <strong>STEDI Device</strong>, a bioimpedance spectroscopy monitor that measures impedance ratios between cerebral hemispheres to flag fluid-volume asymmetry — a bedside, non-invasive signal relevant to stroke and traumatic brain injury triage.</p>
+      <p>Why it matters for an academic EM physician: this is squarely in the "point-of-care neuro assessment" lane POCUS already occupies for the abdomen and heart — a plausible future adjunct for early stroke/TBI screening before CT, and a case study in how narrow-indication bioimpedance devices are clearing FDA faster than broad AI diagnostic software right now.</p>
+      <p>Same day: <a class="inline" href="https://www.todaysmedicaldevelopments.com/news/regulatory-roundup-july-2026/" target="_blank">Momentis Surgical</a> cleared a multiport robotic surgical platform and <a class="inline" href="https://www.healthcare.digital/single-post/this-week-in-european-healthtech-medtech-and-health-ai-31st-july-2026" target="_blank">Neko Health</a> (Daniel Ek's preventative-scanning venture) closed a $700M Series C — a sign capital is rotating toward deep diagnostic tech over consumer wellness apps.</p>
+    </div>
+    <div class="card-footer"><span class="card-source">Today's Medical Developments · Jul 31</span><a class="link-btn" href="https://www.todaysmedicaldevelopments.com/news/regulatory-roundup-july-2026/" target="_blank">Source</a></div>
+  </div>
+</div>
+
+
+<!-- HEALTHCARE POLICY -->
+<div class="section-heading">
+  <div class="icon">🏛️</div>
+  <h2>Healthcare Policy</h2>
+  <div class="rule"></div>
+  <div class="mono">Federal · Ohio · Legislation · Regulation</div>
+</div>
+
+<div class="grid-2">
+  <div class="card">
+    <div class="card-top">
+      <div class="card-top-icon">🇺🇸</div>
+      <div><div class="card-label">Federal — Past Week</div><div class="card-title">CMS Fee Schedule + Price Transparency Push</div></div>
+    </div>
+    <div class="card-body">
+      <p>CMS released its <a class="inline" href="https://www.mcdermottplus.com/blog/weekly-check-up/mcdermott-check-up-july-30-2026/" target="_blank">CY2027 Physician Fee Schedule</a> proposed rule, touching the Medicare Prescription Drug Inflation Rebate Program, the Ambulatory Specialty Model, and Shared Savings Program requirements. CMS also proposed changes to the <a class="inline" href="https://www.alston.com/en/insights/publications/2026/07/hcwir--july-24-2026" target="_blank">Medicaid Indirect Hold Harmless Threshold</a> for provider taxes on July 21.</p>
+      <p>On the Hill, House Energy &amp; Commerce unanimously advanced <a class="inline" href="https://www.alston.com/en/insights/publications/2026/07/hcwir-july-24-2026" target="_blank">H.R. 9393</a>, the Lower Costs, More Transparency Act, while Senate Finance's Wyden opened an RFI on private insurance premium and deductible reform.</p>
+    </div>
+    <div class="card-footer"><span class="card-source">Alston &amp; Bird / McDermott+ · Jul 21–30</span><a class="link-btn" href="https://www.alston.com/en/insights/publications/2026/07/hcwir--july-24-2026" target="_blank">Source</a></div>
+  </div>
+
+  <div class="card">
+    <div class="card-top">
+      <div class="card-top-icon">🌳</div>
+      <div><div class="card-label">Ohio — Past Week</div><div class="card-title">Provider Tax Cliff Threatens $7.3B Medicaid Gap</div></div>
+    </div>
+    <div class="card-body">
+      <p><a class="inline" href="https://policymattersohio.org/news/2026/07/30/federal-provider-tax-restrictions-without-state-action-billions-in-medicaid-funding-are-on-the-line/" target="_blank">Policy Matters Ohio</a> (Jul 30) warns that new federal provider-tax restrictions from last summer's H.R. 1 could blow a <strong>$7.33B hole</strong> in Ohio's next Medicaid budget cycle without state legislative action — directly relevant to MetroHealth's payer mix.</p>
+      <p>Also this week: <a class="inline" href="https://www.limaohio.com/news/2026/07/15/klopfenstein-hiner-introduce-rural-healthcare-legislation/" target="_blank">House Bill 969</a> would require rural county boards of health to include a physician, PA, or NP. And Gov. DeWine signed <a class="inline" href="https://www.insurancebusinessmag.com/us/news/life-insurance/ohio-payers-lose-a-year-of-recovery-reach-582113.aspx" target="_blank">SB 162</a>, cutting insurers' provider-overpayment clawback window from two years to one.</p>
+    </div>
+    <div class="card-footer"><span class="card-source">Policy Matters Ohio · Jul 30</span><a class="link-btn" href="https://policymattersohio.org/news/2026/07/30/federal-provider-tax-restrictions-without-state-action-billions-in-medicaid-funding-are-on-the-line/" target="_blank">Source</a></div>
+  </div>
+</div>
+
+
+<!-- FREE MARKET MEDICINE -->
+<div class="section-heading">
+  <div class="icon">🏛️</div>
+  <h2>Free Market Medicine</h2>
+  <div class="rule"></div>
+  <div class="mono">DPC · Concierge · Policy</div>
+</div>
+
+<div class="grid-2">
+  <div class="card">
+    <div class="card-top">
+      <div class="card-top-icon">📈</div>
+      <div><div class="card-label">Market Growth</div><div class="card-title">DPC Hits an "Inflection Point"</div></div>
+    </div>
+    <div class="card-body">
+      <p>The direct primary care market is projected to grow from <strong>$70.17B to $75.11B</strong> in 2026 (7.0% CAGR), per a new industry report. <a class="inline" href="https://www.medicaleconomics.com/view/direct-primary-care-at-an-inflection-point-as-doctors-patients-employers-catch-on" target="_blank">Medical Economics</a> reports employer-driven direct contracting is now outpacing insurer-led deals, with large purchasers citing double-digit savings when DPC is embedded in benefit design.</p>
+    </div>
+    <div class="card-footer"><span class="card-source">Medical Economics · Jul 2026</span><a class="link-btn" href="https://www.medicaleconomics.com/view/direct-primary-care-at-an-inflection-point-as-doctors-patients-employers-catch-on" target="_blank">Source</a></div>
+  </div>
+
+  <div class="card">
+    <div class="card-top">
+      <div class="card-top-icon">💳</div>
+      <div><div class="card-label">Tax Treatment</div><div class="card-title">HSA Dollars Now Flow to DPC</div></div>
+    </div>
+    <div class="card-body">
+      <p>IRS rules finalized under <strong>H.R. 1</strong> now permit HSA funds to pay DPC membership fees, with a $150/month cap keeping the statutory line between DPC and concierge medicine intact. Practices under that cap staffed by family medicine, internal medicine, geriatrics, or pediatrics no longer need special HSA audit-risk workarounds, per <a class="inline" href="https://natlawreview.com/press-releases/comprehensive-report-direct-primary-care-market-opportunities-and-challenges" target="_blank">National Law Review</a>.</p>
+    </div>
+    <div class="card-footer"><span class="card-source">National Law Review</span><a class="link-btn" href="https://natlawreview.com/press-releases/comprehensive-report-direct-primary-care-market-opportunities-and-challenges" target="_blank">Source</a></div>
+  </div>
+</div>
+
+
+<!-- HEALTH SHARING -->
+<div class="section-heading">
+  <div class="icon">✝️</div>
+  <h2>Health Sharing Ministries</h2>
+  <div class="rule"></div>
+  <div class="mono">HCSM · Policy · Faith-Based</div>
+</div>
+
+<div class="grid-2">
+  <div class="card">
+    <div class="card-top">
+      <div class="card-top-icon">🏛️</div>
+      <div><div class="card-label">Congress</div><div class="card-title">Tax Parity Bill Still Pending</div></div>
+    </div>
+    <div class="card-body">
+      <p><a class="inline" href="https://www.congress.gov/bill/119th-congress/house-bill/2062" target="_blank">H.R. 2062</a>, which would let HCSM membership payments count as a deductible medical expense, remains in the 119th Congress. Reps. <a class="inline" href="https://kelly.house.gov/media/press-releases/kelly-introduces-health-care-sharing-ministry-tax-parity-act" target="_blank">Kelly, Murphy, and Smith</a> introduced the companion Health Care Sharing Ministry Tax Parity Act — worth tracking given roughly one million Americans now use HCSMs.</p>
+    </div>
+    <div class="card-footer"><span class="card-source">Congress.gov</span><a class="link-btn" href="https://www.congress.gov/bill/119th-congress/house-bill/2062" target="_blank">Source</a></div>
+  </div>
+
+  <div class="card">
+    <div class="card-top">
+      <div class="card-top-icon">📄</div>
+      <div><div class="card-label">IRS Guidance</div><div class="card-title">HRAs May Soon Reimburse HCSM Shares</div></div>
+    </div>
+    <div class="card-body">
+      <p>A proposed IRS rule would expand Health Reimbursement Arrangements to cover employees' HCSM "share" payments alongside DPC fees, treating both as qualified medical expenses. Details via <a class="inline" href="https://www.takecommandhealth.com/blog/hra-sharing-ministries-irs-update" target="_blank">Take Command Health</a> and <a class="inline" href="https://hsaforamerica.com/blog/is-health-sharing-tax-deductible/" target="_blank">HSA for America's</a> 2026 update.</p>
+    </div>
+    <div class="card-footer"><span class="card-source">Take Command Health</span><a class="link-btn" href="https://www.takecommandhealth.com/blog/hra-sharing-ministries-irs-update" target="_blank">Source</a></div>
+  </div>
+</div>
+
+
+<!-- FINANCE & INVESTING -->
+<div class="section-heading">
+  <div class="icon">₿</div>
+  <h2>Finance &amp; Investing</h2>
+  <div class="rule"></div>
+  <div class="mono">Bitcoin · Markets · Opportunities</div>
+</div>
+
+<div class="grid-2">
+  <div class="card">
+    <div class="card-top">
+      <div class="card-top-icon">₿</div>
+      <div><div class="card-label">Bitcoin</div><div class="card-title">Recovering, Still 49% Off Peak</div></div>
+    </div>
+    <div class="card-body">
+      <div class="price-row"><span class="price-label">Price (Jul 31, 2:23am ET)</span><span class="price-val up">$64,315.59</span></div>
+      <div class="price-row"><span class="price-label">30-Day Range</span><span class="price-val neutral">$58,200 – $66,600</span></div>
+      <div class="price-row"><span class="price-label">All-Time High (Oct '25)</span><span class="price-val down">$126,198</span></div>
+    </div>
+    <div class="chart-wrap"><div class="chart-title">30-Day Trend</div><canvas id="btcChart" height="90"></canvas></div>
+    <div class="card-footer"><span class="card-source">CoinDesk / Yahoo Finance</span><a class="link-btn" href="https://www.coindesk.com/markets/2026/07/21/bitcoin-rally-faces-key-test-at-usd68-000-as-summer-slumber-grips-crypto-analysts-say" target="_blank">Source</a></div>
+  </div>
+
+  <div class="card">
+    <div class="card-top">
+      <div class="card-top-icon">📊</div>
+      <div><div class="card-label">MSTR (Strategy Inc.)</div><div class="card-title">Q2 Earnings Out, Still Down 38.6% YTD</div></div>
+    </div>
+    <div class="card-body">
+      <div class="price-row"><span class="price-label">Price (pre-open, Jul 31)</span><span class="price-val up">$95.89</span></div>
+      <div class="price-row"><span class="price-label">BTC Holdings (Jul 19)</span><span class="price-val neutral">843,775 BTC ($63.69B cost)</span></div>
+      <div class="price-row"><span class="price-label">Analyst Target (12-mo)</span><span class="price-val up">$303.64</span></div>
+    </div>
+    <div class="chart-wrap"><div class="chart-title">30-Day Trend</div><canvas id="mstrChart" height="90"></canvas></div>
+    <div class="card-footer"><span class="card-source">StatMuse / MarketBeat · Q2 earnings Jul 30</span><a class="link-btn" href="https://www.statmuse.com/money/ask/mstr-stock-price-2026" target="_blank">Source</a></div>
+  </div>
+</div>
+
+<div class="grid-2" style="margin-top:16px">
+  <div class="card">
+    <div class="card-top">
+      <div class="card-top-icon">💵</div>
+      <div><div class="card-label">$1,000 Today</div><div class="card-title">Diversify Away From Your Concentrated Bet</div></div>
+    </div>
+    <div class="card-body">
+      <p>Between MSTR, real estate (Tabbut Real Estate LLC), and 1099 consulting income, you're already carrying concentrated, correlated risk. Rather than adding to BTC/MSTR, the boring-but-correct move with $1,000 is a <strong>Roth IRA</strong> or <strong>Solo 401k</strong> contribution (if room remains for 2026) into a broad low-cost index fund — it's uncorrelated to your existing exposures and the tax-advantaged wrapper is worth more than a marginal BTC add at this stage of your allocation. If income phases you out of direct Roth contributions, a backdoor Roth conversion accomplishes the same thing.</p>
+      <p><em>Not financial advice — a starting point for your own decision, not a recommendation to act without your own analysis.</em></p>
+    </div>
+    <div class="card-footer"><span class="card-source">General allocation principle</span><a class="link-btn" href="https://www.irs.gov/retirement-plans/plan-participant-employee/amount-of-roth-ira-contributions-that-you-can-make-for-2026" target="_blank">IRS Limits</a></div>
+  </div>
+
+  <div class="card">
+    <div class="card-top">
+      <div class="card-top-icon">⚙️</div>
+      <div><div class="card-label">New Income Idea — Technology</div><div class="card-title">Sell AI Automation Workflows to Small Businesses</div></div>
+    </div>
+    <div class="card-body">
+      <p><strong>The pitch:</strong> build small, reusable automation workflows (lead intake → AI qualification → CRM entry → follow-up email) using <strong>n8n</strong>, Make, or Zapier, and sell them as one-time setups plus a monthly maintenance retainer.</p>
+      <p><strong>Why it fits you:</strong> you already script in Python, run ZoneMinder computer vision at home, and use Claude daily as a power user — the technical floor here is well below your ceiling.</p>
+      <p><strong>Realistic range:</strong> $300–$800 per setup, $50–$150/mo per client retainer; a handful of steady clients puts you at $500–$3,000/month.</p>
+      <p><strong>Start today:</strong> build two demo workflows, then list them on <a class="inline" href="https://www.agensi.io/learn/how-to-make-money-with-ai-2026" target="_blank">Agensi</a> (creators keep 70%) or Upwork/Fiverr's AI-automation category.</p>
+      <p><strong>Friction:</strong> low — no license or credential needed, just 10–20 hours to build a portfolio of demo workflows before your first sale.</p>
+    </div>
+    <div class="card-footer"><span class="card-source">Jobbers.io / Agensi · Jul 2026</span><a class="link-btn" href="https://www.jobbers.io/best-ai-powered-freelance-platforms-in-2026-complete-guide-to-ai-enhanced-marketplaces/" target="_blank">Source</a></div>
+  </div>
+</div>
+
+</div><!-- /page -->
+
+<footer>
+  Dr. Matt's Daily Digest &nbsp;·&nbsp; The Excellent Physician Project &nbsp;·&nbsp; July 31, 2026
+  &nbsp;·&nbsp; <em>Not financial or medical advice</em>
+  &nbsp;·&nbsp; <a href="https://www.excellentphysician.com">excellentphysician.com</a>
+</footer>
+
+<script>
+const dateLabels = ["Jul 1","Jul 3","Jul 5","Jul 7","Jul 9","Jul 11","Jul 13","Jul 15","Jul 17","Jul 19","Jul 21","Jul 23","Jul 25","Jul 27","Jul 29","Jul 31"];
+const btcData  = [59500,58200,58800,60200,61800,61200,62800,64200,65400,66100,66600,65900,65000,63600,63900,64316];
+const mstrData = [80,74,76,79,84,81,88,93,97,99,102,97,93,88,90,95.89];
+
+function sparkline(id, labels, data, lineColor, fillColor) {
+  const ctx = document.getElementById(id).getContext('2d');
+  const gradient = ctx.createLinearGradient(0,0,0,90);
+  gradient.addColorStop(0, fillColor);
+  gradient.addColorStop(1, 'rgba(0,0,0,0)');
+  new Chart(ctx, {
+    type: 'line',
+    data: { labels: labels, datasets: [{ data: data, borderColor: lineColor, backgroundColor: gradient, fill: true, tension: 0.35, pointRadius: 0, borderWidth: 2 }] },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false }, tooltip: { enabled: true, mode: 'index', intersect: false } },
+      scales: {
+        x: { ticks: { color: '#9a9488', font: { family: 'DM Mono', size: 9 }, maxTicksLimit: 6 }, grid: { color: 'rgba(255,255,255,0.04)' } },
+        y: { ticks: { color: '#9a9488', font: { family: 'DM Mono', size: 9 } }, grid: { color: 'rgba(255,255,255,0.04)' } }
+      }
+    }
+  });
+}
+sparkline('btcChart', dateLabels, btcData, '#e05555', 'rgba(224,85,85,0.25)');
+sparkline('mstrChart', dateLabels, mstrData, '#c9a84c', 'rgba(201,168,76,0.25)');
+</script>
+
+</body>
+</html>
